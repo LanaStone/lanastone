@@ -302,9 +302,9 @@ export function Landing() {
           </div>
           <div className="lg:col-span-7 reveal">
             <Ornament label="Знакомство" />
-            <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight text-balance">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
               <span className="script-accent text-5xl lg:text-6xl block mb-1">Lana Stone</span>
-              Когда украшение становится <em className="not-italic text-primary">Чем-то Личным</em>
+              Когда украшение становится <em className="not-italic text-primary">чем-то личным</em>
             </h2>
 
             {/* Цитата от Светланы */}
