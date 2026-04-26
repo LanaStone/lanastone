@@ -197,12 +197,12 @@ export function Landing() {
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
 
-            {/* Заголовок — script "Украшения", без перекрытия лица */}
-            <h1 className="mt-3 leading-[0.9]">
-              <span className="block script-accent text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            {/* Заголовок — каллиграфическое "Украшения", в стиле Lana Stone */}
+            <h1 className="mt-3 leading-[0.95]">
+              <span className="block script-accent text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
                 Украшения
               </span>
-              <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-2 lg:mt-3 text-foreground/90 italic font-light text-balance">
+              <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-1 lg:mt-2 text-foreground/90 italic font-light text-balance">
                 ручной работы из натуральных камней
               </span>
             </h1>
@@ -216,15 +216,15 @@ export function Landing() {
                 >
                   · для тех, кто чувствует ·
                 </span>
-                <p className="font-display italic text-base lg:text-lg text-foreground/85 text-pretty leading-snug">
+                <p className="accent-italic text-lg lg:text-xl text-foreground/85 text-pretty leading-snug">
                   Для тех, кто выбирает не просто красивую вещь,
                   <br className="hidden sm:block" /> а <em className="not-italic text-primary font-normal">деталь с настроением</em>.
                 </p>
               </div>
             </div>
 
-            {/* Финальная фраза — крупно и лаконично */}
-            <p className="mt-6 lg:mt-8 font-display text-lg sm:text-xl lg:text-2xl text-foreground/80 max-w-xl text-pretty leading-snug">
+            {/* Финальная фраза — единый акцентный курсив */}
+            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug">
               Созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
 
