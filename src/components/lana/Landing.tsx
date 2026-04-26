@@ -386,8 +386,8 @@ export function Landing() {
 
       {/* CATALOG */}
       <Section id="catalog" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={decoPearl} className="-left-16 top-32 -rotate-12" />
-        <FloatingDeco src={decoOnyx} className="-right-12 bottom-20 rotate-6" />
+        <FloatingDeco src={braceletPearl} className="-left-16 top-32 -rotate-12" />
+        <FloatingDeco src={braceletOnyx} className="-right-12 bottom-20 rotate-6" />
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
@@ -503,8 +503,8 @@ export function Landing() {
 
       {/* CUSTOM */}
       <Section id="custom" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={decoLilac} className="left-4 top-10 -rotate-6" />
-        <FloatingDeco src={decoPearl} className="right-4 bottom-10 rotate-12" />
+        <FloatingDeco src={braceletLilac} className="left-4 top-10 -rotate-6" />
+        <FloatingDeco src={braceletPearl} className="right-4 bottom-10 rotate-12" />
         <div className="max-w-3xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
           <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
