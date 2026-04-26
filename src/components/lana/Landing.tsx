@@ -209,7 +209,7 @@ export function Landing() {
               <span className="block script-accent text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[10rem]" style={{ fontFamily: '"Marck Script", cursive', fontWeight: 400 }}>
                 Украшения
               </span>
-              <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-1 lg:mt-2 text-foreground/90 italic font-light text-balance font-serif">
+              <span className="block text-2xl sm:text-3xl lg:text-4xl mt-1 lg:mt-2 font-light text-balance" style={{ fontFamily: '"Marck Script", cursive', color: 'var(--color-lilac-deep)' }}>
                 Ручной работы из натуральных камней
               </span>
             </h1>
