@@ -206,7 +206,7 @@ export function Landing() {
 
             {/* Заголовок — каллиграфическое "Украшения", в стиле Lana Stone */}
             <h1 className="mt-3 leading-[0.95]">
-              <span className="block script-accent text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[10rem]" style={{ fontFamily: '"Lobster", cursive', fontWeight: 400 }}>
+              <span className="block script-accent text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[10rem]" style={{ fontFamily: '"Marck Script", cursive', fontWeight: 400 }}>
                 Украшения
               </span>
               <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-1 lg:mt-2 text-foreground/90 italic font-light text-balance">
