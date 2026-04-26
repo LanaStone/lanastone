@@ -150,19 +150,18 @@ export function TryOnSection() {
         </div>
 
         {loadingUser ? null : !user ? (
-          <div className="mt-12 max-w-md mx-auto bg-card/90 backdrop-blur border border-border/60 rounded-sm p-8 text-center shadow-card reveal">
-            <p className="text-foreground/80">
-              Чтобы примерять украшения и сохранять результат в личную галерею, нужен короткий вход.
+          <div className="mt-10 max-w-2xl mx-auto bg-card/90 backdrop-blur border border-primary/30 rounded-sm p-5 text-center shadow-card reveal">
+            <p className="text-foreground/80 text-sm">
+              Чтобы запустить примерку и сохранить результат в личную галерею — нужен короткий вход.{" "}
+              <Link to="/auth" className="text-primary underline underline-offset-4 hover:text-primary/80">
+                Войти / создать аккаунт
+              </Link>
             </p>
-            <div className="mt-6 flex justify-center gap-3">
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-11">
-                <Link to="/auth">Войти / создать аккаунт</Link>
-              </Button>
-            </div>
-            <p className="mt-4 text-xs text-muted-foreground">Email подтверждается автоматически. Никаких писем ждать не нужно.</p>
+            <p className="mt-2 text-xs text-muted-foreground">Email подтверждается автоматически. Никаких писем ждать не нужно.</p>
           </div>
-        ) : (
-          <div className="mt-14 grid lg:grid-cols-2 gap-8 reveal">
+        ) : null}
+
+        <div className="mt-10 grid lg:grid-cols-2 gap-8 reveal">
             {/* LEFT — controls */}
             <div className="bg-card/90 backdrop-blur border border-border/60 rounded-sm p-7 shadow-card halo group">
               <h3 className="font-display text-2xl">1. Ваше фото</h3>
