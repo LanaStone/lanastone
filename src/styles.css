@@ -48,7 +48,7 @@
   --color-graphite: var(--graphite);
   --color-gold: var(--gold);
 
-  --font-script: "Pinyon Script", "Allura", "Italianno", cursive;
+  --font-script: "Tangerine", "Pinyon Script", "Allura", "Italianno", cursive;
   --font-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
