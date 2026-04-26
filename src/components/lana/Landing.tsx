@@ -201,8 +201,6 @@ export function Landing() {
         />
 
         <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0 pt-[58svh] sm:pt-[60svh] lg:pt-0">
-
-        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0 pt-[42svh] sm:pt-[46svh] lg:pt-0">
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
 
