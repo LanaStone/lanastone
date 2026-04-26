@@ -257,7 +257,6 @@ export function TryOnSection() {
               )}
             </div>
           </div>
-        </div>
 
 
         {user && gallery.length > 0 && (
