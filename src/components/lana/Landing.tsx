@@ -221,7 +221,7 @@ export function Landing() {
                   className="absolute -top-2 left-4 px-2 text-[0.65rem] tracking-[0.4em] uppercase text-primary"
                   style={{ backgroundColor: "var(--color-cream)" }}
                 >
-                  · для тех, кто чувствует ·
+                  · для Вас ·
                 </span>
                 <p className="accent-italic text-lg lg:text-xl text-foreground/85 text-pretty leading-snug">
                   Для тех, кто выбирает не просто красивую вещь,
