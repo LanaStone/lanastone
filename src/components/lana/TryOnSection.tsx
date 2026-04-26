@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { installAuthFetch } from "@/lib/auth-fetch";
 import { Button } from "@/components/ui/button";
 import { generateTryOn } from "@/lib/tryon.functions";
 import { products } from "@/lib/products";
