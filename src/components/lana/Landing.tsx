@@ -160,62 +160,95 @@ export function Landing() {
     <div className="min-h-screen bg-background text-foreground">
       <Header onOrder={() => openOrder("", "Заказать украшение")} />
 
-      {/* HERO — fullscreen with expert */}
-      <section id="hero" className="relative min-h-[100svh] lg:min-h-[92vh] overflow-hidden flex flex-col">
-        {/* Background portrait — на мобильном top, чтобы лицо было видно */}
+      {/* HERO — fullscreen with expert, no hanging beads */}
+      <section
+        id="hero"
+        className="relative min-h-[100svh] lg:min-h-[94vh] overflow-hidden flex flex-col bg-cream"
+      >
+        {/* Background portrait */}
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_top] lg:object-[right_center]"
+          className="absolute inset-0 w-full h-full object-cover object-[60%_20%] sm:object-[65%_15%] lg:object-[right_center] lg:scale-100"
         />
-        {/* Soft cream gradient: снизу на мобиле, слева на десктопе */}
+
+        {/* Soft cream gradient overlays — на мобиле снизу читаемо, на десктопе слева */}
         <div
           className="absolute inset-0 lg:hidden"
-          style={{ background: "linear-gradient(180deg, oklch(0.985 0.008 80 / 0.05) 0%, oklch(0.985 0.008 80 / 0.55) 45%, oklch(0.985 0.008 80 / 0.95) 80%)" }}
+          style={{
+            background:
+              "linear-gradient(180deg, oklch(0.985 0.008 80 / 0.0) 0%, oklch(0.985 0.008 80 / 0.35) 38%, oklch(0.985 0.008 80 / 0.92) 72%, oklch(0.985 0.008 80 / 1) 100%)",
+          }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 hidden lg:block bg-gradient-hero" aria-hidden="true" />
 
-        {/* Висящие бусины сверху — как будто капают по сайту */}
-        <img
-          src={decoOnyx}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -top-8 left-4 lg:left-12 w-24 lg:w-40 opacity-80 float-slow"
-          style={{ animationDelay: "-2s" }}
-        />
-        <img
-          src={decoPearl}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -top-4 right-1/3 w-16 lg:w-28 opacity-90 float-slow"
-        />
+        {/* Тонкие лавандовые сухоцветы — только в углу, без бусин */}
         <img
           src={driedFlowers}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none select-none absolute bottom-0 left-0 w-40 lg:w-72 opacity-60 float-slow"
-          style={{ animationDelay: "-4s" }}
+          className="pointer-events-none select-none absolute -bottom-4 -left-4 w-32 sm:w-44 lg:w-64 opacity-50 float-slow"
+          style={{ animationDelay: "-3s" }}
         />
 
-        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex items-end lg:items-center pb-10 lg:pb-0 pt-[55svh] lg:pt-0">
+        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0 pt-[42svh] sm:pt-[46svh] lg:pt-0">
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
-            <h1 className="mt-4 leading-[0.95]">
-              <span className="block script-accent text-6xl sm:text-7xl lg:text-[8rem]">Украшения</span>
-              <span className="block font-display text-3xl sm:text-4xl lg:text-5xl mt-2 lg:mt-3 text-foreground/90 italic font-light">
+
+            {/* Заголовок — script "Украшения", без перекрытия лица */}
+            <h1 className="mt-3 leading-[0.9]">
+              <span className="block script-accent text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+                Украшения
+              </span>
+              <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-2 lg:mt-3 text-foreground/90 italic font-light text-balance">
                 ручной работы из натуральных камней
               </span>
             </h1>
-            <p className="mt-5 lg:mt-6 text-base lg:text-lg text-foreground/80 max-w-xl text-pretty leading-relaxed">
-              Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и смыслом.
+
+            {/* Акцентный подзаголовок — в декоративной рамке */}
+            <div className="mt-5 lg:mt-7 inline-block max-w-xl">
+              <div className="relative px-5 py-3 lg:px-6 lg:py-4 border border-primary/40 rounded-sm bg-card/55 backdrop-blur-sm shadow-soft">
+                <span
+                  className="absolute -top-2 left-4 px-2 text-[0.65rem] tracking-[0.4em] uppercase text-primary"
+                  style={{ backgroundColor: "var(--color-cream)" }}
+                >
+                  · для тех, кто чувствует ·
+                </span>
+                <p className="font-display italic text-base lg:text-lg text-foreground/85 text-pretty leading-snug">
+                  Для тех, кто выбирает не просто красивую вещь,
+                  <br className="hidden sm:block" /> а <em className="not-italic text-primary font-normal">деталь с настроением</em>.
+                </p>
+              </div>
+            </div>
+
+            {/* Финальная фраза — крупно и лаконично */}
+            <p className="mt-6 lg:mt-8 font-display text-lg sm:text-xl lg:text-2xl text-foreground/80 max-w-xl text-pretty leading-snug">
+              Созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
-            <p className="mt-3 text-sm lg:text-base text-muted-foreground max-w-xl text-pretty">
-              Браслеты, колье, чокеры и акцентные детали, созданные с вниманием к материалу, настроению и красоте каждого образа.
-            </p>
+
+            {/* Кнопки-категории внизу первого экрана */}
+            <div className="mt-6 lg:mt-8">
+              <p className="text-[0.7rem] tracking-[0.35em] uppercase text-muted-foreground mb-3">
+                Перейти к коллекции
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => scrollTo("catalog")}
+                    className="group relative px-4 py-2 lg:px-5 lg:py-2.5 rounded-full border border-primary/40 bg-card/70 backdrop-blur text-xs lg:text-sm text-foreground/85 hover:text-primary-foreground hover:bg-primary hover:border-primary transition-all shadow-soft"
+                  >
+                    {c.label}
+                    <span className="ml-1.5 opacity-60 group-hover:opacity-100 transition">→</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-7 lg:mt-9 flex flex-wrap gap-3">
               <Button
                 onClick={() => scrollTo("catalog")}
@@ -234,7 +267,7 @@ export function Landing() {
           </div>
         </div>
 
-        {/* Scroll indicator — спрятан на мобиле */}
+        {/* Scroll indicator */}
         <div className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-foreground/50 text-xs tracking-[0.4em] uppercase animate-pulse">
           ↓ scroll
         </div>
