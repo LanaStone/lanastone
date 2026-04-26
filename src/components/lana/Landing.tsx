@@ -18,7 +18,7 @@ import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
 import decoNecklace from "@/assets/deco-necklace-heart.png";
-import decoBeadsLilac from "@/assets/deco-amethyst-strands.png";
+import decoBeadsLilac from "@/assets/deco-amethyst-strands-transparent.png";
 import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
 import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
@@ -289,7 +289,7 @@ export function Landing() {
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -top-8 right-0 w-56 sm:w-72 lg:w-96 xl:w-[28rem] h-auto opacity-95 z-10"
+          className="pointer-events-none select-none absolute -top-4 -right-8 sm:-right-12 lg:-right-20 w-64 sm:w-96 lg:w-[34rem] xl:w-[40rem] h-auto opacity-100 z-20 drop-shadow-2xl"
         />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
 
