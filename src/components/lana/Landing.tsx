@@ -17,9 +17,9 @@ import moodGift from "@/assets/mood-gift.jpg";
 import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
-import braceletLilac from "@/assets/real-bracelet-lilac.png";
-import braceletPearl from "@/assets/real-bracelet-pearl.png";
-import braceletOnyx from "@/assets/real-bracelet-onyx.png";
+import decoNecklace from "@/assets/deco-necklace-heart.png";
+import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
+import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
 const NAV = [
   { id: "about", label: "О бренде" },
@@ -120,7 +120,7 @@ function Ornament({ label }: { label: string }) {
   return <span className="divider-ornament">{label}</span>;
 }
 
-/** Декоративный фрагмент украшения, лежащий «на фоне» */
+/** Декоративный вырезанный фрагмент украшения, лежащий «на фоне» секции */
 function FloatingDeco({
   src,
   className,
@@ -136,7 +136,8 @@ function FloatingDeco({
       alt={alt}
       aria-hidden={alt === "" || undefined}
       loading="lazy"
-      className={`pointer-events-none select-none absolute opacity-60 float-slow w-32 sm:w-44 lg:w-60 h-auto ${className ?? ""}`}
+      style={{ mixBlendMode: "multiply" }}
+      className={`pointer-events-none select-none absolute opacity-70 float-slow w-32 sm:w-40 lg:w-52 h-auto ${className ?? ""}`}
     />
   );
 }
@@ -196,12 +197,12 @@ export function Landing() {
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
 
-            {/* Заголовок — script "Украшения", без перекрытия лица */}
-            <h1 className="mt-3 leading-[0.9]">
-              <span className="block script-accent text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            {/* Заголовок — каллиграфическое "Украшения", в стиле Lana Stone */}
+            <h1 className="mt-3 leading-[0.95]">
+              <span className="block script-accent text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[10rem]">
                 Украшения
               </span>
-              <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-2 lg:mt-3 text-foreground/90 italic font-light text-balance">
+              <span className="block font-display text-2xl sm:text-3xl lg:text-4xl mt-1 lg:mt-2 text-foreground/90 italic font-light text-balance">
                 ручной работы из натуральных камней
               </span>
             </h1>
@@ -215,15 +216,15 @@ export function Landing() {
                 >
                   · для тех, кто чувствует ·
                 </span>
-                <p className="font-display italic text-base lg:text-lg text-foreground/85 text-pretty leading-snug">
+                <p className="accent-italic text-lg lg:text-xl text-foreground/85 text-pretty leading-snug">
                   Для тех, кто выбирает не просто красивую вещь,
                   <br className="hidden sm:block" /> а <em className="not-italic text-primary font-normal">деталь с настроением</em>.
                 </p>
               </div>
             </div>
 
-            {/* Финальная фраза — крупно и лаконично */}
-            <p className="mt-6 lg:mt-8 font-display text-lg sm:text-xl lg:text-2xl text-foreground/80 max-w-xl text-pretty leading-snug">
+            {/* Финальная фраза — единый акцентный курсив */}
+            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug">
               Созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
 
@@ -272,13 +273,8 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Фрагмент реального браслета вместо висящих бусин */}
-        <img
-          src={braceletLilac}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -right-10 lg:-right-16 top-8 w-40 sm:w-56 lg:w-72 opacity-80 float-slow rotate-[18deg]"
-        />
+        {/* Лёгкий вырезанный декор-украшение в углу */}
+        <FloatingDeco src={decoNecklace} className="-right-6 lg:-right-10 top-6 lg:top-10 w-28 sm:w-36 lg:w-44 -rotate-12" />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
@@ -383,8 +379,8 @@ export function Landing() {
 
       {/* CATALOG */}
       <Section id="catalog" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={braceletPearl} className="-left-16 top-32 -rotate-12" />
-        <FloatingDeco src={braceletOnyx} className="-right-12 bottom-20 rotate-6" />
+        <FloatingDeco src={decoBraceletLilac} className="-left-12 top-32 -rotate-12" />
+        <FloatingDeco src={decoBraceletOnyx} className="-right-10 bottom-20 rotate-6" />
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
@@ -500,8 +496,8 @@ export function Landing() {
 
       {/* CUSTOM */}
       <Section id="custom" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={braceletLilac} className="left-4 top-10 -rotate-6" />
-        <FloatingDeco src={braceletPearl} className="right-4 bottom-10 rotate-12" />
+        <FloatingDeco src={decoBraceletLilac} className="left-2 top-10 -rotate-6" />
+        <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
         <div className="max-w-3xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
           <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
