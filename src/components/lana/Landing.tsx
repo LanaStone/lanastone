@@ -225,7 +225,7 @@ export function Landing() {
                 </span>
                 <p className="accent-italic text-lg lg:text-xl text-foreground/85 text-pretty leading-snug">
                   Для тех, кто выбирает не просто красивую вещь,
-                  <br className="hidden sm:block" /> а <em className="not-italic text-primary font-normal font-mono">деталь с настроением</em>.
+                  <br className="hidden sm:block" /> а <em className="not-italic text-primary font-light font-serif">деталь с настроением</em>.
                 </p>
               </div>
             </div>

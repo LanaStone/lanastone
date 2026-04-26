@@ -30,7 +30,7 @@ export function Logo({ className = "", invert = false }: LogoProps) {
           className="text-[0.55rem] uppercase tracking-[0.45em] mt-1"
           style={{ color: invert ? "var(--color-lilac-soft)" : "var(--color-lilac-deep)", opacity: 0.7 }}
         >
-          handmade jewelry
+          ​
         </div>
       </div>
     </div>
