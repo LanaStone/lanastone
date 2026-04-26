@@ -145,6 +145,13 @@
   .font-script { font-family: var(--font-script); font-weight: 400; }
   .font-display { font-family: var(--font-display); }
   .font-body { font-family: var(--font-body); }
+  /* Каллиграфические заголовки секций — тот же шрифт, что и в логотипе бренда */
+  .font-heading {
+    font-family: var(--font-script);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0;
+  }
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
 
