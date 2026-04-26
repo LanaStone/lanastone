@@ -163,28 +163,35 @@ export function Landing() {
         id="hero"
         className="relative min-h-[100svh] lg:min-h-[94vh] overflow-hidden flex flex-col bg-cream"
       >
-        {/* Background portrait */}
+        {/* Background portrait — на мобиле сверху, на десктопе справа, всегда видно целиком */}
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[60%_20%] sm:object-[65%_15%] lg:object-[right_center] lg:scale-100"
+          className="absolute inset-0 w-full h-full object-contain object-top sm:object-[center_top] lg:object-[right_center] bg-cream"
         />
 
-        {/* Soft cream gradient overlays — на мобиле снизу читаемо, на десктопе слева */}
+        {/* Soft cream gradient overlays — на мобиле снизу читаемо, на десктопе слева под текст */}
         <div
           className="absolute inset-0 lg:hidden"
           style={{
             background:
-              "linear-gradient(180deg, oklch(0.985 0.008 80 / 0.0) 0%, oklch(0.985 0.008 80 / 0.35) 38%, oklch(0.985 0.008 80 / 0.92) 72%, oklch(0.985 0.008 80 / 1) 100%)",
+              "linear-gradient(180deg, oklch(0.985 0.008 80 / 0.0) 0%, oklch(0.985 0.008 80 / 0.35) 48%, oklch(0.985 0.008 80 / 0.92) 78%, oklch(0.985 0.008 80 / 1) 100%)",
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 hidden lg:block bg-gradient-hero" aria-hidden="true" />
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              "linear-gradient(90deg, oklch(0.985 0.008 80 / 1) 0%, oklch(0.985 0.008 80 / 0.92) 38%, oklch(0.985 0.008 80 / 0.35) 58%, oklch(0.985 0.008 80 / 0) 75%)",
+          }}
+          aria-hidden="true"
+        />
 
-        {/* Тонкие лавандовые сухоцветы — только в углу, без бусин */}
+        {/* Тонкие лавандовые сухоцветы — только в углу */}
         <img
           src={driedFlowers}
           alt=""
@@ -193,7 +200,7 @@ export function Landing() {
           style={{ animationDelay: "-3s" }}
         />
 
-        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0 pt-[42svh] sm:pt-[46svh] lg:pt-0">
+        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0 pt-[58svh] sm:pt-[60svh] lg:pt-0">
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
 
