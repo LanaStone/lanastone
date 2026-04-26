@@ -103,18 +103,6 @@ export function TryOnSection() {
           </p>
         </div>
 
-        {loadingUser ? null : !user ? (
-          <div className="mt-10 max-w-2xl mx-auto bg-card/90 backdrop-blur border border-primary/30 rounded-sm p-5 text-center shadow-card reveal">
-            <p className="text-foreground/80 text-sm">
-              Чтобы запустить примерку и сохранить результат в личную галерею — нужен короткий вход.{" "}
-              <Link to="/auth" className="text-primary underline underline-offset-4 hover:text-primary/80">
-                Войти / создать аккаунт
-              </Link>
-            </p>
-            <p className="mt-2 text-xs text-muted-foreground">Email подтверждается автоматически. Никаких писем ждать не нужно.</p>
-          </div>
-        ) : null}
-
         <div className="mt-10 grid lg:grid-cols-2 gap-8 reveal">
             {/* LEFT — controls */}
             <div className="bg-card/90 backdrop-blur border border-border/60 rounded-sm p-7 shadow-card halo group">
@@ -177,7 +165,7 @@ export function TryOnSection() {
                 {busy ? "Создаём примерку…" : "Примерить с помощью AI"}
               </Button>
               <p className="mt-3 text-xs text-muted-foreground text-center">
-                Обычно занимает 10–30 секунд. Результат сохраняется в вашей галерее.
+                Обычно занимает 10–30 секунд. Вход не нужен.
               </p>
             </div>
 
@@ -211,33 +199,6 @@ export function TryOnSection() {
               )}
             </div>
           </div>
-
-        {user && gallery.length > 0 && (
-          <div className="mt-14 reveal">
-            <h3 className="font-display text-2xl text-center">Ваша галерея примерок</h3>
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {gallery.map((g) => (
-                <a
-                  key={g.id}
-                  href={g.result_image_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block rounded-sm overflow-hidden border border-border/60 hover:border-primary/50 transition-all hover:shadow-glow"
-                >
-                  <img
-                    src={g.result_image_url}
-                    alt={g.product_name ?? "Примерка"}
-                    className="w-full aspect-square object-cover"
-                    loading="lazy"
-                  />
-                  <div className="p-2 text-xs text-muted-foreground truncate bg-card/80">
-                    {g.product_name ?? "Примерка"}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
