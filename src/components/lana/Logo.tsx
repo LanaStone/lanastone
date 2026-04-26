@@ -21,14 +21,14 @@ export function Logo({ className = "", invert = false }: LogoProps) {
       </svg>
       <div className="leading-none">
         <div
-          className="font-display text-[1.55rem] font-light tracking-wide"
-          style={{ color: invert ? "var(--color-cream)" : "var(--color-graphite)" }}
+          className="script-accent text-[2.1rem] leading-none"
+          style={{ color: invert ? "var(--color-cream)" : "var(--color-lilac-deep)" }}
         >
-          Lana<span style={{ color: "var(--color-lilac-deep)" }}>Stone</span>
+          Lana Stone
         </div>
         <div
           className="text-[0.55rem] uppercase tracking-[0.45em] mt-1"
-          style={{ color: invert ? "var(--color-lilac-soft)" : "var(--color-lilac-deep)", opacity: 0.8 }}
+          style={{ color: invert ? "var(--color-lilac-soft)" : "var(--color-lilac-deep)", opacity: 0.7 }}
         >
           handmade jewelry
         </div>
