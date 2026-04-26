@@ -273,13 +273,8 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Фрагмент реального браслета вместо висящих бусин */}
-        <img
-          src={braceletLilac}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -right-10 lg:-right-16 top-8 w-40 sm:w-56 lg:w-72 opacity-80 float-slow rotate-[18deg]"
-        />
+        {/* Лёгкий вырезанный декор-украшение в углу */}
+        <FloatingDeco src={decoNecklace} className="-right-6 lg:-right-10 top-6 lg:top-10 w-28 sm:w-36 lg:w-44 -rotate-12" />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
@@ -384,8 +379,8 @@ export function Landing() {
 
       {/* CATALOG */}
       <Section id="catalog" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={braceletPearl} className="-left-16 top-32 -rotate-12" />
-        <FloatingDeco src={braceletOnyx} className="-right-12 bottom-20 rotate-6" />
+        <FloatingDeco src={decoBraceletLilac} className="-left-12 top-32 -rotate-12" />
+        <FloatingDeco src={decoBraceletOnyx} className="-right-10 bottom-20 rotate-6" />
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
@@ -501,8 +496,8 @@ export function Landing() {
 
       {/* CUSTOM */}
       <Section id="custom" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={braceletLilac} className="left-4 top-10 -rotate-6" />
-        <FloatingDeco src={braceletPearl} className="right-4 bottom-10 rotate-12" />
+        <FloatingDeco src={decoBraceletLilac} className="left-2 top-10 -rotate-6" />
+        <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
         <div className="max-w-3xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
           <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
