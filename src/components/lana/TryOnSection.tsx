@@ -258,7 +258,6 @@ export function TryOnSection() {
             </div>
           </div>
 
-
         {user && gallery.length > 0 && (
           <div className="mt-14 reveal">
             <h3 className="font-display text-2xl text-center">Ваша галерея примерок</h3>
