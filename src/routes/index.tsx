@@ -1,26 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Landing } from "@/components/lana/Landing";
+import { Toaster } from "@/components/ui/sonner";
+
+import heroPortrait from "@/assets/hero-portrait.jpg";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "LanaStone — украшения ручной работы из натуральных камней" },
+      { name: "description", content: "Авторские браслеты, колье, чокеры и акценты из натуральных камней. Ручная работа Светланы — украшения с настроением, характером и смыслом." },
+      { property: "og:title", content: "LanaStone — украшения ручной работы из натуральных камней" },
+      { property: "og:description", content: "Браслеты, колье и акценты из натуральных камней — с вниманием к материалу и настроению." },
+      { property: "og:image", content: heroPortrait },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: heroPortrait },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <>
+      <Landing />
+      <Toaster position="bottom-center" richColors />
+    </>
+  );
 }
