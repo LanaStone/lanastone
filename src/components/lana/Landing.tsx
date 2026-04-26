@@ -125,12 +125,10 @@ function FloatingDeco({
   src,
   className,
   alt = "",
-  size = 220,
 }: {
   src: string;
   className?: string;
   alt?: string;
-  size?: number;
 }) {
   return (
     <img
@@ -138,10 +136,7 @@ function FloatingDeco({
       alt={alt}
       aria-hidden={alt === "" || undefined}
       loading="lazy"
-      width={size}
-      height={size}
-      className={`pointer-events-none select-none absolute opacity-50 mix-blend-multiply float-slow ${className ?? ""}`}
-      style={{ width: size, height: "auto" }}
+      className={`pointer-events-none select-none absolute opacity-60 float-slow w-32 sm:w-44 lg:w-60 h-auto ${className ?? ""}`}
     />
   );
 }
