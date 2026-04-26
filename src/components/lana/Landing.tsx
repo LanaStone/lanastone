@@ -120,7 +120,7 @@ function Ornament({ label }: { label: string }) {
   return <span className="divider-ornament">{label}</span>;
 }
 
-/** Декоративный фрагмент украшения, лежащий «на фоне» */
+/** Декоративный вырезанный фрагмент украшения, лежащий «на фоне» секции */
 function FloatingDeco({
   src,
   className,
@@ -136,7 +136,8 @@ function FloatingDeco({
       alt={alt}
       aria-hidden={alt === "" || undefined}
       loading="lazy"
-      className={`pointer-events-none select-none absolute opacity-60 float-slow w-32 sm:w-44 lg:w-60 h-auto ${className ?? ""}`}
+      style={{ mixBlendMode: "multiply" }}
+      className={`pointer-events-none select-none absolute opacity-70 float-slow w-32 sm:w-40 lg:w-52 h-auto ${className ?? ""}`}
     />
   );
 }
