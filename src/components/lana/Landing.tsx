@@ -231,7 +231,7 @@ export function Landing() {
             </div>
 
             {/* Финальная фраза — единый акцентный курсив */}
-            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug">
+            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug font-serif">
               Созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
 
