@@ -17,9 +17,9 @@ import moodGift from "@/assets/mood-gift.jpg";
 import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
-import braceletLilac from "@/assets/real-bracelet-lilac.png";
-import braceletPearl from "@/assets/real-bracelet-pearl.png";
-import braceletOnyx from "@/assets/real-bracelet-onyx.png";
+import decoNecklace from "@/assets/deco-necklace-heart.png";
+import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
+import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
 const NAV = [
   { id: "about", label: "О бренде" },
