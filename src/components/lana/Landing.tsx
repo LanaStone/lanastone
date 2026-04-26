@@ -170,7 +170,7 @@ export function Landing() {
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-contain object-top sm:object-[center_top] lg:object-[right_center] bg-cream"
+          className="absolute inset-0 w-full h-full object-cover object-[78%_center] lg:object-[right_center] bg-cream"
         />
 
         {/* Soft cream gradient overlays — на мобиле снизу читаемо, на десктопе слева под текст */}
@@ -200,7 +200,7 @@ export function Landing() {
           style={{ animationDelay: "-3s" }}
         />
 
-        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0 pt-[58svh] sm:pt-[60svh] lg:pt-0">
+        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-10 lg:pb-0 pt-24 sm:pt-28 lg:pt-0">
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
 
