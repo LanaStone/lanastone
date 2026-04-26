@@ -231,7 +231,7 @@ export function Landing() {
             </div>
 
             {/* Финальная фраза — единый акцентный курсив */}
-            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug font-serif">
+            <p className="mt-6 lg:mt-8 accent-italic text-2xl sm:text-3xl lg:text-[1.85rem] text-foreground max-w-xl text-pretty leading-snug font-serif font-semibold" style={{ color: "var(--color-lilac-deep)" }}>
               Созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
 
@@ -257,14 +257,16 @@ export function Landing() {
             <div className="mt-7 lg:mt-9 flex flex-wrap gap-3">
               <Button
                 onClick={() => scrollTo("catalog")}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 lg:px-9 h-12 text-sm tracking-wider shadow-glow"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 lg:px-9 h-14 shadow-glow"
+                style={{ fontFamily: '"Marck Script", cursive', fontSize: "1.6rem", fontWeight: 400, letterSpacing: 0 }}
               >
                 Смотреть коллекцию
               </Button>
               <Button
                 onClick={() => openOrder("", "Заказать украшение")}
                 variant="outline"
-                className="border-primary/50 text-foreground bg-card/70 backdrop-blur hover:bg-accent px-7 lg:px-9 h-12 text-sm tracking-wider"
+                className="border-primary/50 text-foreground bg-card/70 backdrop-blur hover:bg-accent px-7 lg:px-9 h-14"
+                style={{ fontFamily: '"Marck Script", cursive', fontSize: "1.6rem", fontWeight: 400, letterSpacing: 0 }}
               >
                 Заказать украшение
               </Button>
@@ -345,7 +347,10 @@ export function Landing() {
                 { t: "внимание к деталям", i: "✦" },
               ].map((item) => (
                 <li key={item.t}>
-                  <span className="halo group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-card/70 backdrop-blur text-sm text-foreground/85 shadow-soft hover:shadow-glow transition-all cursor-default">
+                  <span
+                    className="halo group inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/40 bg-card/70 backdrop-blur text-foreground/90 shadow-soft hover:shadow-glow transition-all cursor-default"
+                    style={{ fontFamily: '"Marck Script", cursive', fontSize: "1.4rem", fontWeight: 400, lineHeight: 1.1 }}
+                  >
                     <span className="text-primary text-base leading-none">{item.i}</span>
                     {item.t}
                   </span>
