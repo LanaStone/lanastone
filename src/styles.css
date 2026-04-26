@@ -262,7 +262,7 @@
   /* Каллиграфический акцент — изящный script (Allura) */
   .script-accent {
     font-family: var(--font-script);
-    font-weight: 400;
+    font-weight: 700;
     color: var(--color-lilac-deep);
     line-height: 1;
     letter-spacing: 0.005em;
