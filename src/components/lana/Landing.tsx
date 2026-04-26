@@ -221,17 +221,17 @@ export function Landing() {
                   className="absolute -top-2 left-4 px-2 text-[0.65rem] tracking-[0.4em] uppercase text-primary"
                   style={{ backgroundColor: "var(--color-cream)" }}
                 >
-                  · для тех, кто чувствует ·
+                  · для Вас ·
                 </span>
                 <p className="accent-italic text-lg lg:text-xl text-foreground/85 text-pretty leading-snug">
                   Для тех, кто выбирает не просто красивую вещь,
-                  <br className="hidden sm:block" /> а <em className="not-italic text-primary font-normal">деталь с настроением</em>.
+                  <br className="hidden sm:block" /> а <em className="not-italic text-primary font-normal font-mono">деталь с настроением</em>.
                 </p>
               </div>
             </div>
 
             {/* Финальная фраза — единый акцентный курсив */}
-            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug">
+            <p className="mt-6 lg:mt-8 accent-italic text-xl sm:text-2xl lg:text-[1.65rem] text-foreground/80 max-w-xl text-pretty leading-snug font-serif">
               Созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
 
