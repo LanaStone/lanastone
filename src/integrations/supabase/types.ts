@@ -44,6 +44,36 @@ export type Database = {
         }
         Relationships: []
       }
+      tryon_results: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          product_name: string | null
+          result_image_url: string
+          source_image_url: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          product_name?: string | null
+          result_image_url: string
+          source_image_url: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          product_name?: string | null
+          result_image_url?: string
+          source_image_url?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
