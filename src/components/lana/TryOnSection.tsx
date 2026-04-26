@@ -50,6 +50,7 @@ export function TryOnSection() {
   const generate = useServerFn(generateTryOn);
 
   useEffect(() => {
+    installAuthFetch();
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user);
       setLoadingUser(false);
