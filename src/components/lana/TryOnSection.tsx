@@ -166,15 +166,30 @@ export function TryOnSection() {
               <h3 className="font-display text-2xl">1. Ваше фото</h3>
               <p className="mt-1 text-sm text-muted-foreground">Селфи или фото руки. До 8 МБ.</p>
 
-              <label className="mt-4 block cursor-pointer border-2 border-dashed border-border rounded-sm p-6 text-center hover:border-primary/60 transition-colors">
+              <label className="mt-4 flex flex-col items-center gap-3 cursor-pointer border-2 border-dashed border-primary/40 bg-secondary/30 hover:bg-secondary/60 hover:border-primary rounded-sm p-6 text-center transition-colors">
                 <input type="file" accept="image/*" onChange={onFile} className="hidden" />
                 {userImage ? (
-                  <img src={userImage} alt="Ваше фото" className="mx-auto max-h-64 rounded-sm" />
+                  <>
+                    <img src={userImage} alt="Ваше фото" className="mx-auto max-h-64 rounded-sm" />
+                    <span className="inline-flex items-center justify-center px-5 h-10 bg-card border border-primary/40 rounded-sm text-sm text-foreground hover:bg-accent">
+                      Заменить фото
+                    </span>
+                  </>
                 ) : (
-                  <div className="text-muted-foreground text-sm">
-                    <div className="font-display text-xl text-foreground">Загрузить фото</div>
-                    <div className="mt-1">Нажмите или перетащите файл сюда</div>
-                  </div>
+                  <>
+                    <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-primary">
+                        <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-display text-xl text-foreground">Загрузить фото</div>
+                      <div className="mt-1 text-sm text-muted-foreground">Нажмите, чтобы выбрать файл</div>
+                    </div>
+                    <span className="inline-flex items-center justify-center px-5 h-10 bg-primary text-primary-foreground rounded-sm text-sm">
+                      Выбрать файл
+                    </span>
+                  </>
                 )}
               </label>
 
