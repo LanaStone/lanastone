@@ -149,8 +149,8 @@
   /* Каллиграфические заголовки секций — тот же шрифт, что и в логотипе бренда */
   .font-heading {
     font-family: var(--font-script);
-    font-weight: 400;
-    line-height: 1.05;
+    font-weight: 700;
+    line-height: 1;
     letter-spacing: 0;
   }
   .text-balance { text-wrap: balance; }
