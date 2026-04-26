@@ -1,23 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
-import { installAuthFetch } from "@/lib/auth-fetch";
 import { Button } from "@/components/ui/button";
 import { generateTryOn } from "@/lib/tryon.functions";
 import { products } from "@/lib/products";
-import type { User } from "@supabase/supabase-js";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
-
-interface TryOnResult {
-  id: string;
-  product_name: string | null;
-  result_image_url: string;
-  source_image_url: string;
-  created_at: string;
-}
 
 function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -40,41 +28,11 @@ async function urlToDataUrl(url: string): Promise<string> {
 }
 
 export function TryOnSection() {
-  const [user, setUser] = useState<User | null>(null);
-  const [loadingUser, setLoadingUser] = useState(true);
   const [userImage, setUserImage] = useState<string | null>(null);
   const [selected, setSelected] = useState<string>(products[0]?.id ?? "");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<string | null>(null);
-  const [gallery, setGallery] = useState<TryOnResult[]>([]);
   const generate = useServerFn(generateTryOn);
-
-  useEffect(() => {
-    installAuthFetch();
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user);
-      setLoadingUser(false);
-    });
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      setUser(session?.user ?? null);
-    });
-    return () => sub.subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    if (!user) {
-      setGallery([]);
-      return;
-    }
-    supabase
-      .from("tryon_results")
-      .select("id,product_name,result_image_url,source_image_url,created_at")
-      .order("created_at", { ascending: false })
-      .limit(8)
-      .then(({ data }) => {
-        if (data) setGallery(data as TryOnResult[]);
-      });
-  }, [user, result]);
 
   async function onFile(e: React.ChangeEvent<HTMLInputElement>) {
     const f = e.target.files?.[0];
@@ -93,10 +51,6 @@ export function TryOnSection() {
   }
 
   async function onGenerate() {
-    if (!user) {
-      toast.error("Войдите, чтобы примерить украшение");
-      return;
-    }
     if (!userImage) {
       toast.error("Загрузите своё фото");
       return;
@@ -121,7 +75,7 @@ export function TryOnSection() {
         toast.error(res.error);
       } else {
         setResult(res.resultUrl);
-        toast.success("Примерка готова! Сохранено в вашу галерею.");
+        toast.success("Примерка готова!");
       }
     } catch (e) {
       console.error(e);
