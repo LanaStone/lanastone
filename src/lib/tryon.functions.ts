@@ -4,7 +4,7 @@ import { z } from "zod";
 const TryOnInput = z.object({
   productId: z.string().min(1).max(100),
   productName: z.string().min(1).max(200),
-  productImageUrl: z.string().min(1).max(20000),
+  productImageUrl: z.string().min(1).max(20_000_000),
   userImageUrl: z.string().min(1).max(20_000_000),
 });
 
