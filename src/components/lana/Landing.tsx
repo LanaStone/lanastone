@@ -163,66 +163,81 @@ export function Landing() {
       <Header onOrder={() => openOrder("", "Заказать украшение")} />
 
       {/* HERO — fullscreen with expert */}
-      <section id="hero" className="relative h-[92vh] min-h-[640px] overflow-hidden">
+      <section id="hero" className="relative min-h-[100svh] lg:min-h-[92vh] overflow-hidden flex flex-col">
+        {/* Background portrait — на мобильном top, чтобы лицо было видно */}
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
           width={1920}
-          height={1280}
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          height={1080}
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_top] lg:object-[right_center]"
         />
-        {/* Soft cream gradient on the left for legible text */}
-        <div className="absolute inset-0 bg-gradient-hero" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/40" aria-hidden="true" />
+        {/* Soft cream gradient: снизу на мобиле, слева на десктопе */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{ background: "linear-gradient(180deg, oklch(0.985 0.008 80 / 0.05) 0%, oklch(0.985 0.008 80 / 0.55) 45%, oklch(0.985 0.008 80 / 0.95) 80%)" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 hidden lg:block bg-gradient-hero" aria-hidden="true" />
 
-        {/* Decorative floating elements */}
+        {/* Висящие бусины сверху — как будто капают по сайту */}
+        <img
+          src={decoOnyx}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -top-8 left-4 lg:left-12 w-24 lg:w-40 opacity-80 float-slow"
+          style={{ animationDelay: "-2s" }}
+        />
+        <img
+          src={decoPearl}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -top-4 right-1/3 w-16 lg:w-28 opacity-90 float-slow"
+        />
         <img
           src={driedFlowers}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none select-none absolute -top-10 -left-10 w-72 lg:w-96 opacity-70 float-slow"
-          style={{ animationDelay: "-3s" }}
-        />
-        <img
-          src={driedFlowers}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -bottom-16 right-0 w-64 lg:w-80 opacity-50 -scale-x-100 float-slow"
+          className="pointer-events-none select-none absolute bottom-0 left-0 w-40 lg:w-72 opacity-60 float-slow"
+          style={{ animationDelay: "-4s" }}
         />
 
-        <div className="relative h-full max-w-7xl mx-auto px-5 lg:px-10 flex items-center">
+        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex items-end lg:items-center pb-10 lg:pb-0 pt-[55svh] lg:pt-0">
           <div className="max-w-2xl reveal">
             <Ornament label="Lana Stone" />
             <h1 className="mt-4 leading-[0.95]">
-              <span className="block script-accent text-7xl sm:text-8xl lg:text-[10rem]">classic</span>
-              <span className="block script-accent text-7xl sm:text-8xl lg:text-[10rem] -mt-4 lg:-mt-8">jewelry</span>
+              <span className="block script-accent text-6xl sm:text-7xl lg:text-[8rem]">Украшения</span>
+              <span className="block font-display text-3xl sm:text-4xl lg:text-5xl mt-2 lg:mt-3 text-foreground/90 italic font-light">
+                ручной работы из натуральных камней
+              </span>
             </h1>
-            <p className="mt-2 lg:mt-4 font-display italic text-2xl lg:text-3xl text-foreground/80 tracking-wide">
-              — Love&rsquo;s embrace —
+            <p className="mt-5 lg:mt-6 text-base lg:text-lg text-foreground/80 max-w-xl text-pretty leading-relaxed">
+              Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и смыслом.
             </p>
-            <p className="mt-6 text-base lg:text-lg text-foreground/75 max-w-md text-pretty">
-              Авторские украшения ручной работы из натуральных камней. С характером, настроением и смыслом.
+            <p className="mt-3 text-sm lg:text-base text-muted-foreground max-w-xl text-pretty">
+              Браслеты, колье, чокеры и акцентные детали, созданные с вниманием к материалу, настроению и красоте каждого образа.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 lg:mt-9 flex flex-wrap gap-3">
               <Button
                 onClick={() => scrollTo("catalog")}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 text-sm tracking-wider shadow-glow"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 lg:px-9 h-12 text-sm tracking-wider shadow-glow"
               >
                 Смотреть коллекцию
               </Button>
               <Button
-                onClick={() => scrollTo("tryon")}
+                onClick={() => openOrder("", "Заказать украшение")}
                 variant="outline"
-                className="border-primary/50 text-foreground bg-card/60 backdrop-blur hover:bg-accent px-8 h-12 text-sm tracking-wider"
+                className="border-primary/50 text-foreground bg-card/70 backdrop-blur hover:bg-accent px-7 lg:px-9 h-12 text-sm tracking-wider"
               >
-                Примерить онлайн
+                Заказать украшение
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-foreground/50 text-xs tracking-[0.4em] uppercase animate-pulse">
+        {/* Scroll indicator — спрятан на мобиле */}
+        <div className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-foreground/50 text-xs tracking-[0.4em] uppercase animate-pulse">
           ↓ scroll
         </div>
       </section>
