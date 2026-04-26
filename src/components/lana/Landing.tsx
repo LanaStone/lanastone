@@ -275,7 +275,13 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={decoLilac} className="-right-16 top-10 rotate-12" />
+        {/* Фрагмент реального браслета вместо висящих бусин */}
+        <img
+          src={braceletLilac}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -right-10 lg:-right-16 top-8 w-40 sm:w-56 lg:w-72 opacity-80 float-slow rotate-[18deg]"
+        />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
@@ -298,24 +304,51 @@ export function Landing() {
             <Ornament label="Знакомство" />
             <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
               <span className="script-accent text-5xl lg:text-6xl block mb-1">Lana Stone</span>
-              когда украшение становится <em className="not-italic text-primary">чем-то личным</em>
+              Когда украшение становится <em className="not-italic text-primary">Чем-то Личным</em>
             </h2>
-            <div className="mt-6 space-y-4 text-muted-foreground text-[1.02rem] leading-relaxed text-pretty">
-              <p>Меня зовут Светлана, и я создаю украшения ручной работы из натуральных камней.</p>
-              <p>
-                Для меня украшение — не просто деталь образа. Это настроение, состояние, маленький личный
-                акцент, который может подчеркнуть характер и стать по-настоящему <em className="text-foreground/90">«своим»</em>.
-              </p>
-              <p>
-                Каждое изделие я собираю с вниманием к материалу, сочетанию оттенков, фактуре и тому
-                впечатлению, которое оно должно дарить.
-              </p>
-            </div>
-            <ul className="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
-              {["ручная работа", "натуральные камни", "в наличии и под заказ", "внимание к деталям"].map((t) => (
-                <li key={t} className="flex items-center gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  <span className="text-foreground/80">{t}</span>
+
+            {/* Цитата от Светланы */}
+            <figure className="mt-7 relative">
+              <span
+                aria-hidden="true"
+                className="absolute -top-6 -left-2 lg:-left-6 script-accent text-7xl lg:text-8xl text-primary/30 leading-none select-none"
+              >
+                «
+              </span>
+              <blockquote className="relative pl-6 lg:pl-10 border-l-2 border-primary/40 space-y-4 text-[1.05rem] lg:text-lg leading-relaxed text-foreground/85 italic font-display text-pretty">
+                <p>
+                  Меня зовут <span className="not-italic font-normal text-primary">Светлана</span>, и я создаю
+                  украшения ручной работы из натуральных камней.
+                </p>
+                <p>
+                  Для меня украшение — не просто деталь образа. Это настроение, состояние, маленький личный
+                  акцент, который может подчеркнуть характер и стать по-настоящему <span className="not-italic">«своим»</span>.
+                </p>
+                <p>
+                  Каждое изделие я собираю с вниманием к материалу, сочетанию оттенков, фактуре и тому
+                  впечатлению, которое оно должно дарить.
+                </p>
+              </blockquote>
+              <figcaption className="mt-5 pl-6 lg:pl-10 flex items-center gap-3 text-sm not-italic">
+                <span className="w-8 h-px bg-primary/50" />
+                <span className="script-accent text-3xl text-primary">Светлана</span>
+                <span className="text-muted-foreground tracking-wider">— автор Lana Stone</span>
+              </figcaption>
+            </figure>
+
+            {/* Светящиеся пункты-кнопки */}
+            <ul className="mt-9 flex flex-wrap gap-3">
+              {[
+                { t: "ручная работа", i: "✶" },
+                { t: "натуральные камни", i: "◈" },
+                { t: "в наличии и под заказ", i: "❋" },
+                { t: "внимание к деталям", i: "✦" },
+              ].map((item) => (
+                <li key={item.t}>
+                  <span className="halo group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 bg-card/70 backdrop-blur text-sm text-foreground/85 shadow-soft hover:shadow-glow transition-all cursor-default">
+                    <span className="text-primary text-base leading-none">{item.i}</span>
+                    {item.t}
+                  </span>
                 </li>
               ))}
             </ul>
