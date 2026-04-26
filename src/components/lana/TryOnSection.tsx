@@ -257,7 +257,6 @@ export function TryOnSection() {
               )}
             </div>
           </div>
-        </div>
 
         {user && gallery.length > 0 && (
           <div className="mt-14 reveal">
