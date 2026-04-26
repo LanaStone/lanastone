@@ -18,6 +18,7 @@ import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
 import decoNecklace from "@/assets/deco-necklace-heart.png";
+import decoBeadsLilac from "@/assets/deco-beads-lilac.png";
 import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
 import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
@@ -282,8 +283,14 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Лёгкий вырезанный декор-украшение в углу */}
-        <FloatingDeco src={decoNecklace} className="-right-6 lg:-right-10 top-6 lg:top-10 w-28 sm:w-36 lg:w-44 -rotate-12" />
+        {/* Свисающие светло-фиолетовые бусины в правом верхнем углу */}
+        <img
+          src={decoBeadsLilac}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none select-none absolute -top-12 lg:-top-16 right-0 lg:right-4 w-40 sm:w-52 lg:w-72 xl:w-80 h-auto opacity-90 z-0"
+        />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
