@@ -18,7 +18,7 @@ import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
 import decoNecklace from "@/assets/deco-necklace-heart.png";
-import decoBeadsLilac from "@/assets/deco-beads-lilac.png";
+import decoBeadsLilac from "@/assets/deco-amethyst-strands.png";
 import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
 import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
@@ -283,13 +283,13 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Свисающие светло-фиолетовые бусины в правом верхнем углу */}
+        {/* Свисающие нити аметистов в правом верхнем углу */}
         <img
           src={decoBeadsLilac}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -top-12 lg:-top-16 right-0 lg:right-4 w-40 sm:w-52 lg:w-72 xl:w-80 h-auto opacity-90 z-0"
+          className="pointer-events-none select-none absolute -top-8 right-0 w-56 sm:w-72 lg:w-96 xl:w-[28rem] h-auto opacity-95 z-10"
         />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
 
