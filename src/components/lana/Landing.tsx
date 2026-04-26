@@ -362,7 +362,7 @@ export function Landing() {
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto reveal">
             <Ornament label="Почему" />
-            <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight text-balance">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
               Lana Stone <em className="not-italic text-primary">выбирают сердцем</em> — и возвращаются снова
             </h2>
           </div>
@@ -391,7 +391,7 @@ export function Landing() {
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
-          <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight text-balance">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
             <span className="script-accent text-5xl lg:text-6xl block mb-2">collection</span>
             Выберите украшение, <em className="not-italic text-primary">которое откликается</em>
           </h2>
@@ -465,7 +465,7 @@ export function Landing() {
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="max-w-3xl reveal">
             <Ornament label="По настроению" />
-            <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight text-balance">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
               <span className="script-accent text-5xl lg:text-6xl block mb-1">by mood</span>
               Выбирайте не только по форме. <em className="not-italic text-primary">По ощущению.</em>
             </h2>
@@ -507,7 +507,7 @@ export function Landing() {
         <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
         <div className="max-w-3xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
-          <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight text-balance">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
             <span className="script-accent text-5xl lg:text-6xl block mb-1">made for you</span>
             Не нашли то самое? <em className="not-italic text-primary">Создадим для вас.</em>
           </h2>
@@ -534,7 +534,7 @@ export function Landing() {
         <div className="absolute inset-0" style={{ backgroundColor: "oklch(0.985 0.008 80 / 0.85)" }} />
         <div className="relative max-w-3xl mx-auto px-5 lg:px-10 text-center reveal">
           <Ornament label="Доверие" />
-          <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight text-balance">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
             Украшение становится особенным, когда <em className="not-italic text-primary">находит своего человека</em>
           </h2>
           <div className="mt-7 space-y-4 text-foreground/75 text-[1.02rem] leading-relaxed text-pretty">
@@ -555,7 +555,7 @@ export function Landing() {
         <div className="max-w-3xl mx-auto relative">
           <div className="text-center reveal">
             <Ornament label="FAQ" />
-            <h2 className="font-heading text-6xl lg:text-7xl mt-5 leading-tight">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-5xl">
               <span className="script-accent text-5xl lg:text-6xl block mb-1">questions</span>
               Частые вопросы
             </h2>
@@ -585,7 +585,7 @@ export function Landing() {
         />
         <div className="relative max-w-4xl mx-auto px-5 lg:px-10 text-center reveal">
           <p className="script-accent text-5xl lg:text-7xl mb-4">— for you —</p>
-          <h2 className="font-heading text-6xl lg:text-7xl leading-tight text-balance" style={{ color: "var(--color-graphite)" }}>
+          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl" style={{ color: "var(--color-graphite)" }}>
             Выберите украшение, которое будет не просто красивым — <em className="not-italic" style={{ color: "var(--color-lilac-deep)" }}>а вашим</em>
           </h2>
           <p className="mt-6 text-foreground/75 text-lg text-pretty">
