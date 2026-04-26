@@ -229,7 +229,7 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={realLilac} className="-right-16 top-10 rotate-12" size={260} />
+        <FloatingDeco src={decoLilac} className="-right-16 top-10 rotate-12" size={260} />
         <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" size={280} />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
@@ -307,8 +307,8 @@ export function Landing() {
 
       {/* CATALOG */}
       <Section id="catalog" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={realPearl} className="-left-16 top-32 -rotate-12" size={240} />
-        <FloatingDeco src={realOnyx} className="-right-12 bottom-20 rotate-6" size={260} />
+        <FloatingDeco src={decoPearl} className="-left-16 top-32 -rotate-12" size={240} />
+        <FloatingDeco src={decoOnyx} className="-right-12 bottom-20 rotate-6" size={260} />
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
@@ -424,8 +424,8 @@ export function Landing() {
 
       {/* CUSTOM */}
       <Section id="custom" className="py-24 lg:py-32 overflow-hidden">
-        <FloatingDeco src={realLilac} className="left-4 top-10 -rotate-6" size={180} />
-        <FloatingDeco src={realPearl} className="right-4 bottom-10 rotate-12" size={200} />
+        <FloatingDeco src={decoLilac} className="left-4 top-10 -rotate-6" size={180} />
+        <FloatingDeco src={decoPearl} className="right-4 bottom-10 rotate-12" size={200} />
         <div className="max-w-3xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
           <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
