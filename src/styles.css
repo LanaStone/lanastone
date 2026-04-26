@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Marck+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -48,7 +48,7 @@
   --color-graphite: var(--graphite);
   --color-gold: var(--gold);
 
-  --font-script: "Comforter Brush", "Marck Script", cursive;
+  --font-script: "Marck Script", "Caveat", cursive;
   --font-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -149,9 +149,9 @@
   /* Каллиграфические заголовки секций — тот же шрифт, что и в логотипе бренда */
   .font-heading {
     font-family: var(--font-script);
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
   }
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
@@ -262,10 +262,10 @@
   /* Каллиграфический акцент — изящный script (Allura) */
   .script-accent {
     font-family: var(--font-script);
-    font-weight: 700;
+    font-weight: 400;
     color: var(--color-lilac-deep);
-    line-height: 1;
-    letter-spacing: 0.005em;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
   }
 
   /* Курсивный подзаголовок-акцент — единый стиль для красивых поясняющих фраз */
