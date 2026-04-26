@@ -24,9 +24,8 @@ Preserve the person's face, hair, skin tone, pose, lighting, and background EXAC
 - If it's a charm/pendant: integrate it naturally as a delicate accent.
 Match shadows, lighting direction and color temperature of the original photo. Make it look like a real photo, not a collage. Output only the final image.`;
 
-    let aiResp: Response;
-    try {
-      aiResp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const callAi = async (): Promise<Response> => {
+      return fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${LOVABLE_API_KEY}`,
@@ -39,7 +38,7 @@ Match shadows, lighting direction and color temperature of the original photo. M
               role: "user",
               content: [
                 { type: "text", text: prompt },
-                  { type: "image_url", image_url: { url: data.userImageUrl } },
+                { type: "image_url", image_url: { url: data.userImageUrl } },
                 { type: "image_url", image_url: { url: data.productImageUrl } },
               ],
             },
@@ -47,9 +46,35 @@ Match shadows, lighting direction and color temperature of the original photo. M
           modalities: ["image", "text"],
         }),
       });
-    } catch (e) {
-      console.error("AI request failed:", e);
-      return { ok: false as const, error: "Сервис примерки временно недоступен." };
+    };
+
+    // Retry on timeout / transient errors — the model often "warms up" on first call.
+    let aiResp: Response | null = null;
+    let lastErr: unknown = null;
+    const maxAttempts = 3;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        aiResp = await callAi();
+        // Retry on transient 5xx and 504 timeouts
+        if (aiResp.status >= 500 && aiResp.status < 600 && attempt < maxAttempts) {
+          console.warn(`AI gateway ${aiResp.status} on attempt ${attempt}, retrying...`);
+          await new Promise((r) => setTimeout(r, 1500 * attempt));
+          continue;
+        }
+        break;
+      } catch (e) {
+        lastErr = e;
+        console.error(`AI request failed (attempt ${attempt}):`, e);
+        if (attempt < maxAttempts) {
+          await new Promise((r) => setTimeout(r, 1500 * attempt));
+          continue;
+        }
+      }
+    }
+
+    if (!aiResp) {
+      console.error("AI request failed after retries:", lastErr);
+      return { ok: false as const, error: "Сервис примерки временно недоступен. Попробуйте ещё раз." };
     }
 
     if (aiResp.status === 429) {
