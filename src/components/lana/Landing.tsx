@@ -9,8 +9,8 @@ import { useReveal } from "@/hooks/use-reveal";
 import { categories, products, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
-import aboutPortrait from "@/assets/about-portrait.jpg";
-import graphiteStoneBg from "@/assets/graphite-stone-bg.jpg";
+import aboutPortraitCutout from "@/assets/about-portrait-cutout.png";
+import aboutStoneBg from "@/assets/about-stone-bg.png";
 import moodLight from "@/assets/mood-light.jpg";
 import moodDeep from "@/assets/mood-deep.jpg";
 import moodEnergy from "@/assets/mood-energy.jpg";
@@ -338,9 +338,9 @@ export function Landing() {
         className="relative overflow-hidden"
         style={{
           backgroundColor: "var(--color-night-deep)",
-          backgroundImage: `linear-gradient(180deg, oklch(0.11 0.012 235 / 0.96) 0%, oklch(0.11 0.012 235 / 0.18) 22%, oklch(0.11 0.012 235 / 0.3) 76%, oklch(0.11 0.012 235 / 0.95) 100%), url(${graphiteStoneBg})`,
+          backgroundImage: `linear-gradient(180deg, oklch(0.11 0.012 235 / 0.16) 0%, oklch(0.11 0.012 235 / 0.06) 48%, oklch(0.11 0.012 235 / 0.42) 100%), url(${aboutStoneBg})`,
           backgroundSize: "cover",
-          backgroundPosition: "center top",
+          backgroundPosition: "center center",
         }}
       >
         {/* Dark overlay keeps text readable while the stone texture remains visible */}
@@ -353,17 +353,16 @@ export function Landing() {
           }}
         />
 
-        <Section id="about" className="py-24 lg:py-32 overflow-visible">
-          {/* Сухоцвет — заглядывает в кадр из левого нижнего угла секции */}
-          <img
-            src={driedFlowers}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            className="pointer-events-none select-none absolute -left-24 sm:-left-28 lg:-left-36 -bottom-10 sm:-bottom-14 lg:-bottom-20 w-72 sm:w-[24rem] lg:w-[32rem] xl:w-[38rem] h-auto opacity-100 z-20 drop-shadow-2xl about-flower-peek"
-          />
+        <img
+          src={driedFlowers}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none select-none absolute left-0 bottom-0 w-64 sm:w-80 lg:w-[27rem] xl:w-[31rem] h-auto opacity-95 z-10 about-flower-peek"
+        />
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center relative">
+        <Section id="about" className="py-24 lg:py-32 overflow-visible">
+          <div className="grid lg:grid-cols-12 gap-12 items-center relative z-20">
             <div className="lg:col-span-5 reveal">
               <div className="relative max-w-sm mx-auto">
                 {/* Soft glow halo behind the portrait so it floats on the stone */}
@@ -376,18 +375,12 @@ export function Landing() {
                   }}
                 />
                 <img
-                  src={aboutPortrait}
+                  src={aboutPortraitCutout}
                   alt="Светлана за рабочим столом с натуральными камнями"
                   loading="lazy"
                   width={920}
                   height={1150}
-                  className="relative w-full h-auto"
-                  style={{
-                    WebkitMaskImage:
-                      "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
-                    maskImage:
-                      "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
-                  }}
+                  className="relative w-full h-auto drop-shadow-2xl"
                 />
               </div>
             </div>
