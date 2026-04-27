@@ -521,7 +521,7 @@ export function Landing() {
                   <h3 className="font-display text-3xl font-light" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed max-w-md" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
                   <Button
-                    onClick={() => { scrollTo("catalog"); }}
+                    onClick={() => { goToCategory(m.category); }}
                     variant="outline"
                     className="mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10"
                     style={{ color: "var(--color-cream)", borderColor: "oklch(0.99 0.005 80 / 0.5)" }}
