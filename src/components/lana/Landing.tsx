@@ -227,10 +227,10 @@ export function Landing() {
                 Украшения
               </span>
               <span
-                className="mt-4 lg:mt-5 font-display italic text-xl sm:text-2xl lg:text-3xl leading-snug text-balance"
-                style={{ color: "oklch(0.95 0.03 230)", fontWeight: 300 }}
+                className="hero-display-ice mt-4 lg:mt-5 text-lg sm:text-xl lg:text-2xl xl:text-3xl"
+                style={{ letterSpacing: "0.22em" }}
               >
-                ручной работы из натуральных камней.
+                Ручной работы из натуральных камней
               </span>
               <span
                 className="mt-4 lg:mt-5 font-display text-base sm:text-lg lg:text-xl leading-snug max-w-md italic"
