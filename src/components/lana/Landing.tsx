@@ -233,21 +233,12 @@ export function Landing() {
                 Ручной работы из натуральных камней
               </span>
               <span
-                className="mt-4 lg:mt-5 font-display text-base sm:text-lg lg:text-xl leading-snug max-w-md italic"
-                style={{ color: "oklch(0.9 0.025 230 / 0.92)", fontWeight: 300 }}
+                className="mt-5 lg:mt-6 font-sans text-sm sm:text-base lg:text-base leading-relaxed max-w-md tracking-wide"
+                style={{ color: "oklch(0.96 0.02 230 / 0.95)", fontWeight: 400 }}
               >
                 Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
               </span>
             </h1>
-
-            {/* Subheading */}
-            <p
-              className="mt-5 lg:mt-6 font-sans text-xs sm:text-sm leading-relaxed max-w-md"
-              style={{ color: "oklch(0.85 0.02 230 / 0.85)" }}
-            >
-              Браслеты, колье, чокеры и акцентные детали, созданные с вниманием
-              к&nbsp;материалу, настроению и&nbsp;красоте каждого образа.
-            </p>
 
             {/* Category chips */}
             <div className="mt-5 flex flex-wrap gap-2">
