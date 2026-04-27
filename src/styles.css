@@ -303,9 +303,15 @@
   }
 
   .about-flower-peek {
-    transform: rotate(-31deg);
+    transform: translate(-18%, 18%) rotate(-18deg);
     transform-origin: bottom left;
-    filter: drop-shadow(0 22px 30px oklch(0.02 0 0 / 0.55));
+    filter: drop-shadow(0 26px 34px oklch(0.02 0 0 / 0.6));
+    animation: flower-peek 7s ease-in-out infinite;
+  }
+
+  @keyframes flower-peek {
+    0%, 100% { transform: translate(-18%, 18%) rotate(-18deg); }
+    50% { transform: translate(-16%, 14%) rotate(-14deg); }
   }
 
   /* Каллиграфический акцент — золотой script */
