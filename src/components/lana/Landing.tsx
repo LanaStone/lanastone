@@ -358,7 +358,7 @@ export function Landing() {
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute left-0 bottom-0 w-64 sm:w-80 lg:w-[27rem] xl:w-[31rem] h-auto opacity-95 z-10 about-flower-peek"
+          className="pointer-events-none select-none absolute -left-6 -bottom-6 w-40 sm:w-48 lg:w-60 xl:w-72 h-auto opacity-95 z-10 about-flower-peek"
         />
 
         <Section id="about" className="py-24 lg:py-32 overflow-visible">
