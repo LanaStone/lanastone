@@ -358,30 +358,70 @@ export function Landing() {
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -left-6 -bottom-6 w-40 sm:w-48 lg:w-60 xl:w-72 h-auto opacity-95 z-10 about-flower-peek"
+          style={{ mixBlendMode: "screen" }}
+          className="pointer-events-none select-none absolute -left-10 -bottom-10 w-64 sm:w-80 lg:w-[26rem] xl:w-[32rem] h-auto opacity-40 z-10 about-flower-peek"
         />
 
         <Section id="about" className="py-24 lg:py-32 overflow-visible">
           <div className="grid lg:grid-cols-12 gap-12 items-center relative z-20">
             <div className="lg:col-span-5 reveal">
-              <div className="relative max-w-sm mx-auto">
-                {/* Soft glow halo behind the portrait so it floats on the stone */}
+              <div
+                className="relative max-w-sm mx-auto rounded-[2rem] p-5 lg:p-6"
+                style={{
+                  backgroundColor: "oklch(0.09 0.012 235 / 0.85)",
+                  boxShadow:
+                    "0 0 0 1px oklch(0.7 0.08 230 / 0.35), 0 0 32px -4px oklch(0.65 0.12 230 / 0.55), 0 0 80px -10px oklch(0.6 0.18 270 / 0.45), 0 30px 60px -20px oklch(0 0 0 / 0.7)",
+                }}
+              >
+                {/* Neon glowing silhouette behind the portrait */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-10 blur-3xl rounded-full"
+                  className="absolute -inset-6 rounded-[2.5rem] blur-2xl pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(ellipse at center, oklch(0.5 0.06 230 / 0.35) 0%, transparent 70%)",
+                      "radial-gradient(ellipse at 50% 40%, oklch(0.7 0.16 230 / 0.55) 0%, oklch(0.55 0.18 280 / 0.35) 45%, transparent 75%)",
                   }}
                 />
-                <img
-                  src={aboutPortraitCutout}
-                  alt="Светлана за рабочим столом с натуральными камнями"
-                  loading="lazy"
-                  width={920}
-                  height={1150}
-                  className="relative w-full h-auto drop-shadow-2xl"
-                />
+                <div className="relative">
+                  <img
+                    src={aboutPortraitCutout}
+                    alt="Светлана за рабочим столом с натуральными камнями"
+                    loading="lazy"
+                    width={920}
+                    height={1150}
+                    className="relative w-full h-auto"
+                    style={{
+                      filter:
+                        "drop-shadow(0 0 14px oklch(0.75 0.12 230 / 0.55)) drop-shadow(0 0 28px oklch(0.6 0.18 275 / 0.4))",
+                    }}
+                  />
+
+                  {/* Badges overlapping the bottom edge of the photo */}
+                  <ul className="absolute -bottom-5 left-0 right-0 px-2 flex flex-wrap justify-center gap-2 z-10">
+                    {[
+                      { t: "ручная работа", i: "✶" },
+                      { t: "натуральные камни", i: "◈" },
+                      { t: "в наличии · под заказ", i: "❋" },
+                    ].map((item) => (
+                      <li key={item.t}>
+                        <span
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border backdrop-blur-md text-[0.7rem] tracking-wide"
+                          style={{
+                            fontFamily: '"Marck Script", cursive',
+                            fontSize: "0.95rem",
+                            borderColor: "oklch(0.75 0.08 230 / 0.6)",
+                            backgroundColor: "oklch(0.1 0.012 235 / 0.85)",
+                            color: "oklch(0.95 0.02 230)",
+                            boxShadow: "0 0 14px -2px oklch(0.65 0.12 230 / 0.55)",
+                          }}
+                        >
+                          <span style={{ color: "oklch(0.85 0.1 230)" }}>{item.i}</span>
+                          {item.t}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="lg:col-span-7 reveal">
