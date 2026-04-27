@@ -59,80 +59,80 @@
 :root {
   --radius: 0.375rem;
 
-  /* Глубокий тёмно-фиолетовый фон с уходом в индиго */
-  --background: oklch(0.18 0.05 295);
-  --foreground: oklch(0.96 0.02 80);
+  /* STONE & SKY: глубокий графитово-серый с холодным голубоватым подтоном */
+  --background: oklch(0.22 0.012 240);
+  --foreground: oklch(0.95 0.012 230);
 
-  --card: oklch(0.22 0.06 295);
-  --card-foreground: oklch(0.96 0.02 80);
-  --popover: oklch(0.22 0.06 295);
-  --popover-foreground: oklch(0.96 0.02 80);
+  --card: oklch(0.27 0.014 235);
+  --card-foreground: oklch(0.95 0.012 230);
+  --popover: oklch(0.27 0.014 235);
+  --popover-foreground: oklch(0.95 0.012 230);
 
-  /* Primary — насыщенный аметист, светящийся */
-  --primary: oklch(0.78 0.13 80); /* теперь золото — главный акцент */
-  --primary-foreground: oklch(0.18 0.05 295);
+  /* Primary — приглушённый небесно-голубой как акцент */
+  --primary: oklch(0.78 0.07 235);
+  --primary-foreground: oklch(0.18 0.015 240);
 
-  --secondary: oklch(0.28 0.07 295);
-  --secondary-foreground: oklch(0.96 0.02 80);
+  --secondary: oklch(0.32 0.015 235);
+  --secondary-foreground: oklch(0.95 0.012 230);
 
-  --muted: oklch(0.26 0.05 295);
-  --muted-foreground: oklch(0.78 0.04 295);
+  --muted: oklch(0.3 0.012 235);
+  --muted-foreground: oklch(0.74 0.02 230);
 
-  --accent: oklch(0.55 0.18 305); /* яркий аметист для акцентов */
-  --accent-foreground: oklch(0.96 0.02 80);
+  --accent: oklch(0.68 0.08 230); /* небесный туманный голубой */
+  --accent-foreground: oklch(0.18 0.015 240);
 
-  --destructive: oklch(0.6 0.2 25);
-  --destructive-foreground: oklch(0.96 0.02 80);
+  --destructive: oklch(0.6 0.18 25);
+  --destructive-foreground: oklch(0.95 0.012 230);
 
-  --border: oklch(0.78 0.13 80 / 0.22); /* тонкая золотая линия */
-  --input: oklch(0.96 0.02 80 / 0.12);
-  --ring: oklch(0.78 0.13 80);
+  --border: oklch(0.78 0.05 235 / 0.22);
+  --input: oklch(0.95 0.012 230 / 0.12);
+  --ring: oklch(0.78 0.07 235);
 
-  /* Бренд-токены */
-  --cream: oklch(0.96 0.02 80);
-  --sand: oklch(0.86 0.06 80);
-  --lilac: oklch(0.7 0.13 305);
-  --lilac-soft: oklch(0.45 0.12 305);
-  --lilac-deep: oklch(0.78 0.13 305);
-  --graphite: oklch(0.18 0.05 295);
-  --gold: oklch(0.78 0.13 80);
-  --gold-soft: oklch(0.68 0.1 75);
-  --night: oklch(0.18 0.05 295);
-  --night-deep: oklch(0.13 0.04 295);
+  /* Бренд-токены — Stone & Sky */
+  --cream: oklch(0.95 0.012 230);
+  --sand: oklch(0.82 0.025 230);
+  --lilac: oklch(0.72 0.06 235);
+  --lilac-soft: oklch(0.5 0.05 235);
+  --lilac-deep: oklch(0.78 0.07 235);
+  --graphite: oklch(0.22 0.012 240);
+  --gold: oklch(0.78 0.07 235); /* "gold" токен теперь = небесно-голубой акцент */
+  --gold-soft: oklch(0.68 0.06 230);
+  --night: oklch(0.22 0.012 240);
+  --night-deep: oklch(0.15 0.012 240);
 
-  --gradient-soft: linear-gradient(135deg, oklch(0.22 0.06 295) 0%, oklch(0.16 0.05 285) 100%);
-  --gradient-lilac: linear-gradient(135deg, oklch(0.45 0.12 305) 0%, oklch(0.28 0.08 295) 100%);
-  --gradient-night: linear-gradient(160deg, oklch(0.22 0.06 295) 0%, oklch(0.13 0.04 290) 100%);
-  --gradient-gold: linear-gradient(135deg, oklch(0.82 0.14 82) 0%, oklch(0.68 0.1 75) 100%);
-  --gradient-hero-mobile: linear-gradient(180deg, transparent 0%, oklch(0.18 0.05 295 / 0.35) 45%, oklch(0.18 0.05 295 / 0.95) 80%, oklch(0.18 0.05 295) 100%);
-  --gradient-hero-desktop: radial-gradient(ellipse at center, transparent 35%, oklch(0.18 0.05 295 / 0.55) 75%, oklch(0.18 0.05 295 / 0.95) 100%);
+  --gradient-soft: linear-gradient(135deg, oklch(0.27 0.014 235) 0%, oklch(0.2 0.012 240) 100%);
+  --gradient-lilac: linear-gradient(135deg, oklch(0.5 0.05 235) 0%, oklch(0.3 0.015 240) 100%);
+  --gradient-night: linear-gradient(160deg, oklch(0.27 0.014 235) 0%, oklch(0.15 0.012 240) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.85 0.06 230) 0%, oklch(0.68 0.06 230) 100%);
+  --gradient-hero-mobile: linear-gradient(180deg, transparent 0%, oklch(0.22 0.012 240 / 0.35) 45%, oklch(0.22 0.012 240 / 0.95) 80%, oklch(0.22 0.012 240) 100%);
+  --gradient-hero-desktop: radial-gradient(ellipse at center, transparent 35%, oklch(0.22 0.012 240 / 0.55) 75%, oklch(0.22 0.012 240 / 0.95) 100%);
 
-  --shadow-soft: 0 20px 60px -25px oklch(0.13 0.04 290 / 0.7);
+  --shadow-soft: 0 20px 60px -25px oklch(0.12 0.01 240 / 0.7);
   --shadow-card: 0 12px 40px -15px oklch(0.05 0 0 / 0.5);
-  --shadow-glow: 0 0 0 1px oklch(0.78 0.13 80 / 0.35), 0 24px 60px -20px oklch(0.55 0.18 305 / 0.55);
-  --shadow-gold: 0 0 24px -4px oklch(0.78 0.13 80 / 0.45);
+  --shadow-glow: 0 0 0 1px oklch(0.78 0.07 235 / 0.35), 0 24px 60px -20px oklch(0.68 0.08 230 / 0.45);
+  --shadow-gold: 0 0 24px -4px oklch(0.78 0.07 235 / 0.4);
 }
 
 .dark {
-  --background: oklch(0.13 0.04 290);
-  --foreground: oklch(0.96 0.02 80);
-  --card: oklch(0.18 0.05 295);
-  --card-foreground: oklch(0.96 0.02 80);
-  --popover: oklch(0.18 0.05 295);
-  --popover-foreground: oklch(0.96 0.02 80);
-  --primary: oklch(0.82 0.14 82);
-  --primary-foreground: oklch(0.13 0.04 290);
-  --secondary: oklch(0.24 0.06 295);
-  --secondary-foreground: oklch(0.96 0.02 80);
-  --muted: oklch(0.22 0.05 295);
-  --muted-foreground: oklch(0.78 0.04 295);
-  --accent: oklch(0.6 0.18 305);
-  --accent-foreground: oklch(0.96 0.02 80);
-  --destructive: oklch(0.6 0.2 25);
-  --destructive-foreground: oklch(0.96 0.02 80);
-  --border: oklch(0.82 0.14 82 / 0.22);
-  --input: oklch(0.96 0.02 80 / 0.12);
-  --ring: oklch(0.82 0.14 82);
+  --background: oklch(0.15 0.012 240);
+  --foreground: oklch(0.95 0.012 230);
+  --card: oklch(0.22 0.012 240);
+  --card-foreground: oklch(0.95 0.012 230);
+  --popover: oklch(0.22 0.012 240);
+  --popover-foreground: oklch(0.95 0.012 230);
+  --primary: oklch(0.78 0.07 235);
+  --primary-foreground: oklch(0.15 0.012 240);
+  --secondary: oklch(0.28 0.014 235);
+  --secondary-foreground: oklch(0.95 0.012 230);
+  --muted: oklch(0.26 0.012 235);
+  --muted-foreground: oklch(0.74 0.02 230);
+  --accent: oklch(0.68 0.08 230);
+  --accent-foreground: oklch(0.95 0.012 230);
+  --destructive: oklch(0.6 0.18 25);
+  --destructive-foreground: oklch(0.95 0.012 230);
+  --border: oklch(0.78 0.07 235 / 0.22);
+  --input: oklch(0.95 0.012 230 / 0.12);
+  --ring: oklch(0.78 0.07 235);
 }
 
 @layer base {
