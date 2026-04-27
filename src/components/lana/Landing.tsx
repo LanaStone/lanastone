@@ -332,92 +332,135 @@ export function Landing() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Сухоцвет — заглядывает в кадр из левого нижнего угла */}
-        <img
-          src={driedFlowers}
-          alt=""
+      {/* ABOUT — full-bleed stone background continuing from hero */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          backgroundColor: "var(--color-night-deep)",
+          backgroundImage:
+            "radial-gradient(ellipse at 20% 30%, oklch(0.22 0.02 235 / 0.6) 0%, transparent 55%), radial-gradient(ellipse at 80% 70%, oklch(0.16 0.02 235 / 0.7) 0%, transparent 60%), linear-gradient(180deg, oklch(0.13 0.04 290) 0%, oklch(0.15 0.025 235) 50%, oklch(0.13 0.04 290) 100%)",
+        }}
+      >
+        {/* Subtle stone texture overlay */}
+        <div
           aria-hidden="true"
-          loading="lazy"
-          style={{ transform: "rotate(-18deg)", transformOrigin: "bottom left" }}
-          className="pointer-events-none select-none absolute -left-16 sm:-left-20 lg:-left-24 -bottom-20 sm:-bottom-24 lg:-bottom-28 w-56 sm:w-72 lg:w-96 xl:w-[28rem] h-auto opacity-90 z-30 drop-shadow-2xl float-slow"
+          className="absolute inset-0 opacity-[0.08] mix-blend-screen pointer-events-none"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 30% 40%, oklch(0.6 0.04 235) 0%, transparent 40%), radial-gradient(circle at 70% 60%, oklch(0.5 0.04 235) 0%, transparent 45%)",
+          }}
         />
 
-        <div className="grid lg:grid-cols-12 gap-12 items-center relative">
-          <div className="lg:col-span-5 reveal">
-            <div className="relative max-w-sm mx-auto group">
-              <div className="absolute -inset-4 bg-accent/40 blur-2xl rounded-full" aria-hidden="true" />
-              <div className="halo relative rounded-sm overflow-hidden">
+        <Section id="about" className="py-24 lg:py-32 overflow-visible">
+          {/* Сухоцвет — заглядывает в кадр из левого нижнего угла секции */}
+          <img
+            src={driedFlowers}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            style={{ transform: "rotate(-22deg)", transformOrigin: "bottom left" }}
+            className="pointer-events-none select-none absolute -left-20 sm:-left-24 lg:-left-28 -bottom-24 sm:-bottom-28 lg:-bottom-32 w-60 sm:w-80 lg:w-[26rem] xl:w-[32rem] h-auto opacity-95 z-30 drop-shadow-2xl float-slow"
+          />
+
+          <div className="grid lg:grid-cols-12 gap-12 items-center relative">
+            <div className="lg:col-span-5 reveal">
+              <div className="relative max-w-sm mx-auto">
+                {/* Soft glow halo behind the portrait so it floats on the stone */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-10 blur-3xl rounded-full"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at center, oklch(0.5 0.06 230 / 0.35) 0%, transparent 70%)",
+                  }}
+                />
                 <img
                   src={aboutPortrait}
-                  alt="Светлана за рабочим столом с натуральными камнями и сухоцветами"
+                  alt="Светлана за рабочим столом с натуральными камнями"
                   loading="lazy"
                   width={920}
                   height={1150}
-                  className="relative w-full h-auto rounded-sm shadow-card"
+                  className="relative w-full h-auto"
+                  style={{
+                    WebkitMaskImage:
+                      "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+                    maskImage:
+                      "radial-gradient(ellipse 75% 80% at 50% 50%, black 55%, transparent 100%)",
+                  }}
                 />
               </div>
             </div>
-          </div>
-          <div className="lg:col-span-7 reveal">
-            <Ornament label="Знакомство" />
-            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
-              <span className="script-accent text-5xl lg:text-6xl block mb-1">Lana Stone</span>
-              Когда украшение становится <em className="not-italic text-primary">чем-то личным</em>
-            </h2>
+            <div className="lg:col-span-7 reveal">
+              <Ornament label="Знакомство" />
+              <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl" style={{ color: "var(--color-cream)" }}>
+                <span className="script-accent text-5xl lg:text-6xl block mb-1" style={{ color: "oklch(0.85 0.06 230)" }}>Lana Stone</span>
+                Когда украшение становится <em className="not-italic" style={{ color: "oklch(0.85 0.06 230)" }}>чем-то личным</em>
+              </h2>
 
-            {/* Цитата от Светланы */}
-            <figure className="mt-7 relative">
-              <span
-                aria-hidden="true"
-                className="absolute -top-6 -left-2 lg:-left-6 script-accent text-7xl lg:text-8xl text-primary/30 leading-none select-none"
-              >
-                «
-              </span>
-              <blockquote className="relative pl-6 lg:pl-10 border-l-2 border-primary/40 space-y-4 text-[1.05rem] lg:text-lg leading-relaxed text-foreground/85 italic font-display text-pretty">
-                <p>
-                  Меня зовут <span className="not-italic font-normal text-primary">Светлана</span>, и я создаю
-                  украшения ручной работы из натуральных камней.
-                </p>
-                <p>
-                  Для меня украшение — не просто деталь образа. Это настроение, состояние, маленький личный
-                  акцент, который может подчеркнуть характер и стать по-настоящему <span className="not-italic">«своим»</span>.
-                </p>
-                <p>
-                  Каждое изделие я собираю с вниманием к материалу, сочетанию оттенков, фактуре и тому
-                  впечатлению, которое оно должно дарить.
-                </p>
-              </blockquote>
-              <figcaption className="mt-5 pl-6 lg:pl-10 flex items-center gap-3 text-sm not-italic">
-                <span className="w-8 h-px bg-primary/50" />
-                <span className="script-accent text-3xl text-primary">Светлана</span>
-                <span className="text-muted-foreground tracking-wider">— автор Lana Stone</span>
-              </figcaption>
-            </figure>
+              {/* Цитата от Светланы */}
+              <figure className="mt-7 relative">
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-6 -left-2 lg:-left-6 script-accent text-7xl lg:text-8xl leading-none select-none"
+                  style={{ color: "oklch(0.7 0.06 230 / 0.35)" }}
+                >
+                  «
+                </span>
+                <blockquote
+                  className="relative pl-6 lg:pl-10 border-l-2 space-y-4 text-[1.05rem] lg:text-lg leading-relaxed italic font-display text-pretty"
+                  style={{ borderColor: "oklch(0.7 0.06 230 / 0.45)", color: "oklch(0.92 0.02 230 / 0.9)" }}
+                >
+                  <p>
+                    Меня зовут <span className="not-italic font-normal" style={{ color: "oklch(0.9 0.06 230)" }}>Светлана</span>, и я создаю
+                    украшения ручной работы из натуральных камней.
+                  </p>
+                  <p>
+                    Для меня украшение — не просто деталь образа. Это настроение, состояние, маленький личный
+                    акцент, который может подчеркнуть характер и стать по-настоящему <span className="not-italic">«своим»</span>.
+                  </p>
+                  <p>
+                    Каждое изделие я собираю с вниманием к материалу, сочетанию оттенков, фактуре и тому
+                    впечатлению, которое оно должно дарить.
+                  </p>
+                </blockquote>
+                <figcaption className="mt-5 pl-6 lg:pl-10 flex items-center gap-3 text-sm not-italic">
+                  <span className="w-8 h-px" style={{ background: "oklch(0.7 0.06 230 / 0.6)" }} />
+                  <span className="script-accent text-3xl" style={{ color: "oklch(0.9 0.06 230)" }}>Светлана</span>
+                  <span className="tracking-wider" style={{ color: "oklch(0.7 0.02 230 / 0.8)" }}>— автор Lana Stone</span>
+                </figcaption>
+              </figure>
 
-            {/* Светящиеся пункты-кнопки */}
-            <ul className="mt-9 flex flex-wrap gap-3">
-              {[
-                { t: "ручная работа", i: "✶" },
-                { t: "натуральные камни", i: "◈" },
-                { t: "в наличии и под заказ", i: "❋" },
-                { t: "внимание к деталям", i: "✦" },
-              ].map((item) => (
-                <li key={item.t}>
-                  <span
-                    className="halo group inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/40 bg-card/70 backdrop-blur text-foreground/90 shadow-soft hover:shadow-glow transition-all cursor-default"
-                    style={{ fontFamily: '"Marck Script", cursive', fontSize: "1.4rem", fontWeight: 400, lineHeight: 1.1 }}
-                  >
-                    <span className="text-primary text-base leading-none">{item.i}</span>
-                    {item.t}
-                  </span>
-                </li>
-              ))}
-            </ul>
+              {/* Светящиеся пункты-кнопки */}
+              <ul className="mt-9 flex flex-wrap gap-3">
+                {[
+                  { t: "ручная работа", i: "✶" },
+                  { t: "натуральные камни", i: "◈" },
+                  { t: "в наличии и под заказ", i: "❋" },
+                  { t: "внимание к деталям", i: "✦" },
+                ].map((item) => (
+                  <li key={item.t}>
+                    <span
+                      className="halo group inline-flex items-center gap-2 px-5 py-2 rounded-full border backdrop-blur shadow-soft hover:shadow-glow transition-all cursor-default"
+                      style={{
+                        fontFamily: '"Marck Script", cursive',
+                        fontSize: "1.4rem",
+                        fontWeight: 400,
+                        lineHeight: 1.1,
+                        borderColor: "oklch(0.7 0.06 230 / 0.5)",
+                        backgroundColor: "oklch(0.18 0.014 235 / 0.55)",
+                        color: "oklch(0.95 0.02 230)",
+                      }}
+                    >
+                      <span style={{ color: "oklch(0.85 0.06 230)" }} className="text-base leading-none">{item.i}</span>
+                      {item.t}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      </div>
 
       {/* ADVANTAGES */}
       <section className="relative py-24 lg:py-32 bg-secondary/40 border-y border-border/60 overflow-hidden">
