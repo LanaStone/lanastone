@@ -232,36 +232,38 @@ export function Landing() {
               >
                 Ручной работы из натуральных камней
               </span>
-              <figure
-                className="mt-6 lg:mt-7 max-w-sm relative pl-4 pr-3 py-2"
+            </h1>
+
+            {/* Quote-style tagline */}
+            <figure
+              className="mt-6 lg:mt-7 max-w-sm relative pl-4 pr-3 py-1.5"
+              style={{
+                borderLeft: "2px solid oklch(0.75 0.07 230 / 0.7)",
+              }}
+            >
+              <span
+                aria-hidden="true"
+                className="absolute -top-3 -left-1 text-3xl leading-none select-none"
                 style={{
-                  borderLeft: "2px solid oklch(0.75 0.07 230 / 0.7)",
+                  fontFamily: '"Marck Script", cursive',
+                  color: "oklch(0.75 0.07 230 / 0.65)",
                 }}
               >
-                <span
-                  aria-hidden="true"
-                  className="absolute -top-3 -left-1 text-3xl leading-none select-none"
-                  style={{
-                    fontFamily: '"Marck Script", cursive',
-                    color: "oklch(0.75 0.07 230 / 0.65)",
-                  }}
-                >
-                  «
-                </span>
-                <blockquote
-                  className="text-xl sm:text-2xl lg:text-2xl"
-                  style={{
-                    fontFamily: '"Marck Script", "Caveat", cursive',
-                    color: "oklch(0.97 0.025 230)",
-                    fontWeight: 400,
-                    lineHeight: 1.15,
-                    letterSpacing: "0.01em",
-                  }}
-                >
-                  Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
-                </blockquote>
-              </figure>
-            </h1>
+                «
+              </span>
+              <blockquote
+                className="text-xl sm:text-2xl lg:text-2xl"
+                style={{
+                  fontFamily: '"Marck Script", "Caveat", cursive',
+                  color: "oklch(0.97 0.025 230)",
+                  fontWeight: 400,
+                  lineHeight: 1.15,
+                  letterSpacing: "0.01em",
+                }}
+              >
+                Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
+              </blockquote>
+            </figure>
 
             {/* Category chips */}
             <div className="mt-5 flex flex-wrap gap-2">
