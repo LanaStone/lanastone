@@ -1,6 +1,11 @@
 import braceletAgateBlack from "@/assets/product-bracelet-agate-black.jpg";
 import braceletAgateLava from "@/assets/product-bracelet-agate-lava.jpg";
 import braceletAgateLavaAmber from "@/assets/product-bracelet-agate-lava-amber.jpg";
+import braceletLabradoriteHematite from "@/assets/product-bracelet-labradorite-hematite.jpg";
+import braceletCitrineAgateLava from "@/assets/product-bracelet-citrine-agate-lava.jpg";
+import braceletHematiteThin from "@/assets/product-bracelet-hematite-thin.jpg";
+import braceletAzurmalachiteHematiteLava from "@/assets/product-bracelet-azurmalachite-hematite-lava.jpg";
+import braceletSagittarius from "@/assets/product-bracelet-sagittarius.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -58,6 +63,56 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 700 ₽",
     image: braceletAgateLavaAmber,
+  },
+  {
+    id: "br-labradorite-hematite",
+    category: "bracelets",
+    name: "Лаврикит и гематит · спокойствие и защита",
+    mood: "Лаврикит для душевного равновесия и гематит-защитник — стиль со смыслом",
+    materials: "натуральный лаврикит, гематит, бусины 8 мм",
+    size: "17 см",
+    price: "1 300 ₽",
+    image: braceletLabradoriteHematite,
+  },
+  {
+    id: "br-citrine-agate-lava",
+    category: "bracelets",
+    name: "Цитрин, агат и лава · солнечный баланс",
+    mood: "Солнечный цитрин, спокойный агат и сила вулканической лавы — три стихии в одном браслете",
+    materials: "натуральный цитрин, агат, вулканическая лава, бусины 8 мм",
+    size: "18 см",
+    price: "1 500 ₽",
+    image: braceletCitrineAgateLava,
+  },
+  {
+    id: "br-hematite-thin",
+    category: "bracelets",
+    name: "Гематит · стальная грация",
+    mood: "Изящный браслет со стальным блеском — сдержанная элегантность с характером",
+    materials: "натуральный гематит, бусины 4 мм с двумя ажурными акцентами",
+    size: "15 см",
+    price: "750 ₽",
+    image: braceletHematiteThin,
+  },
+  {
+    id: "br-azurmalachite-hematite-lava",
+    category: "bracelets",
+    name: "Азурмалахит, гематит и лава · игра текстур",
+    mood: "Глубокий азурмалахит, графичный гематит и тёплая пористая лава — игра объёма и фактуры",
+    materials: "натуральный азурмалахит, гематит, вулканическая лава, бусины 8 и 10 мм",
+    size: "18 см",
+    price: "1 600 ₽",
+    image: braceletAzurmalachiteHematiteLava,
+  },
+  {
+    id: "br-sagittarius",
+    category: "bracelets",
+    name: "Стрелец · агат, аметист и аквамарин",
+    mood: "Браслет для огненного Стрельца с серебряным кулоном-знаком зодиака в фианитах",
+    materials: "натуральный агат, аметист, аквамарин, бусины 8 мм, серебряный кулон со знаком Стрельца с фианитами",
+    size: "17 см",
+    price: "1 600 ₽",
+    image: braceletSagittarius,
   },
   {
     id: "nk-1",
