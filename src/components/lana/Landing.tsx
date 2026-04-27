@@ -9,8 +9,8 @@ import { useReveal } from "@/hooks/use-reveal";
 import { categories, products, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
-import aboutPortraitCutout from "@/assets/about-portrait-cutout.png";
-import aboutStoneBg from "@/assets/about-stone-bg.png";
+import aboutPortrait from "@/assets/about-portrait-final.jpg";
+import hangingBeads from "@/assets/deco-hanging-beads.png";
 import moodLight from "@/assets/mood-light.jpg";
 import moodDeep from "@/assets/mood-deep.jpg";
 import moodEnergy from "@/assets/mood-energy.jpg";
