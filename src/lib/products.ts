@@ -6,6 +6,7 @@ import braceletCitrineAgateLava from "@/assets/product-bracelet-citrine-agate-la
 import braceletHematiteThin from "@/assets/product-bracelet-hematite-thin.jpg";
 import braceletAzurmalachiteHematiteLava from "@/assets/product-bracelet-azurmalachite-hematite-lava.jpg";
 import braceletSagittarius from "@/assets/product-bracelet-sagittarius.jpg";
+import braceletRockCrystal from "@/assets/product-bracelet-rock-crystal.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -113,6 +114,16 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 600 ₽",
     image: braceletSagittarius,
+  },
+  {
+    id: "br-rock-crystal",
+    category: "bracelets",
+    name: "Горный хрусталь · ледяная чистота",
+    mood: "Прозрачный искристый браслет — словно горный ручей и кусочек зимы на запястье",
+    materials: "натуральный горный хрусталь, гранёные бусины 8 мм, фурнитура серебро 925 пробы",
+    size: "16 см",
+    price: "2 500 ₽",
+    image: braceletRockCrystal,
   },
   {
     id: "nk-1",
