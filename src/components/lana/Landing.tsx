@@ -431,7 +431,7 @@ export function Landing() {
           </h2>
         </div>
 
-        <Tabs defaultValue="bracelets" className="mt-12 relative">
+        <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as ProductCategory)} className="mt-12 relative">
           <TabsList className="mx-auto flex flex-wrap justify-center gap-1.5 bg-secondary/50 p-1.5 h-auto">
             {categories.map((c) => (
               <TabsTrigger
