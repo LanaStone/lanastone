@@ -1,6 +1,6 @@
-import bracelet1 from "@/assets/product-bracelet-1.jpg";
-import bracelet2 from "@/assets/product-bracelet-2.jpg";
-import bracelet3 from "@/assets/product-bracelet-3.jpg";
+import braceletAgateBlack from "@/assets/product-bracelet-agate-black.jpg";
+import braceletAgateLava from "@/assets/product-bracelet-agate-lava.jpg";
+import braceletAgateLavaAmber from "@/assets/product-bracelet-agate-lava-amber.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -30,34 +30,34 @@ export const categories: { id: ProductCategory; label: string }[] = [
 
 export const products: Product[] = [
   {
-    id: "br-1",
+    id: "br-agate-black",
     category: "bracelets",
-    name: "Лавандовое утро",
-    mood: "Лёгкость и тёплая ясность",
-    materials: "аметист, лунный камень, серебро 925",
-    size: "17–18 см",
-    price: "4 200 ₽",
-    image: bracelet1,
-  },
-  {
-    id: "br-2",
-    category: "bracelets",
-    name: "Гранатовый шёпот",
-    mood: "Тихая внутренняя сила",
-    materials: "гранат, серебро 925",
-    size: "16–17 см",
-    price: "4 800 ₽",
-    image: bracelet2,
-  },
-  {
-    id: "br-3",
-    category: "bracelets",
-    name: "Светлая вода",
-    mood: "Чистота и нежность",
-    materials: "горный хрусталь, жемчуг",
+    name: "Чёрный агат · грани силы",
+    mood: "Сдержанная сила в каждой грани — браслет, который приятно держать в руках",
+    materials: "натуральный чёрный агат, многогранные бусины 10 мм, прочная резинка",
     size: "17 см",
-    price: "3 900 ₽",
-    image: bracelet3,
+    price: "1 700 ₽",
+    image: braceletAgateBlack,
+  },
+  {
+    id: "br-agate-lava",
+    category: "bracelets",
+    name: "Агат и лава · баланс стихий",
+    mood: "Гармония агата и сила вулканической лавы — между энергией и умиротворением",
+    materials: "натуральный агат, вулканическая лава, бусины 8 мм",
+    size: "19 см",
+    price: "1 500 ₽",
+    image: braceletAgateLava,
+  },
+  {
+    id: "br-agate-lava-amber",
+    category: "bracelets",
+    name: "Агат, лава и янтарь · солнце в камне",
+    mood: "Янтарь как застывший солнечный свет в чёрной оправе агата и лавы",
+    materials: "натуральный агат, вулканическая лава, янтарь, бусины 8 мм",
+    size: "18 см",
+    price: "1 700 ₽",
+    image: braceletAgateLavaAmber,
   },
   {
     id: "nk-1",
