@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Kaushan+Script&family=Marck+Script&family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italianno&family=Pinyon+Script&family=Allura&family=Marck+Script&family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -6,8 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * LanaStone — нежная палитра: бежевый, кремовый, светло-фиолетовый, графит.
- * Все цвета в oklch. Шрифты: Italianno (display), Cormorant Garamond (serif), Inter (body).
+ * LanaStone — DARK LUXE: глубокий тёмно-фиолетовый/индиго фон, золото и аметист,
+ * вечерний бутиковый стиль премиум-бренда украшений.
  */
 
 @theme inline {
@@ -39,7 +39,7 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  /* Бренд-токены LanaStone */
+  /* Бренд-токены LanaStone — DARK LUXE */
   --color-cream: var(--cream);
   --color-sand: var(--sand);
   --color-lilac: var(--lilac);
@@ -47,6 +47,9 @@
   --color-lilac-deep: var(--lilac-deep);
   --color-graphite: var(--graphite);
   --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-night: var(--night);
+  --color-night-deep: var(--night-deep);
 
   --font-script: "Caveat", "Marck Script", cursive;
   --font-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
@@ -56,69 +59,80 @@
 :root {
   --radius: 0.375rem;
 
-  --background: oklch(0.985 0.008 80);
-  --foreground: oklch(0.28 0.02 285);
+  /* Глубокий тёмно-фиолетовый фон с уходом в индиго */
+  --background: oklch(0.18 0.05 295);
+  --foreground: oklch(0.96 0.02 80);
 
-  --card: oklch(0.995 0.004 80);
-  --card-foreground: oklch(0.28 0.02 285);
-  --popover: oklch(0.995 0.004 80);
-  --popover-foreground: oklch(0.28 0.02 285);
+  --card: oklch(0.22 0.06 295);
+  --card-foreground: oklch(0.96 0.02 80);
+  --popover: oklch(0.22 0.06 295);
+  --popover-foreground: oklch(0.96 0.02 80);
 
-  --primary: oklch(0.62 0.09 305);
-  --primary-foreground: oklch(0.99 0.005 80);
+  /* Primary — насыщенный аметист, светящийся */
+  --primary: oklch(0.78 0.13 80); /* теперь золото — главный акцент */
+  --primary-foreground: oklch(0.18 0.05 295);
 
-  --secondary: oklch(0.94 0.018 80);
-  --secondary-foreground: oklch(0.32 0.02 285);
+  --secondary: oklch(0.28 0.07 295);
+  --secondary-foreground: oklch(0.96 0.02 80);
 
-  --muted: oklch(0.95 0.012 80);
-  --muted-foreground: oklch(0.48 0.025 290);
+  --muted: oklch(0.26 0.05 295);
+  --muted-foreground: oklch(0.78 0.04 295);
 
-  --accent: oklch(0.88 0.04 305);
-  --accent-foreground: oklch(0.28 0.02 285);
+  --accent: oklch(0.55 0.18 305); /* яркий аметист для акцентов */
+  --accent-foreground: oklch(0.96 0.02 80);
 
-  --destructive: oklch(0.55 0.18 25);
-  --destructive-foreground: oklch(0.99 0.005 80);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.96 0.02 80);
 
-  --border: oklch(0.9 0.015 80);
-  --input: oklch(0.92 0.012 80);
-  --ring: oklch(0.62 0.09 305);
+  --border: oklch(0.78 0.13 80 / 0.22); /* тонкая золотая линия */
+  --input: oklch(0.96 0.02 80 / 0.12);
+  --ring: oklch(0.78 0.13 80);
 
-  --cream: oklch(0.985 0.008 80);
-  --sand: oklch(0.93 0.02 80);
-  --lilac: oklch(0.78 0.06 305);
-  --lilac-soft: oklch(0.92 0.03 305);
-  --lilac-deep: oklch(0.55 0.1 305);
-  --graphite: oklch(0.28 0.02 285);
-  --gold: oklch(0.7 0.07 75);
+  /* Бренд-токены */
+  --cream: oklch(0.96 0.02 80);
+  --sand: oklch(0.86 0.06 80);
+  --lilac: oklch(0.7 0.13 305);
+  --lilac-soft: oklch(0.45 0.12 305);
+  --lilac-deep: oklch(0.78 0.13 305);
+  --graphite: oklch(0.18 0.05 295);
+  --gold: oklch(0.78 0.13 80);
+  --gold-soft: oklch(0.68 0.1 75);
+  --night: oklch(0.18 0.05 295);
+  --night-deep: oklch(0.13 0.04 295);
 
-  --gradient-soft: linear-gradient(135deg, oklch(0.985 0.008 80) 0%, oklch(0.92 0.03 305) 100%);
-  --gradient-lilac: linear-gradient(135deg, oklch(0.92 0.03 305) 0%, oklch(0.78 0.06 305) 100%);
-  --gradient-hero: linear-gradient(90deg, oklch(0.985 0.008 80) 0%, oklch(0.985 0.008 80 / 0.6) 45%, transparent 75%);
-  --shadow-soft: 0 20px 60px -30px oklch(0.55 0.1 305 / 0.25);
-  --shadow-card: 0 8px 30px -12px oklch(0.4 0.05 285 / 0.12);
-  --shadow-glow: 0 0 0 1px oklch(0.78 0.06 305 / 0.25), 0 20px 50px -20px oklch(0.55 0.1 305 / 0.35);
+  --gradient-soft: linear-gradient(135deg, oklch(0.22 0.06 295) 0%, oklch(0.16 0.05 285) 100%);
+  --gradient-lilac: linear-gradient(135deg, oklch(0.45 0.12 305) 0%, oklch(0.28 0.08 295) 100%);
+  --gradient-night: linear-gradient(160deg, oklch(0.22 0.06 295) 0%, oklch(0.13 0.04 290) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.82 0.14 82) 0%, oklch(0.68 0.1 75) 100%);
+  --gradient-hero-mobile: linear-gradient(180deg, transparent 0%, oklch(0.18 0.05 295 / 0.35) 45%, oklch(0.18 0.05 295 / 0.95) 80%, oklch(0.18 0.05 295) 100%);
+  --gradient-hero-desktop: radial-gradient(ellipse at center, transparent 35%, oklch(0.18 0.05 295 / 0.55) 75%, oklch(0.18 0.05 295 / 0.95) 100%);
+
+  --shadow-soft: 0 20px 60px -25px oklch(0.13 0.04 290 / 0.7);
+  --shadow-card: 0 12px 40px -15px oklch(0.05 0 0 / 0.5);
+  --shadow-glow: 0 0 0 1px oklch(0.78 0.13 80 / 0.35), 0 24px 60px -20px oklch(0.55 0.18 305 / 0.55);
+  --shadow-gold: 0 0 24px -4px oklch(0.78 0.13 80 / 0.45);
 }
 
 .dark {
-  --background: oklch(0.22 0.015 285);
-  --foreground: oklch(0.96 0.01 80);
-  --card: oklch(0.26 0.018 285);
-  --card-foreground: oklch(0.96 0.01 80);
-  --popover: oklch(0.26 0.018 285);
-  --popover-foreground: oklch(0.96 0.01 80);
-  --primary: oklch(0.78 0.08 305);
-  --primary-foreground: oklch(0.22 0.015 285);
-  --secondary: oklch(0.32 0.02 285);
-  --secondary-foreground: oklch(0.96 0.01 80);
-  --muted: oklch(0.32 0.02 285);
-  --muted-foreground: oklch(0.7 0.02 290);
-  --accent: oklch(0.4 0.05 305);
-  --accent-foreground: oklch(0.96 0.01 80);
-  --destructive: oklch(0.6 0.18 25);
-  --destructive-foreground: oklch(0.96 0.01 80);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.08 305);
+  --background: oklch(0.13 0.04 290);
+  --foreground: oklch(0.96 0.02 80);
+  --card: oklch(0.18 0.05 295);
+  --card-foreground: oklch(0.96 0.02 80);
+  --popover: oklch(0.18 0.05 295);
+  --popover-foreground: oklch(0.96 0.02 80);
+  --primary: oklch(0.82 0.14 82);
+  --primary-foreground: oklch(0.13 0.04 290);
+  --secondary: oklch(0.24 0.06 295);
+  --secondary-foreground: oklch(0.96 0.02 80);
+  --muted: oklch(0.22 0.05 295);
+  --muted-foreground: oklch(0.78 0.04 295);
+  --accent: oklch(0.6 0.18 305);
+  --accent-foreground: oklch(0.96 0.02 80);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.96 0.02 80);
+  --border: oklch(0.82 0.14 82 / 0.22);
+  --input: oklch(0.96 0.02 80 / 0.12);
+  --ring: oklch(0.82 0.14 82);
 }
 
 @layer base {
@@ -138,19 +152,19 @@
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     font-weight: 300;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
+    color: var(--color-foreground);
   }
 }
 
 @layer utilities {
-  .font-script { font-family: var(--font-script); font-weight: 400; }
+  .font-script { font-family: "Allura", "Caveat", cursive; font-weight: 400; }
   .font-display { font-family: var(--font-display); }
   .font-body { font-family: var(--font-body); }
-  /* Каллиграфические заголовки секций — тот же шрифт, что и в логотипе бренда */
   .font-heading {
     font-family: var(--font-display);
-    font-weight: 400;
-    line-height: 1.1;
+    font-weight: 300;
+    line-height: 1.05;
     letter-spacing: 0.005em;
   }
   .text-balance { text-wrap: balance; }
@@ -158,10 +172,21 @@
 
   .bg-gradient-soft { background-image: var(--gradient-soft); }
   .bg-gradient-lilac { background-image: var(--gradient-lilac); }
-  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-night { background-image: var(--gradient-night); }
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+
+  .text-gradient-gold {
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
   .shadow-soft { box-shadow: var(--shadow-soft); }
   .shadow-card { box-shadow: var(--shadow-card); }
   .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
 
   .reveal {
     opacity: 0;
@@ -177,31 +202,51 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--color-lilac);
-    font-size: 0.7rem;
-    letter-spacing: 0.4em;
+    color: var(--color-gold);
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
     text-transform: uppercase;
   }
   .divider-ornament::before,
   .divider-ornament::after {
     content: "";
     display: block;
-    width: 36px;
+    width: 44px;
     height: 1px;
     background: currentColor;
-    opacity: 0.5;
+    opacity: 0.65;
   }
+
+  /* Тонкая золотая рамка-картуш как у The Pare */
+  .gold-cartouche {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 1.4rem;
+  }
+  .gold-cartouche::before,
+  .gold-cartouche::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold) 25%, var(--color-gold) 75%, transparent);
+    opacity: 0.7;
+  }
+  .gold-cartouche::before { top: 0; }
+  .gold-cartouche::after { bottom: 0; }
 
   .hero-grain::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(oklch(0.55 0.1 305 / 0.04) 1px, transparent 1px);
+    background-image: radial-gradient(oklch(0.96 0.02 80 / 0.04) 1px, transparent 1px);
     background-size: 4px 4px;
     pointer-events: none;
   }
 
-  /* Декоративная рамка с ореолом */
   .frame-glow {
     position: relative;
   }
@@ -211,7 +256,7 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, oklch(0.78 0.06 305 / 0.6), oklch(0.7 0.07 75 / 0.4), oklch(0.78 0.06 305 / 0.6));
+    background: linear-gradient(135deg, oklch(0.82 0.14 82 / 0.7), oklch(0.55 0.18 305 / 0.5), oklch(0.82 0.14 82 / 0.7));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
@@ -224,7 +269,6 @@
     opacity: 1;
   }
 
-  /* Светящийся ореол вокруг карточки */
   .halo {
     position: relative;
   }
@@ -233,7 +277,7 @@
     position: absolute;
     inset: -20px;
     border-radius: inherit;
-    background: radial-gradient(closest-side, oklch(0.78 0.06 305 / 0.35), transparent 70%);
+    background: radial-gradient(closest-side, oklch(0.55 0.18 305 / 0.35), transparent 70%);
     z-index: -1;
     opacity: 0;
     transition: opacity 700ms ease;
@@ -250,7 +294,6 @@
     50% { transform: scale(1.05); opacity: 1; }
   }
 
-  /* Плавающие декоративные элементы */
   .float-slow {
     animation: float-slow 9s ease-in-out infinite;
   }
@@ -259,33 +302,46 @@
     50% { transform: translateY(-12px) rotate(2deg); }
   }
 
-  /* Каллиграфический акцент — изящный script (Allura) */
+  /* Каллиграфический акцент — золотой script */
   .script-accent {
-    font-family: var(--font-display);
+    font-family: "Allura", "Pinyon Script", cursive;
     font-weight: 400;
-    color: var(--color-lilac-deep);
+    color: var(--color-gold);
     line-height: 1.1;
     letter-spacing: 0.005em;
   }
 
-  /* Курсивный подзаголовок-акцент — единый стиль для красивых поясняющих фраз */
   .accent-italic {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 300;
-    color: var(--color-lilac-deep);
-    letter-spacing: 0.005em;
+    color: var(--color-gold-soft);
+    letter-spacing: 0.01em;
   }
 
-  /* Декоративная фоновая текстура с камнями */
+  /* Эффект "выгравировано золотом" для огромного капительного слова */
+  .hero-display {
+    font-family: var(--font-display);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1;
+    background-image: linear-gradient(180deg, oklch(0.92 0.1 82) 0%, oklch(0.7 0.13 80) 55%, oklch(0.55 0.1 70) 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 2px 24px oklch(0.55 0.18 305 / 0.25);
+  }
+
   .stones-bg {
     position: absolute;
     inset: 0;
     background-image: url("/src/assets/stones-scatter.jpg");
     background-size: cover;
     background-position: center;
-    opacity: 0.06;
-    mix-blend-mode: multiply;
+    opacity: 0.08;
+    mix-blend-mode: screen;
     pointer-events: none;
   }
 }
