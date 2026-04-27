@@ -18,7 +18,7 @@ import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
 import decoNecklace from "@/assets/deco-necklace-heart.png";
-import decoBeadsLilac from "@/assets/deco-amethyst-strands-transparent.png";
+
 import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
 import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
@@ -334,15 +334,22 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Свисающие нити аметистов в правом верхнем углу */}
+        {/* Сухоцветы по бокам как декор фона */}
         <img
-          src={decoBeadsLilac}
+          src={driedFlowers}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -top-4 -right-8 sm:-right-12 lg:-right-20 w-64 sm:w-96 lg:w-[34rem] xl:w-[40rem] h-auto opacity-100 z-20 drop-shadow-2xl"
+          className="pointer-events-none select-none absolute -left-10 sm:-left-6 lg:left-2 top-10 lg:top-16 w-32 sm:w-40 lg:w-56 h-auto opacity-80 z-0 drop-shadow-xl float-slow"
         />
-        <FloatingDeco src={driedFlowers} className="-left-20 bottom-0" />
+        <img
+          src={driedFlowers}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          style={{ transform: "scaleX(-1)" }}
+          className="pointer-events-none select-none absolute -right-10 sm:-right-6 lg:right-2 bottom-10 lg:bottom-16 w-32 sm:w-40 lg:w-56 h-auto opacity-80 z-0 drop-shadow-xl float-slow"
+        />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
           <div className="lg:col-span-5 reveal">
