@@ -232,17 +232,35 @@ export function Landing() {
               >
                 Ручной работы из натуральных камней
               </span>
-              <span
-                className="mt-5 lg:mt-6 leading-snug max-w-md text-2xl sm:text-3xl lg:text-3xl"
+              <figure
+                className="mt-6 lg:mt-7 max-w-sm relative pl-4 pr-3 py-2"
                 style={{
-                  fontFamily: '"Marck Script", "Caveat", cursive',
-                  color: "oklch(0.97 0.025 230)",
-                  fontWeight: 400,
-                  letterSpacing: "0.01em",
+                  borderLeft: "2px solid oklch(0.75 0.07 230 / 0.7)",
                 }}
               >
-                Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
-              </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-3 -left-1 text-3xl leading-none select-none"
+                  style={{
+                    fontFamily: '"Marck Script", cursive',
+                    color: "oklch(0.75 0.07 230 / 0.65)",
+                  }}
+                >
+                  «
+                </span>
+                <blockquote
+                  className="text-xl sm:text-2xl lg:text-2xl"
+                  style={{
+                    fontFamily: '"Marck Script", "Caveat", cursive',
+                    color: "oklch(0.97 0.025 230)",
+                    fontWeight: 400,
+                    lineHeight: 1.15,
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
+                </blockquote>
+              </figure>
             </h1>
 
             {/* Category chips */}
