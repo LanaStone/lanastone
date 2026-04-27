@@ -205,7 +205,7 @@ export function Landing() {
         {/* Top centered free-shipping ribbon */}
         <div className="relative pt-6 lg:pt-8 px-5 z-10">
           <p className="text-center text-[0.6rem] sm:text-[0.7rem] tracking-[0.45em] uppercase" style={{ color: "var(--color-gold)" }}>
-            ✦ ручная работа · натуральные камни · с любовью ✦
+            ✦ ручная работа · натуральные камни · с любовью и смыслом ✦
           </p>
         </div>
 
