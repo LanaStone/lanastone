@@ -148,11 +148,17 @@ export function Landing() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
+  const [activeCategory, setActiveCategory] = useState<ProductCategory>("bracelets");
 
   function openOrder(ref = "", title = "Оставить заявку") {
     setProductRef(ref);
     setDialogTitle(title);
     setDialogOpen(true);
+  }
+
+  function goToCategory(cat: ProductCategory) {
+    setActiveCategory(cat);
+    setTimeout(() => scrollTo("catalog"), 50);
   }
 
   return (
@@ -172,23 +178,24 @@ export function Landing() {
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_center] lg:object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[78%_center] lg:object-[75%_center]"
         />
 
-        {/* Dark vignettes for text legibility */}
+        {/* Left-side gradient for text legibility (keeps face clear on the right) */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, transparent 30%, oklch(0.13 0.04 290 / 0.55) 75%, oklch(0.13 0.04 290 / 0.95) 100%)",
+              "linear-gradient(90deg, oklch(0.13 0.04 290 / 0.92) 0%, oklch(0.13 0.04 290 / 0.75) 30%, oklch(0.13 0.04 290 / 0.35) 55%, transparent 75%)",
           }}
           aria-hidden="true"
         />
+        {/* Mobile bottom dim so text under face stays readable */}
         <div
-          className="absolute inset-x-0 bottom-0 h-1/2"
+          className="absolute inset-x-0 bottom-0 h-2/3 lg:hidden"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, oklch(0.13 0.04 290 / 0.6) 60%, oklch(0.13 0.04 290) 100%)",
+              "linear-gradient(180deg, transparent 0%, oklch(0.13 0.04 290 / 0.85) 60%, oklch(0.13 0.04 290) 100%)",
           }}
           aria-hidden="true"
         />
@@ -209,64 +216,71 @@ export function Landing() {
           </p>
         </div>
 
-        {/* Centered hero content — The Pare style */}
-        <div className="relative flex-1 flex flex-col items-center justify-center text-center px-5 pb-20 pt-10 lg:pt-16 z-10">
-          <div className="reveal max-w-3xl mx-auto flex flex-col items-center">
-            {/* Brand cartouche */}
-            <div className="gold-cartouche mb-8 lg:mb-12">
+        {/* Hero content — left aligned on desktop, bottom on mobile */}
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-16 pt-8 lg:pt-10 z-10">
+          <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
+            {/* Heading */}
+            <h1 className="leading-[0.95] flex flex-col items-start text-left">
               <span
-                className="script-accent text-4xl sm:text-5xl leading-none"
-                style={{ fontFamily: '"Allura", "Pinyon Script", cursive' }}
+                className="hero-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl"
+                style={{ color: "var(--color-ice-blue, oklch(0.95 0.03 230))" }}
               >
-                Lana Stone
-              </span>
-              <span
-                className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.55em] uppercase mt-1"
-                style={{ color: "var(--color-gold-soft)" }}
-              >
-                handmade jewelry
-              </span>
-            </div>
-
-            {/* Big editorial heading */}
-            <h1 className="leading-none flex flex-col items-center">
-              <span
-                className="script-accent text-5xl sm:text-7xl lg:text-8xl -mb-3 lg:-mb-6 -rotate-3 translate-x-[-20%] sm:translate-x-[-30%]"
-                style={{ fontFamily: '"Allura", "Pinyon Script", cursive' }}
-              >
-                Authentic
-              </span>
-              <span className="hero-display text-6xl sm:text-8xl lg:text-[8rem] xl:text-[10rem]">
                 Украшения
               </span>
               <span
-                className="hero-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-2"
-                style={{ letterSpacing: "0.32em" }}
+                className="mt-3 lg:mt-4 font-display text-base sm:text-lg lg:text-xl leading-snug text-balance"
+                style={{ color: "var(--color-cream)", fontWeight: 300 }}
               >
-                Collection
+                ручной работы из натуральных камней.
+              </span>
+              <span
+                className="mt-4 lg:mt-5 font-sans text-sm sm:text-[0.95rem] lg:text-base leading-relaxed max-w-md"
+                style={{ color: "oklch(0.88 0.02 230 / 0.85)", fontWeight: 300 }}
+              >
+                Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и смыслом.
               </span>
             </h1>
 
-            {/* Tagline strip */}
-            <div className="mt-8 lg:mt-10 flex items-center gap-4 text-[0.65rem] sm:text-[0.75rem] tracking-[0.5em] uppercase" style={{ color: "var(--color-cream)" }}>
-              <span className="hidden sm:block w-12 h-px" style={{ background: "var(--color-gold)", opacity: 0.6 }} />
-              <span>Авторские украшения из натуральных камней</span>
-              <span className="hidden sm:block w-12 h-px" style={{ background: "var(--color-gold)", opacity: 0.6 }} />
+            {/* Subheading */}
+            <p
+              className="mt-5 lg:mt-6 text-xs sm:text-sm leading-relaxed max-w-md"
+              style={{ color: "oklch(0.82 0.02 230 / 0.8)" }}
+            >
+              Браслеты, колье, чокеры и акцентные детали, созданные с вниманием
+              к&nbsp;материалу, настроению и&nbsp;красоте каждого образа.
+            </p>
+
+            {/* Category chips */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {categories.filter((c) => c.id !== "custom").map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => goToCategory(c.id)}
+                  className="px-3.5 py-1.5 rounded-full text-[0.7rem] sm:text-xs tracking-[0.15em] uppercase border backdrop-blur-sm transition-colors hover:bg-card/40"
+                  style={{
+                    borderColor: "oklch(0.7 0.06 230 / 0.5)",
+                    color: "oklch(0.92 0.03 230)",
+                    backgroundColor: "oklch(0.18 0.014 235 / 0.35)",
+                  }}
+                >
+                  {c.label}
+                </button>
+              ))}
             </div>
 
             {/* CTA */}
-            <div className="mt-9 lg:mt-12 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-7 lg:mt-8 flex flex-wrap items-center gap-3">
               <Button
                 onClick={() => scrollTo("catalog")}
-                className="bg-gradient-gold text-primary-foreground hover:opacity-90 px-10 h-12 rounded-none tracking-[0.35em] uppercase text-xs shadow-gold"
+                className="bg-gradient-gold text-primary-foreground hover:opacity-90 px-7 h-11 rounded-none tracking-[0.3em] uppercase text-[0.7rem] shadow-gold"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
               >
-                Смотреть каталог
+                Смотреть коллекцию
               </Button>
               <Button
                 onClick={() => openOrder("", "Заказать украшение")}
                 variant="outline"
-                className="border h-12 px-8 rounded-none tracking-[0.35em] uppercase text-xs bg-transparent backdrop-blur-sm hover:bg-card/60"
+                className="border h-11 px-6 rounded-none tracking-[0.3em] uppercase text-[0.7rem] bg-transparent backdrop-blur-sm hover:bg-card/60"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 500,
@@ -274,7 +288,7 @@ export function Landing() {
                   borderColor: "var(--color-gold)",
                 }}
               >
-                Заказать
+                Заказать украшение
               </Button>
             </div>
           </div>
@@ -417,7 +431,7 @@ export function Landing() {
           </h2>
         </div>
 
-        <Tabs defaultValue="bracelets" className="mt-12 relative">
+        <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as ProductCategory)} className="mt-12 relative">
           <TabsList className="mx-auto flex flex-wrap justify-center gap-1.5 bg-secondary/50 p-1.5 h-auto">
             {categories.map((c) => (
               <TabsTrigger
@@ -507,7 +521,7 @@ export function Landing() {
                   <h3 className="font-display text-3xl font-light" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed max-w-md" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
                   <Button
-                    onClick={() => { scrollTo("catalog"); }}
+                    onClick={() => { goToCategory(m.category); }}
                     variant="outline"
                     className="mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10"
                     style={{ color: "var(--color-cream)", borderColor: "oklch(0.99 0.005 80 / 0.5)" }}
