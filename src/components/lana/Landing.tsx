@@ -148,11 +148,17 @@ export function Landing() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
+  const [activeCategory, setActiveCategory] = useState<ProductCategory>("bracelets");
 
   function openOrder(ref = "", title = "Оставить заявку") {
     setProductRef(ref);
     setDialogTitle(title);
     setDialogOpen(true);
+  }
+
+  function goToCategory(cat: ProductCategory) {
+    setActiveCategory(cat);
+    setTimeout(() => scrollTo("catalog"), 50);
   }
 
   return (
