@@ -302,6 +302,12 @@
     50% { transform: translateY(-12px) rotate(2deg); }
   }
 
+  .about-flower-peek {
+    transform: rotate(-31deg);
+    transform-origin: bottom left;
+    filter: drop-shadow(0 22px 30px oklch(0.02 0 0 / 0.55));
+  }
+
   /* Каллиграфический акцент — золотой script */
   .script-accent {
     font-family: "Allura", "Pinyon Script", cursive;
