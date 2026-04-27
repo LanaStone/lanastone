@@ -333,95 +333,109 @@ export function Landing() {
         </div>
       </section>
 
-      {/* ABOUT — full-bleed stone background continuing from hero */}
+      {/* ABOUT — однотонный тёмный фон, плавно перетекающий из hero */}
       <div
         className="relative overflow-hidden"
         style={{
-          backgroundColor: "var(--color-night-deep)",
-          backgroundImage: `linear-gradient(180deg, oklch(0.11 0.012 235 / 0.16) 0%, oklch(0.11 0.012 235 / 0.06) 48%, oklch(0.11 0.012 235 / 0.42) 100%), url(${aboutStoneBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
+          background:
+            "linear-gradient(180deg, var(--color-night-deep) 0%, oklch(0.14 0.014 235) 35%, oklch(0.16 0.016 235) 65%, var(--color-night-deep) 100%)",
         }}
       >
-        {/* Dark overlay keeps text readable while the stone texture remains visible */}
+        {/* Тонкая виньетка по краям для глубины */}
         <div
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 25% 35%, oklch(0.7 0.05 230 / 0.14) 0%, transparent 38%), linear-gradient(90deg, oklch(0.05 0.01 235 / 0.22) 0%, transparent 34%, oklch(0.05 0.01 235 / 0.38) 100%)",
+              "radial-gradient(ellipse at 50% 50%, transparent 40%, oklch(0.08 0.012 235 / 0.5) 100%)",
           }}
         />
 
+        {/* Декоративные бусины — верхний правый угол */}
         <img
-          src={driedFlowers}
+          src={hangingBeads}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          style={{ mixBlendMode: "screen" }}
-          className="pointer-events-none select-none absolute -left-10 -bottom-10 w-64 sm:w-80 lg:w-[26rem] xl:w-[32rem] h-auto opacity-40 z-10 about-flower-peek"
+          className="pointer-events-none select-none absolute -top-12 -right-8 sm:-right-4 lg:-right-2 w-40 sm:w-52 lg:w-64 xl:w-72 h-auto opacity-40 z-10 float-slow"
+          style={{ filter: "blur(0.4px) drop-shadow(0 8px 24px oklch(0.6 0.1 230 / 0.4))" }}
+        />
+        {/* Декоративные бусины — нижний левый угол (отражены) */}
+        <img
+          src={hangingBeads}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none select-none absolute -bottom-16 -left-10 w-44 sm:w-56 lg:w-72 xl:w-80 h-auto opacity-35 z-10 float-slow"
+          style={{
+            transform: "scaleX(-1) rotate(180deg)",
+            filter: "blur(0.6px) drop-shadow(0 8px 24px oklch(0.6 0.1 230 / 0.35))",
+          }}
         />
 
         <Section id="about" className="py-24 lg:py-32 overflow-visible">
-          <div className="grid lg:grid-cols-12 gap-12 items-center relative z-20">
+          <div className="grid lg:grid-cols-12 gap-12 items-start relative z-20">
             <div className="lg:col-span-5 reveal">
-              <div
-                className="relative max-w-sm mx-auto rounded-[2rem] p-5 lg:p-6"
-                style={{
-                  backgroundColor: "oklch(0.09 0.012 235 / 0.85)",
-                  boxShadow:
-                    "0 0 0 1px oklch(0.7 0.08 230 / 0.35), 0 0 32px -4px oklch(0.65 0.12 230 / 0.55), 0 0 80px -10px oklch(0.6 0.18 270 / 0.45), 0 30px 60px -20px oklch(0 0 0 / 0.7)",
-                }}
-              >
-                {/* Neon glowing silhouette behind the portrait */}
+              <div className="relative max-w-sm mx-auto">
+                {/* Внешнее неоновое свечение-силуэт */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-6 rounded-[2.5rem] blur-2xl pointer-events-none"
+                  className="absolute -inset-4 rounded-[1.5rem] blur-2xl pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(ellipse at 50% 40%, oklch(0.7 0.16 230 / 0.55) 0%, oklch(0.55 0.18 280 / 0.35) 45%, transparent 75%)",
+                      "linear-gradient(135deg, oklch(0.7 0.16 230 / 0.7) 0%, oklch(0.55 0.18 280 / 0.5) 50%, oklch(0.7 0.14 210 / 0.6) 100%)",
                   }}
                 />
-                <div className="relative">
-                  <img
-                    src={aboutPortraitCutout}
-                    alt="Светлана за рабочим столом с натуральными камнями"
-                    loading="lazy"
-                    width={920}
-                    height={1150}
-                    className="relative w-full h-auto"
-                    style={{
-                      filter:
-                        "drop-shadow(0 0 14px oklch(0.75 0.12 230 / 0.55)) drop-shadow(0 0 28px oklch(0.6 0.18 275 / 0.4))",
-                    }}
-                  />
-
-                  {/* Badges overlapping the bottom edge of the photo */}
-                  <ul className="absolute -bottom-5 left-0 right-0 px-2 flex flex-wrap justify-center gap-2 z-10">
-                    {[
-                      { t: "ручная работа", i: "✶" },
-                      { t: "натуральные камни", i: "◈" },
-                      { t: "в наличии · под заказ", i: "❋" },
-                    ].map((item) => (
-                      <li key={item.t}>
-                        <span
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border backdrop-blur-md text-[0.7rem] tracking-wide"
-                          style={{
-                            fontFamily: '"Marck Script", cursive',
-                            fontSize: "0.95rem",
-                            borderColor: "oklch(0.75 0.08 230 / 0.6)",
-                            backgroundColor: "oklch(0.1 0.012 235 / 0.85)",
-                            color: "oklch(0.95 0.02 230)",
-                            boxShadow: "0 0 14px -2px oklch(0.65 0.12 230 / 0.55)",
-                          }}
-                        >
-                          <span style={{ color: "oklch(0.85 0.1 230)" }}>{item.i}</span>
-                          {item.t}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Карточка с неоновой рамкой */}
+                <div
+                  className="relative rounded-[1.25rem] p-[2px]"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, oklch(0.85 0.12 230) 0%, oklch(0.65 0.18 275) 50%, oklch(0.85 0.12 210) 100%)",
+                    boxShadow:
+                      "0 0 20px oklch(0.7 0.16 230 / 0.6), 0 0 50px -8px oklch(0.6 0.18 275 / 0.55), 0 30px 60px -20px oklch(0 0 0 / 0.7)",
+                  }}
+                >
+                  <div className="relative rounded-[1.15rem] overflow-hidden bg-[oklch(0.09_0.012_235)]">
+                    <img
+                      src={aboutPortrait}
+                      alt="Светлана за рабочим столом собирает браслет из натуральных камней"
+                      loading="lazy"
+                      width={920}
+                      height={1227}
+                      className="block w-full h-auto"
+                    />
+                  </div>
                 </div>
+
+                {/* Кнопки-бейджи внизу под фотографией */}
+                <ul className="mt-6 flex flex-wrap justify-center gap-2 relative z-10">
+                  {[
+                    { t: "ручная работа", i: "✶" },
+                    { t: "натуральные камни", i: "◈" },
+                    { t: "в наличии", i: "❋" },
+                    { t: "под заказ", i: "✦" },
+                  ].map((item) => (
+                    <li key={item.t}>
+                      <span
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border backdrop-blur-md"
+                        style={{
+                          fontFamily: '"Marck Script", cursive',
+                          fontSize: "1rem",
+                          lineHeight: 1.1,
+                          borderColor: "oklch(0.75 0.1 230 / 0.55)",
+                          backgroundColor: "oklch(0.1 0.012 235 / 0.85)",
+                          color: "oklch(0.96 0.02 230)",
+                          boxShadow:
+                            "0 0 12px -2px oklch(0.65 0.14 230 / 0.55), inset 0 0 12px oklch(0.6 0.16 275 / 0.15)",
+                        }}
+                      >
+                        <span style={{ color: "oklch(0.85 0.12 230)" }}>{item.i}</span>
+                        {item.t}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="lg:col-span-7 reveal">
