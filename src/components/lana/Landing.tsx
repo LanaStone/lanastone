@@ -159,124 +159,132 @@ export function Landing() {
     <div className="min-h-screen bg-background text-foreground">
       <Header onOrder={() => openOrder("", "Заказать украшение")} />
 
-      {/* HERO — fullscreen with expert, no hanging beads */}
+      {/* HERO — DARK LUXE editorial, "The Pare" style centered composition */}
       <section
         id="hero"
-        className="relative min-h-[100svh] lg:min-h-[94vh] overflow-hidden flex flex-col bg-cream"
+        className="relative min-h-[100svh] overflow-hidden flex flex-col"
+        style={{ backgroundColor: "var(--color-night-deep)" }}
       >
-        {/* Background portrait — на мобиле сверху, на десктопе справа, всегда видно целиком */}
+        {/* Full-bleed background portrait */}
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[78%_center] lg:object-[right_center] bg-cream"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_center] lg:object-center"
         />
 
-        {/* Soft cream gradient overlays — на мобиле снизу читаемо, на десктопе слева под текст */}
+        {/* Dark vignettes for text legibility */}
         <div
-          className="absolute inset-0 lg:hidden"
+          className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, oklch(0.985 0.008 80 / 0.0) 0%, oklch(0.985 0.008 80 / 0.35) 48%, oklch(0.985 0.008 80 / 0.92) 78%, oklch(0.985 0.008 80 / 1) 100%)",
+              "radial-gradient(ellipse at center, transparent 30%, oklch(0.13 0.04 290 / 0.55) 75%, oklch(0.13 0.04 290 / 0.95) 100%)",
           }}
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 hidden lg:block"
+          className="absolute inset-x-0 bottom-0 h-1/2"
           style={{
             background:
-              "linear-gradient(90deg, oklch(0.985 0.008 80 / 1) 0%, oklch(0.985 0.008 80 / 0.92) 38%, oklch(0.985 0.008 80 / 0.35) 58%, oklch(0.985 0.008 80 / 0) 75%)",
+              "linear-gradient(180deg, transparent 0%, oklch(0.13 0.04 290 / 0.6) 60%, oklch(0.13 0.04 290) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        {/* Top dim for header readability */}
+        <div
+          className="absolute inset-x-0 top-0 h-40"
+          style={{
+            background:
+              "linear-gradient(180deg, oklch(0.13 0.04 290 / 0.85) 0%, transparent 100%)",
           }}
           aria-hidden="true"
         />
 
-        {/* Тонкие лавандовые сухоцветы — только в углу */}
-        <img
-          src={driedFlowers}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute -bottom-4 -left-4 w-32 sm:w-44 lg:w-64 opacity-50 float-slow"
-          style={{ animationDelay: "-3s" }}
-        />
+        {/* Top centered free-shipping ribbon */}
+        <div className="relative pt-6 lg:pt-8 px-5 z-10">
+          <p className="text-center text-[0.6rem] sm:text-[0.7rem] tracking-[0.45em] uppercase" style={{ color: "var(--color-gold)" }}>
+            ✦ ручная работа · натуральные камни · с любовью ✦
+          </p>
+        </div>
 
-        <div className="relative flex-1 max-w-7xl w-full mx-auto px-5 lg:px-10 flex flex-col justify-end lg:justify-center pb-10 lg:pb-0 pt-24 sm:pt-28 lg:pt-0">
-          <div className="max-w-2xl reveal">
-            <Ornament label="Lana Stone" />
+        {/* Centered hero content — The Pare style */}
+        <div className="relative flex-1 flex flex-col items-center justify-center text-center px-5 pb-20 pt-10 lg:pt-16 z-10">
+          <div className="reveal max-w-3xl mx-auto flex flex-col items-center">
+            {/* Brand cartouche */}
+            <div className="gold-cartouche mb-8 lg:mb-12">
+              <span
+                className="script-accent text-4xl sm:text-5xl leading-none"
+                style={{ fontFamily: '"Allura", "Pinyon Script", cursive' }}
+              >
+                Lana Stone
+              </span>
+              <span
+                className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.55em] uppercase mt-1"
+                style={{ color: "var(--color-gold-soft)" }}
+              >
+                handmade jewelry
+              </span>
+            </div>
 
-            {/* Заголовок — каллиграфическое "Украшения", в стиле Lana Stone */}
-            <h1 className="mt-3 leading-[0.95]">
-              <span className="block script-accent text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[10rem]" style={{ fontFamily: '"Marck Script", cursive', fontWeight: 400 }}>
+            {/* Big editorial heading */}
+            <h1 className="leading-none flex flex-col items-center">
+              <span
+                className="script-accent text-5xl sm:text-7xl lg:text-8xl -mb-3 lg:-mb-6 -rotate-3 translate-x-[-20%] sm:translate-x-[-30%]"
+                style={{ fontFamily: '"Allura", "Pinyon Script", cursive' }}
+              >
+                Authentic
+              </span>
+              <span className="hero-display text-6xl sm:text-8xl lg:text-[8rem] xl:text-[10rem]">
                 Украшения
               </span>
-              <span className="block text-2xl sm:text-3xl lg:text-4xl mt-1 lg:mt-2 font-light text-balance" style={{ fontFamily: '"Marck Script", cursive', color: 'var(--color-lilac-deep)' }}>
-                Ручной работы из натуральных камней
+              <span
+                className="hero-display text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-2"
+                style={{ letterSpacing: "0.32em" }}
+              >
+                Collection
               </span>
             </h1>
 
-            {/* Акцентный подзаголовок — в декоративной рамке */}
-            <div className="mt-5 lg:mt-7 inline-block max-w-xl">
-              <div className="relative px-5 py-3 lg:px-6 lg:py-4 border border-primary/40 rounded-sm bg-card/55 backdrop-blur-sm shadow-soft">
-                <span
-                  className="absolute -top-2 left-4 px-2 text-[0.65rem] tracking-[0.4em] uppercase text-primary"
-                  style={{ backgroundColor: "var(--color-cream)" }}
-                >
-                  · для Вас ·
-                </span>
-                <p className="accent-italic text-lg lg:text-xl text-foreground/85 text-pretty leading-snug">
-                  Для тех, кто выбирает не просто красивую вещь,
-                  <br className="hidden sm:block" /> а <em className="not-italic text-primary font-light font-serif">деталь с настроением</em>.
-                </p>
-              </div>
+            {/* Tagline strip */}
+            <div className="mt-8 lg:mt-10 flex items-center gap-4 text-[0.65rem] sm:text-[0.75rem] tracking-[0.5em] uppercase" style={{ color: "var(--color-cream)" }}>
+              <span className="hidden sm:block w-12 h-px" style={{ background: "var(--color-gold)", opacity: 0.6 }} />
+              <span>Авторские украшения из натуральных камней</span>
+              <span className="hidden sm:block w-12 h-px" style={{ background: "var(--color-gold)", opacity: 0.6 }} />
             </div>
 
-            {/* Финальная фраза — единый акцентный курсив */}
-            <p className="mt-6 lg:mt-8 accent-italic text-2xl sm:text-3xl lg:text-[1.85rem] text-foreground max-w-xl text-pretty leading-snug font-serif font-semibold" style={{ color: "var(--color-lilac-deep)" }}>
-              Созданные с вниманием к материалу, настроению и красоте каждого образа.
-            </p>
-
-            {/* Кнопки-категории внизу первого экрана */}
-            <div className="mt-6 lg:mt-8">
-              <p className="text-[0.7rem] tracking-[0.35em] uppercase text-muted-foreground mb-3">
-                Перейти к коллекции
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {categories.map((c) => (
-                  <button
-                    key={c.id}
-                    onClick={() => scrollTo("catalog")}
-                    className="group relative px-4 py-2 lg:px-5 lg:py-2.5 rounded-full border border-primary/40 bg-card/70 backdrop-blur text-xs lg:text-sm text-foreground/85 hover:text-primary-foreground hover:bg-primary hover:border-primary transition-all shadow-soft"
-                  >
-                    {c.label}
-                    <span className="ml-1.5 opacity-60 group-hover:opacity-100 transition">→</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-7 lg:mt-9 flex flex-wrap gap-3">
+            {/* CTA */}
+            <div className="mt-9 lg:mt-12 flex flex-wrap items-center justify-center gap-3">
               <Button
                 onClick={() => scrollTo("catalog")}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 lg:px-9 h-14 shadow-glow"
-                style={{ fontFamily: '"Marck Script", cursive', fontSize: "1.6rem", fontWeight: 400, letterSpacing: 0 }}
+                className="bg-gradient-gold text-primary-foreground hover:opacity-90 px-10 h-12 rounded-none tracking-[0.35em] uppercase text-xs shadow-gold"
+                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
               >
-                Смотреть коллекцию
+                Смотреть каталог
               </Button>
               <Button
                 onClick={() => openOrder("", "Заказать украшение")}
                 variant="outline"
-                className="border-primary/50 text-foreground bg-card/70 backdrop-blur hover:bg-accent px-7 lg:px-9 h-14"
-                style={{ fontFamily: '"Marck Script", cursive', fontSize: "1.6rem", fontWeight: 400, letterSpacing: 0 }}
+                className="border h-12 px-8 rounded-none tracking-[0.35em] uppercase text-xs bg-transparent backdrop-blur-sm hover:bg-card/60"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 500,
+                  color: "var(--color-cream)",
+                  borderColor: "var(--color-gold)",
+                }}
               >
-                Заказать украшение
+                Заказать
               </Button>
             </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-foreground/50 text-xs tracking-[0.4em] uppercase animate-pulse">
+        <div
+          className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-xs tracking-[0.5em] uppercase animate-pulse z-10"
+          style={{ color: "var(--color-gold-soft)" }}
+        >
           ↓ scroll
         </div>
       </section>
