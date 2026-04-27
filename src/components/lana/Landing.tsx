@@ -233,8 +233,13 @@ export function Landing() {
                 Ручной работы из натуральных камней
               </span>
               <span
-                className="mt-5 lg:mt-6 font-sans text-sm sm:text-base lg:text-base leading-relaxed max-w-md tracking-wide"
-                style={{ color: "oklch(0.96 0.02 230 / 0.95)", fontWeight: 400 }}
+                className="mt-5 lg:mt-6 leading-snug max-w-md text-2xl sm:text-3xl lg:text-3xl"
+                style={{
+                  fontFamily: '"Caveat", "Marck Script", cursive',
+                  color: "oklch(0.97 0.025 230)",
+                  fontWeight: 500,
+                  letterSpacing: "0.01em",
+                }}
               >
                 Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
               </span>
