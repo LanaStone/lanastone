@@ -464,33 +464,7 @@ export function Landing() {
                 </figcaption>
               </figure>
 
-              {/* Светящиеся пункты-кнопки */}
-              <ul className="mt-9 flex flex-wrap gap-3">
-                {[
-                  { t: "ручная работа", i: "✶" },
-                  { t: "натуральные камни", i: "◈" },
-                  { t: "в наличии и под заказ", i: "❋" },
-                  { t: "внимание к деталям", i: "✦" },
-                ].map((item) => (
-                  <li key={item.t}>
-                    <span
-                      className="halo group inline-flex items-center gap-2 px-5 py-2 rounded-full border backdrop-blur shadow-soft hover:shadow-glow transition-all cursor-default"
-                      style={{
-                        fontFamily: '"Marck Script", cursive',
-                        fontSize: "1.4rem",
-                        fontWeight: 400,
-                        lineHeight: 1.1,
-                        borderColor: "oklch(0.7 0.06 230 / 0.5)",
-                        backgroundColor: "oklch(0.18 0.014 235 / 0.55)",
-                        color: "oklch(0.95 0.02 230)",
-                      }}
-                    >
-                      <span style={{ color: "oklch(0.85 0.06 230)" }} className="text-base leading-none">{item.i}</span>
-                      {item.t}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {/* Бейджи теперь расположены под фотографией, чтобы перекрыть её нижний край */}
             </div>
           </div>
         </Section>
