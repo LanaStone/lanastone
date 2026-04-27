@@ -10,6 +10,7 @@ import { categories, products, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
+import graphiteStoneBg from "@/assets/graphite-stone-bg.jpg";
 import moodLight from "@/assets/mood-light.jpg";
 import moodDeep from "@/assets/mood-deep.jpg";
 import moodEnergy from "@/assets/mood-energy.jpg";
@@ -337,17 +338,18 @@ export function Landing() {
         className="relative overflow-hidden"
         style={{
           backgroundColor: "var(--color-night-deep)",
-          backgroundImage:
-            "radial-gradient(ellipse at 20% 30%, oklch(0.22 0.02 235 / 0.6) 0%, transparent 55%), radial-gradient(ellipse at 80% 70%, oklch(0.16 0.02 235 / 0.7) 0%, transparent 60%), linear-gradient(180deg, oklch(0.13 0.04 290) 0%, oklch(0.15 0.025 235) 50%, oklch(0.13 0.04 290) 100%)",
+          backgroundImage: `linear-gradient(180deg, oklch(0.11 0.012 235 / 0.96) 0%, oklch(0.11 0.012 235 / 0.18) 22%, oklch(0.11 0.012 235 / 0.3) 76%, oklch(0.11 0.012 235 / 0.95) 100%), url(${graphiteStoneBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
         }}
       >
-        {/* Subtle stone texture overlay */}
+        {/* Dark overlay keeps text readable while the stone texture remains visible */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 opacity-[0.08] mix-blend-screen pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage:
-              "radial-gradient(circle at 30% 40%, oklch(0.6 0.04 235) 0%, transparent 40%), radial-gradient(circle at 70% 60%, oklch(0.5 0.04 235) 0%, transparent 45%)",
+            background:
+              "radial-gradient(ellipse at 25% 35%, oklch(0.7 0.05 230 / 0.14) 0%, transparent 38%), linear-gradient(90deg, oklch(0.05 0.01 235 / 0.22) 0%, transparent 34%, oklch(0.05 0.01 235 / 0.38) 100%)",
           }}
         />
 
@@ -358,8 +360,7 @@ export function Landing() {
             alt=""
             aria-hidden="true"
             loading="lazy"
-            style={{ transform: "rotate(-22deg)", transformOrigin: "bottom left" }}
-            className="pointer-events-none select-none absolute -left-20 sm:-left-24 lg:-left-28 -bottom-24 sm:-bottom-28 lg:-bottom-32 w-60 sm:w-80 lg:w-[26rem] xl:w-[32rem] h-auto opacity-95 z-30 drop-shadow-2xl float-slow"
+            className="pointer-events-none select-none absolute -left-24 sm:-left-28 lg:-left-36 -bottom-10 sm:-bottom-14 lg:-bottom-20 w-72 sm:w-[24rem] lg:w-[32rem] xl:w-[38rem] h-auto opacity-100 z-20 drop-shadow-2xl about-flower-peek"
           />
 
           <div className="grid lg:grid-cols-12 gap-12 items-center relative">
