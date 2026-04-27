@@ -18,7 +18,7 @@ import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
 import decoNecklace from "@/assets/deco-necklace-heart.png";
-import decoBeadsLilac from "@/assets/deco-amethyst-strands-transparent.png";
+
 import decoBraceletLilac from "@/assets/deco-bracelet-lilac-cut.png";
 import decoBraceletOnyx from "@/assets/deco-bracelet-onyx-cut.png";
 
