@@ -334,21 +334,14 @@ export function Landing() {
 
       {/* ABOUT */}
       <Section id="about" className="py-24 lg:py-32 overflow-hidden">
-        {/* Сухоцветы по бокам как декор фона */}
+        {/* Сухоцвет — заглядывает в кадр из левого нижнего угла */}
         <img
           src={driedFlowers}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -left-10 sm:-left-6 lg:left-2 top-10 lg:top-16 w-32 sm:w-40 lg:w-56 h-auto opacity-80 z-0 drop-shadow-xl float-slow"
-        />
-        <img
-          src={driedFlowers}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          style={{ transform: "scaleX(-1)" }}
-          className="pointer-events-none select-none absolute -right-10 sm:-right-6 lg:right-2 bottom-10 lg:bottom-16 w-32 sm:w-40 lg:w-56 h-auto opacity-80 z-0 drop-shadow-xl float-slow"
+          style={{ transform: "rotate(-18deg)", transformOrigin: "bottom left" }}
+          className="pointer-events-none select-none absolute -left-16 sm:-left-20 lg:-left-24 -bottom-20 sm:-bottom-24 lg:-bottom-28 w-56 sm:w-72 lg:w-96 xl:w-[28rem] h-auto opacity-90 z-30 drop-shadow-2xl float-slow"
         />
 
         <div className="grid lg:grid-cols-12 gap-12 items-center relative">
