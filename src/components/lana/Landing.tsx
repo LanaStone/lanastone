@@ -235,9 +235,9 @@ export function Landing() {
               <span
                 className="mt-5 lg:mt-6 leading-snug max-w-md text-2xl sm:text-3xl lg:text-3xl"
                 style={{
-                  fontFamily: '"Caveat", "Marck Script", cursive',
+                  fontFamily: '"Marck Script", "Caveat", cursive',
                   color: "oklch(0.97 0.025 230)",
-                  fontWeight: 500,
+                  fontWeight: 400,
                   letterSpacing: "0.01em",
                 }}
               >
