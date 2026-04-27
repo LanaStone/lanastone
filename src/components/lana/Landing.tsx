@@ -217,34 +217,33 @@ export function Landing() {
         </div>
 
         {/* Hero content — left aligned on desktop, bottom on mobile */}
-        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-16 pt-8 lg:pt-10 z-10">
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-14 pt-8 lg:pt-10 z-10">
           <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
             {/* Heading */}
             <h1 className="leading-[0.95] flex flex-col items-start text-left">
               <span
-                className="hero-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl"
-                style={{ color: "var(--color-ice-blue, oklch(0.95 0.03 230))" }}
+                className="hero-display-ice text-4xl sm:text-5xl lg:text-7xl xl:text-8xl"
               >
                 Украшения
               </span>
               <span
-                className="mt-3 lg:mt-4 font-display text-base sm:text-lg lg:text-xl leading-snug text-balance"
-                style={{ color: "var(--color-cream)", fontWeight: 300 }}
+                className="mt-4 lg:mt-5 font-display italic text-xl sm:text-2xl lg:text-3xl leading-snug text-balance"
+                style={{ color: "oklch(0.95 0.03 230)", fontWeight: 300 }}
               >
                 ручной работы из натуральных камней.
               </span>
               <span
-                className="mt-4 lg:mt-5 font-sans text-sm sm:text-[0.95rem] lg:text-base leading-relaxed max-w-md"
-                style={{ color: "oklch(0.88 0.02 230 / 0.85)", fontWeight: 300 }}
+                className="mt-4 lg:mt-5 font-display text-base sm:text-lg lg:text-xl leading-snug max-w-md italic"
+                style={{ color: "oklch(0.9 0.025 230 / 0.92)", fontWeight: 300 }}
               >
-                Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и смыслом.
+                Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
               </span>
             </h1>
 
             {/* Subheading */}
             <p
-              className="mt-5 lg:mt-6 text-xs sm:text-sm leading-relaxed max-w-md"
-              style={{ color: "oklch(0.82 0.02 230 / 0.8)" }}
+              className="mt-5 lg:mt-6 font-sans text-xs sm:text-sm leading-relaxed max-w-md"
+              style={{ color: "oklch(0.85 0.02 230 / 0.85)" }}
             >
               Браслеты, колье, чокеры и акцентные детали, созданные с вниманием
               к&nbsp;материалу, настроению и&nbsp;красоте каждого образа.
@@ -256,14 +255,28 @@ export function Landing() {
                 <button
                   key={c.id}
                   onClick={() => goToCategory(c.id)}
-                  className="px-3.5 py-1.5 rounded-full text-[0.7rem] sm:text-xs tracking-[0.15em] uppercase border backdrop-blur-sm transition-colors hover:bg-card/40"
+                  className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[0.7rem] sm:text-xs tracking-[0.15em] uppercase border backdrop-blur-sm transition-all hover:bg-card/60 hover:border-[oklch(0.85_0.06_230)]"
                   style={{
-                    borderColor: "oklch(0.7 0.06 230 / 0.5)",
-                    color: "oklch(0.92 0.03 230)",
-                    backgroundColor: "oklch(0.18 0.014 235 / 0.35)",
+                    borderColor: "oklch(0.7 0.06 230 / 0.55)",
+                    color: "oklch(0.94 0.03 230)",
+                    backgroundColor: "oklch(0.18 0.014 235 / 0.4)",
                   }}
                 >
-                  {c.label}
+                  <span>{c.label}</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
                 </button>
               ))}
             </div>

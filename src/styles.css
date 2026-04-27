@@ -334,6 +334,21 @@
     text-shadow: 0 2px 24px oklch(0.55 0.18 305 / 0.25);
   }
 
+  /* Светло-голубой вариант hero-заголовка */
+  .hero-display-ice {
+    font-family: var(--font-display);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1;
+    background-image: linear-gradient(180deg, oklch(0.98 0.02 230) 0%, oklch(0.9 0.05 230) 55%, oklch(0.78 0.07 230) 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 2px 24px oklch(0.7 0.08 230 / 0.35);
+  }
+
   .stones-bg {
     position: absolute;
     inset: 0;
