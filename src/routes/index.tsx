@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Landing } from "@/components/lana/Landing";
 import { Toaster } from "@/components/ui/sonner";
 
-import heroPortrait from "@/assets/hero-portrait.jpg";
+import heroPortrait from "@/assets/hero-fullscreen.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
