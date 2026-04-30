@@ -475,8 +475,11 @@ export function Landing() {
             {ADVANTAGES.map((a, i) => (
               <div
                 key={a.title}
-                className="reveal halo group bg-card rounded-sm p-7 shadow-card border border-border/60 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 frame-glow"
-                style={{ transitionDelay: `${i * 60}ms` }}
+                className="reveal halo group rounded-sm p-7 shadow-card border border-primary/20 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 frame-glow backdrop-blur-sm"
+                style={{
+                  transitionDelay: `${i * 60}ms`,
+                  background: "linear-gradient(160deg, oklch(0.32 0.025 235 / 0.85) 0%, oklch(0.26 0.022 235 / 0.85) 100%)",
+                }}
               >
                 <div className="w-12 h-12 mb-5 rounded-full bg-accent/60 flex items-center justify-center ring-1 ring-primary/20">
                   <span className="text-primary font-script text-3xl leading-none">0{i + 1}</span>
