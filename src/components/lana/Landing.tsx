@@ -10,7 +10,7 @@ import { categories, products, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
 import aboutPortrait from "@/assets/about-portrait-final.jpg";
-import hangingBeads from "@/assets/deco-hanging-beads.png";
+import driedFlowersBouquet from "@/assets/deco-dried-flowers-bouquet.png";
 import moodLight from "@/assets/mood-light.jpg";
 import moodDeep from "@/assets/mood-deep.jpg";
 import moodEnergy from "@/assets/mood-energy.jpg";
@@ -351,25 +351,28 @@ export function Landing() {
           }}
         />
 
-        {/* Декоративные бусины — верхний правый угол */}
+        {/* Сухоцветы — верхний правый угол: букет «выглядывает» из-за края, видны только верхушки */}
         <img
-          src={hangingBeads}
+          src={driedFlowersBouquet}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -top-12 -right-8 sm:-right-4 lg:-right-2 w-40 sm:w-52 lg:w-64 xl:w-72 h-auto opacity-40 z-10 float-slow"
-          style={{ filter: "blur(0.4px) drop-shadow(0 8px 24px oklch(0.6 0.1 230 / 0.4))" }}
-        />
-        {/* Декоративные бусины — нижний левый угол (отражены) */}
-        <img
-          src={hangingBeads}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          className="pointer-events-none select-none absolute -bottom-16 -left-10 w-44 sm:w-56 lg:w-72 xl:w-80 h-auto opacity-35 z-10 float-slow"
+          className="pointer-events-none select-none absolute -top-40 sm:-top-48 lg:-top-56 -right-16 sm:-right-20 lg:-right-24 w-48 sm:w-64 lg:w-80 xl:w-96 h-auto opacity-55 z-10 float-slow"
           style={{
-            transform: "scaleX(-1) rotate(180deg)",
-            filter: "blur(0.6px) drop-shadow(0 8px 24px oklch(0.6 0.1 230 / 0.35))",
+            transform: "rotate(18deg)",
+            filter: "drop-shadow(0 10px 28px oklch(0 0 0 / 0.55))",
+          }}
+        />
+        {/* Сухоцветы — нижний левый угол: букет «выглядывает» снизу-сбоку, видны только верхушки */}
+        <img
+          src={driedFlowersBouquet}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none select-none absolute -bottom-48 sm:-bottom-56 lg:-bottom-64 -left-20 sm:-left-24 lg:-left-28 w-52 sm:w-72 lg:w-96 xl:w-[28rem] h-auto opacity-50 z-10 float-slow"
+          style={{
+            transform: "rotate(-160deg)",
+            filter: "drop-shadow(0 10px 28px oklch(0 0 0 / 0.5))",
           }}
         />
 
