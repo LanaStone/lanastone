@@ -418,7 +418,7 @@ export function Landing() {
             <div className="lg:col-span-7 reveal">
               <Ornament label="Знакомство" />
               <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl" style={{ color: "var(--color-cream)" }}>
-                <span className="script-accent text-5xl lg:text-6xl block mb-1" style={{ color: "oklch(0.85 0.06 230)" }}>Lana Stone</span>
+                <span className="script-accent text-5xl lg:text-6xl block mb-1" style={{ color: "oklch(0.85 0.06 230)", fontFamily: '"Marck Script", cursive' }}>Lana Stone</span>
                 Когда украшение становится <em className="not-italic" style={{ color: "oklch(0.85 0.06 230)" }}>чем-то личным</em>
               </h2>
 
@@ -450,7 +450,7 @@ export function Landing() {
                 </blockquote>
                 <figcaption className="mt-5 pl-6 lg:pl-10 flex items-center gap-3 text-sm not-italic">
                   <span className="w-8 h-px" style={{ background: "oklch(0.7 0.06 230 / 0.6)" }} />
-                  <span className="script-accent text-3xl font-serif" style={{ color: "oklch(0.9 0.06 230)" }}>Светлана</span>
+                  <span className="script-accent text-3xl" style={{ color: "oklch(0.9 0.06 230)", fontFamily: '"Marck Script", cursive' }}>Светлана</span>
                   <span className="tracking-wider" style={{ color: "oklch(0.7 0.02 230 / 0.8)" }}>— автор Lana Stone</span>
                 </figcaption>
               </figure>
