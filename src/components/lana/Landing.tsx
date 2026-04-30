@@ -357,10 +357,10 @@ export function Landing() {
                 {/* Внешнее неоновое свечение-силуэт */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-4 rounded-[1.5rem] blur-2xl pointer-events-none"
+                  className="absolute -inset-2 rounded-[1.5rem] blur-xl pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(135deg, oklch(0.78 0.08 230 / 0.85) 0%, oklch(0.7 0.09 235 / 0.8) 50%, oklch(0.78 0.07 220 / 0.85) 100%)",
+                      "linear-gradient(135deg, oklch(0.78 0.08 230 / 0.55) 0%, oklch(0.7 0.09 235 / 0.5) 50%, oklch(0.78 0.07 220 / 0.55) 100%)",
                   }}
                 />
                 {/* Карточка с неоновой рамкой */}
@@ -370,7 +370,7 @@ export function Landing() {
                     background:
                       "linear-gradient(135deg, oklch(0.82 0.08 230) 0%, oklch(0.72 0.09 235) 50%, oklch(0.82 0.07 220) 100%)",
                     boxShadow:
-                      "0 0 22px oklch(0.78 0.08 230 / 0.7), 0 0 55px -8px oklch(0.72 0.09 235 / 0.6), 0 30px 60px -20px oklch(0 0 0 / 0.75)",
+                      "0 0 12px oklch(0.78 0.08 230 / 0.45), 0 0 30px -10px oklch(0.72 0.09 235 / 0.4), 0 20px 45px -20px oklch(0 0 0 / 0.7)",
                   }}
                 >
                   <div className="relative rounded-[1.15rem] overflow-hidden bg-[oklch(0.09_0.012_235)]">
@@ -378,8 +378,8 @@ export function Landing() {
                       src={aboutPortrait}
                       alt="Светлана за рабочим столом собирает браслет из натуральных камней"
                       loading="lazy"
-                      width={1071}
-                      height={1339}
+                      width={929}
+                      height={1260}
                       className="block w-full h-auto object-cover"
                     />
                   </div>
