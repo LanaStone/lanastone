@@ -360,7 +360,7 @@ export function Landing() {
                   className="absolute -inset-4 rounded-[1.5rem] blur-2xl pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(135deg, oklch(0.45 0.22 270 / 0.95) 0%, oklch(0.32 0.24 285 / 0.9) 50%, oklch(0.4 0.2 250 / 0.95) 100%)",
+                      "linear-gradient(135deg, oklch(0.78 0.08 230 / 0.85) 0%, oklch(0.7 0.09 235 / 0.8) 50%, oklch(0.78 0.07 220 / 0.85) 100%)",
                   }}
                 />
                 {/* Карточка с неоновой рамкой */}
@@ -368,9 +368,9 @@ export function Landing() {
                   className="relative rounded-[1.25rem] p-[2px]"
                   style={{
                     background:
-                      "linear-gradient(135deg, oklch(0.5 0.22 270) 0%, oklch(0.35 0.24 285) 50%, oklch(0.5 0.2 250) 100%)",
+                      "linear-gradient(135deg, oklch(0.82 0.08 230) 0%, oklch(0.72 0.09 235) 50%, oklch(0.82 0.07 220) 100%)",
                     boxShadow:
-                      "0 0 25px oklch(0.4 0.24 275 / 0.85), 0 0 60px -8px oklch(0.32 0.26 285 / 0.8), 0 30px 60px -20px oklch(0 0 0 / 0.85)",
+                      "0 0 22px oklch(0.78 0.08 230 / 0.7), 0 0 55px -8px oklch(0.72 0.09 235 / 0.6), 0 30px 60px -20px oklch(0 0 0 / 0.75)",
                   }}
                 >
                   <div className="relative rounded-[1.15rem] overflow-hidden bg-[oklch(0.09_0.012_235)]">
@@ -378,9 +378,9 @@ export function Landing() {
                       src={aboutPortrait}
                       alt="Светлана за рабочим столом собирает браслет из натуральных камней"
                       loading="lazy"
-                      width={1080}
-                      height={1080}
-                      className="block w-full h-auto aspect-square object-cover"
+                      width={1071}
+                      height={1339}
+                      className="block w-full h-auto object-cover"
                     />
                   </div>
                 </div>
