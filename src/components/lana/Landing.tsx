@@ -3,6 +3,8 @@ import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 import { RequestDialog } from "./RequestDialog";
 import { TryOnSection } from "./TryOnSection";
 import { useReveal } from "@/hooks/use-reveal";
@@ -149,6 +151,7 @@ export function Landing() {
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
   const [activeCategory, setActiveCategory] = useState<ProductCategory>("bracelets");
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   function openOrder(ref = "", title = "Оставить заявку") {
     setProductRef(ref);
@@ -527,7 +530,12 @@ export function Landing() {
                     className="reveal group bg-card rounded-sm overflow-hidden shadow-card border border-border/60 frame-glow halo hover:shadow-glow transition-all duration-500"
                     style={{ transitionDelay: `${i * 60}ms` }}
                   >
-                    <div className="relative aspect-square overflow-hidden bg-secondary">
+                    <button
+                      type="button"
+                      onClick={() => setLightbox({ src: p.image, alt: p.name })}
+                      className="relative aspect-square overflow-hidden bg-secondary block w-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      aria-label={`Открыть фото «${p.name}» во весь экран`}
+                    >
                       <img
                         src={p.image}
                         alt={p.name}
@@ -536,7 +544,7 @@ export function Landing() {
                         height={1024}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                    </div>
+                    </button>
                     <div className="p-6">
                       <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
                       <p className="mt-1 italic text-primary text-sm">{p.mood}</p>
@@ -757,6 +765,30 @@ export function Landing() {
         defaultProductRef={productRef}
         title={dialogTitle}
       />
+
+      <Dialog open={!!lightbox} onOpenChange={(open) => !open && setLightbox(null)}>
+        <DialogContent
+          className="max-w-[100vw] sm:max-w-[95vw] w-[100vw] sm:w-auto h-[100vh] sm:h-auto sm:max-h-[95vh] p-0 border-0 bg-black/95 [&>button]:hidden flex items-center justify-center overflow-hidden"
+        >
+          {lightbox && (
+            <>
+              <img
+                src={lightbox.src}
+                alt={lightbox.alt}
+                className="max-w-full max-h-full w-auto h-auto object-contain"
+              />
+              <button
+                type="button"
+                onClick={() => setLightbox(null)}
+                aria-label="Закрыть"
+                className="absolute top-4 right-4 h-10 w-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
