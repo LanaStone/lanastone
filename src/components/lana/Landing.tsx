@@ -513,7 +513,7 @@ export function Landing() {
       </div>
 
       {/* ADVANTAGES */}
-      <section className="relative py-24 lg:py-32 bg-secondary/40 border-y border-border/60 overflow-hidden">
+      <section className="relative py-24 lg:py-32 bg-secondary/15 border-y border-border/60 overflow-hidden">
         <div className="stones-bg" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto reveal">
