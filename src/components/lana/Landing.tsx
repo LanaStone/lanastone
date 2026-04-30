@@ -10,7 +10,8 @@ import { categories, products, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
 import aboutPortrait from "@/assets/about-portrait-final.jpg";
-import driedFlowersBouquet from "@/assets/deco-dried-flowers-bouquet.png";
+import decoLagurus from "@/assets/deco-lagurus-stems.png";
+import decoPanicle from "@/assets/deco-panicle-grass.png";
 import moodLight from "@/assets/mood-light.jpg";
 import moodDeep from "@/assets/mood-deep.jpg";
 import moodEnergy from "@/assets/mood-energy.jpg";
@@ -351,28 +352,52 @@ export function Landing() {
           }}
         />
 
-        {/* Сухоцветы — верхний правый угол: букет «выглядывает» из-за края, видны только верхушки */}
+        {/* Сухоцветы — верхний правый угол: воздушные метёлки с жёлтыми бутонами «свешиваются» сверху */}
         <img
-          src={driedFlowersBouquet}
+          src={decoPanicle}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -top-40 sm:-top-48 lg:-top-56 -right-16 sm:-right-20 lg:-right-24 w-48 sm:w-64 lg:w-80 xl:w-96 h-auto opacity-55 z-10 float-slow"
+          className="pointer-events-none select-none absolute -top-10 right-2 sm:right-6 lg:right-10 w-32 sm:w-40 lg:w-52 xl:w-60 h-auto opacity-80 z-20 float-slow"
           style={{
-            transform: "rotate(18deg)",
-            filter: "drop-shadow(0 10px 28px oklch(0 0 0 / 0.55))",
+            transform: "rotate(180deg)",
+            filter: "drop-shadow(0 8px 24px oklch(0 0 0 / 0.6))",
           }}
         />
-        {/* Сухоцветы — нижний левый угол: букет «выглядывает» снизу-сбоку, видны только верхушки */}
+        {/* Сухоцветы — пушистые лагурусы у правого края, средняя высота */}
         <img
-          src={driedFlowersBouquet}
+          src={decoLagurus}
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="pointer-events-none select-none absolute -bottom-48 sm:-bottom-56 lg:-bottom-64 -left-20 sm:-left-24 lg:-left-28 w-52 sm:w-72 lg:w-96 xl:w-[28rem] h-auto opacity-50 z-10 float-slow"
+          className="pointer-events-none select-none absolute top-1/3 -right-4 sm:right-0 lg:right-4 w-24 sm:w-32 lg:w-40 h-auto opacity-75 z-20 float-slow"
           style={{
-            transform: "rotate(-160deg)",
-            filter: "drop-shadow(0 10px 28px oklch(0 0 0 / 0.5))",
+            transform: "rotate(155deg)",
+            filter: "drop-shadow(0 8px 22px oklch(0 0 0 / 0.55))",
+          }}
+        />
+        {/* Сухоцветы — нижний левый угол: лагурусы «торчат» снизу */}
+        <img
+          src={decoLagurus}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none select-none absolute -bottom-8 left-2 sm:left-6 lg:left-10 w-32 sm:w-44 lg:w-56 xl:w-64 h-auto opacity-80 z-20 float-slow"
+          style={{
+            transform: "rotate(-15deg)",
+            filter: "drop-shadow(0 -6px 22px oklch(0 0 0 / 0.55))",
+          }}
+        />
+        {/* Сухоцветы — воздушные метёлки у левого края, средняя высота */}
+        <img
+          src={decoPanicle}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none select-none absolute top-2/3 -left-6 sm:-left-2 lg:left-2 w-28 sm:w-36 lg:w-44 h-auto opacity-70 z-20 float-slow"
+          style={{
+            transform: "rotate(-25deg)",
+            filter: "drop-shadow(0 8px 22px oklch(0 0 0 / 0.5))",
           }}
         />
 
