@@ -450,7 +450,7 @@ export function Landing() {
                 </blockquote>
                 <figcaption className="mt-5 pl-6 lg:pl-10 flex items-center gap-3 text-sm not-italic">
                   <span className="w-8 h-px" style={{ background: "oklch(0.7 0.06 230 / 0.6)" }} />
-                  <span className="script-accent text-3xl" style={{ color: "oklch(0.9 0.06 230)" }}>Светлана</span>
+                  <span className="script-accent text-3xl font-serif" style={{ color: "oklch(0.9 0.06 230)" }}>Светлана</span>
                   <span className="tracking-wider" style={{ color: "oklch(0.7 0.02 230 / 0.8)" }}>— автор Lana Stone</span>
                 </figcaption>
               </figure>
