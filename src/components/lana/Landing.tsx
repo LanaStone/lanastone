@@ -417,7 +417,7 @@ export function Landing() {
             </div>
             <div className="lg:col-span-7 reveal">
               <Ornament label="Знакомство" />
-              <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl" style={{ color: "var(--color-cream)" }}>
+              <h2 className="font-heading lg:text-5xl mt-5 leading-tight text-balance text-4xl" style={{ color: "var(--color-cream)" }}>
                 <span className="script-accent text-5xl lg:text-6xl block mb-1" style={{ color: "oklch(0.85 0.06 230)", fontFamily: '"Marck Script", cursive' }}>Lana Stone</span>
                 Когда украшение становится <em className="not-italic" style={{ color: "oklch(0.85 0.06 230)" }}>чем-то личным</em>
               </h2>
