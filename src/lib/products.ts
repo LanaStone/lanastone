@@ -20,6 +20,8 @@ import braceletBlackAgateRedHeart from "@/assets/product-bracelet-black-agate-re
 import braceletRockCrystalAgate from "@/assets/product-bracelet-rock-crystal-agate.jpg";
 import braceletBlackAgateFacetedSilver from "@/assets/product-bracelet-black-agate-faceted-silver.jpg";
 import braceletMoonstoneAmethystCharm from "@/assets/product-bracelet-moonstone-amethyst-charm.jpg";
+import braceletBlackAgateGraphite from "@/assets/product-bracelet-black-agate-graphite.jpg";
+import braceletGarnetSilver from "@/assets/product-bracelet-garnet-silver.jpg";
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
@@ -315,6 +317,26 @@ export const products: Product[] = [
     size: "17 см",
     price: "2 600 ₽",
     image: braceletMoonstoneAmethystCharm,
+  },
+  {
+    id: "br-black-agate-graphite",
+    category: "bracelets",
+    name: "Чёрный агат · графитовый блеск",
+    mood: "Сдержанная роскошь и игра граней — оберег уверенности и спокойствия",
+    materials: "натуральный чёрный агат, многогранные бусины 5 мм",
+    size: "16 см",
+    price: "1 700 ₽",
+    image: braceletBlackAgateGraphite,
+  },
+  {
+    id: "br-garnet-silver",
+    category: "bracelets",
+    name: "Гранат и серебро · огонь внутри",
+    mood: "Многогранные бусины граната сияют как маленькие рубины — страсть, энергия и вдохновение",
+    materials: "натуральный гранат, многогранные бусины 4 мм, фурнитура серебро 925 пробы",
+    size: "16 см",
+    price: "1 700 ₽",
+    image: braceletGarnetSilver,
   },
   {
     id: "br-rock-crystal",
