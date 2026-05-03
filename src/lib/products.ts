@@ -33,6 +33,7 @@ import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
 import charm1 from "@/assets/product-charm-1.jpg";
 import charm2 from "@/assets/product-charm-2.jpg";
+import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import custom1 from "@/assets/product-custom-1.jpg";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms" | "custom";
