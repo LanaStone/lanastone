@@ -34,6 +34,7 @@ import necklace3 from "@/assets/product-necklace-3.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
+import charmHematiteHorse from "@/assets/product-charm-hematite-horse.jpg";
 import custom1 from "@/assets/product-custom-1.jpg";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms" | "custom";
@@ -408,6 +409,16 @@ export const products: Product[] = [
     size: "универсальный",
     price: "2 300 ₽",
     image: charmBlackAgateFaceted,
+  },
+  {
+    id: "ch-hematite-horse",
+    category: "charms",
+    name: "Гематит · подвеска-лошадка",
+    mood: "Стальной блеск гематита и изящная лошадка — обвес с характером для сумки или ремня",
+    materials: "натуральный гематит, подвеска-лошадка и сердце, металлическая фурнитура",
+    size: "универсальный",
+    price: "1 300 ₽",
+    image: charmHematiteHorse,
   },
   {
     id: "cu-1",
