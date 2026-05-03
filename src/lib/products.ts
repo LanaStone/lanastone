@@ -317,16 +317,6 @@ export const products: Product[] = [
     image: braceletMoonstoneAmethystCharm,
   },
   {
-    id: "br-moonstone-amethyst",
-    category: "bracelets",
-    name: "Лунный камень и аметист · мягкое сияние",
-    mood: "Лунный свет и магия аметиста — талисман интуиции и душевного равновесия",
-    materials: "натуральный лунный камень, аметист, бусины-подвеска, фурнитура серебро 925 пробы",
-    size: "17 см",
-    price: "2 600 ₽",
-    image: braceletMoonstoneAmethyst,
-  },
-  {
     id: "br-rock-crystal",
     category: "bracelets",
     name: "Горный хрусталь · ледяная чистота",
