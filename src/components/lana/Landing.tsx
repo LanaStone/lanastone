@@ -527,7 +527,7 @@ export function Landing() {
                 {products.filter((p) => p.category === c.id).map((p, i) => (
                   <article
                     key={p.id}
-                    className="reveal group bg-card rounded-sm overflow-hidden shadow-card border border-border/60 frame-glow halo hover:shadow-glow transition-all duration-500"
+                    className="group bg-card rounded-sm overflow-hidden shadow-card border border-border/60 frame-glow halo hover:shadow-glow transition-all duration-500"
                     style={{ transitionDelay: `${i * 60}ms` }}
                   >
                     <button
