@@ -544,6 +544,11 @@ export function Landing() {
                         height={1024}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
+                      {p.badge && (
+                        <span className="absolute top-3 left-3 px-3 py-1 rounded-sm bg-primary/90 text-primary-foreground text-xs font-medium tracking-wide uppercase backdrop-blur-sm">
+                          {p.badge}
+                        </span>
+                      )}
                     </button>
                     <div className="p-6">
                       <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
