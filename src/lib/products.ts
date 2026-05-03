@@ -30,6 +30,10 @@ import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-c
 import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
 import necklaceHematiteRhodium from "@/assets/product-necklace-hematite-rhodium.jpg";
 import necklaceHematiteCharms from "@/assets/product-necklace-hematite-charms.jpg";
+import necklacePearlHeart from "@/assets/product-necklace-pearl-heart.jpg";
+import necklacePearlFlower from "@/assets/product-necklace-pearl-flower.jpg";
+import necklacePearlHorse from "@/assets/product-necklace-pearl-horse.jpg";
+import necklaceMarcasiteAgateBow from "@/assets/product-necklace-marcasite-agate-bow.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
@@ -368,6 +372,46 @@ export const products: Product[] = [
     size: "длина 45 см",
     price: "2 500 ₽",
     image: necklaceHematiteCharms,
+  },
+  {
+    id: "nk-pearl-heart",
+    category: "necklaces",
+    name: "Жемчуг · чокер с сердцем",
+    mood: "Нежный жемчужный чокер с подвеской-сердцем — романтичный акцент на каждый день",
+    materials: "натуральный жемчуг, подвеска-сердце, регулируемая цепочка",
+    size: "длина 45+ см",
+    price: "3 500 ₽",
+    image: necklacePearlHeart,
+  },
+  {
+    id: "nk-pearl-flower",
+    category: "necklaces",
+    name: "Жемчуг · чокер с цветком в фианитах",
+    mood: "Изысканный жемчужный чокер с сияющей серединкой-цветком — утончённая женственность",
+    materials: "натуральный жемчуг, центральная подвеска-цветок с фианитами, регулируемая цепочка",
+    size: "длина 40+ см",
+    price: "4 100 ₽",
+    image: necklacePearlFlower,
+  },
+  {
+    id: "nk-pearl-horse",
+    category: "necklaces",
+    name: "Жемчуг · чокер к году Лошади",
+    mood: "Жемчужный чокер с подвеской-лошадкой в позолоте — символ года и тёплый подарок",
+    materials: "натуральный жемчуг, серебро 925 пробы с позолотой, подвеска-лошадка",
+    size: "длина 40+ см",
+    price: "4 700 ₽",
+    image: necklacePearlHorse,
+  },
+  {
+    id: "nk-marcasite-agate-bow",
+    category: "necklaces",
+    name: "Марказит и агат · чокер-бантик",
+    mood: "Нежный и женственный бантик из многогранных бусин — максимальное сияние и романтика",
+    materials: "натуральный марказит, агат, многогранные бусины 3 мм",
+    size: "длина 40+ см",
+    price: "2 300 ₽",
+    image: necklaceMarcasiteAgateBow,
   },
   {
     id: "ch-black-agate-bag",
