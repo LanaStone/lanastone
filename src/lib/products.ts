@@ -315,6 +315,7 @@ export const products: Product[] = [
     size: "17 см",
     price: "2 600 ₽",
     image: braceletMoonstoneAmethystCharm,
+  },
   {
     id: "br-moonstone-amethyst",
     category: "bracelets",
