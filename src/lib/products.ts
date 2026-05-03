@@ -12,6 +12,9 @@ import braceletAgateAmethystHematiteCitrine from "@/assets/product-bracelet-agat
 import braceletAquamarineHematiteFlower from "@/assets/product-bracelet-aquamarine-hematite-flower.jpg";
 import braceletCacholong from "@/assets/product-bracelet-cacholong.jpg";
 import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquamarine-silver.jpg";
+import braceletPearlHorseSilver from "@/assets/product-bracelet-pearl-horse-silver.jpg";
+import braceletMoonstoneSilver from "@/assets/product-bracelet-moonstone-silver.jpg";
+import braceletMoonstoneButterfly from "@/assets/product-bracelet-moonstone-butterfly.jpg";
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
@@ -227,6 +230,36 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 800 ₽",
     image: braceletAgateAquamarineSilver,
+  },
+  {
+    id: "br-pearl-horse-silver",
+    category: "bracelets",
+    name: "Жемчуг и серебро · подвеска-лошадка",
+    mood: "Натуральный жемчуг с тёплым переливом и серебряная подвеска-лошадка — идеальный подарок",
+    materials: "натуральный жемчуг, фурнитура и подвеска-лошадка из серебра 925 пробы",
+    size: "16+ см",
+    price: "3 200 ₽",
+    image: braceletPearlHorseSilver,
+  },
+  {
+    id: "br-moonstone-silver",
+    category: "bracelets",
+    name: "Лунный камень и серебро · лунная магия",
+    mood: "Прохладное сияние натурального лунного камня в обрамлении серебра — сдержанно и женственно",
+    materials: "натуральный лунный камень, фурнитура серебро 925 пробы",
+    size: "17+ см",
+    price: "3 600 ₽",
+    image: braceletMoonstoneSilver,
+  },
+  {
+    id: "br-moonstone-butterfly",
+    category: "bracelets",
+    name: "Лунный камень · бабочка-трансформация",
+    mood: "Тихая магия лунного камня и серебряная бабочка — символ трансформации и нежной красоты",
+    materials: "натуральный лунный камень, серебряная подвеска-бабочка, фурнитура серебро 925 пробы",
+    size: "17+ см",
+    price: "3 600 ₽",
+    image: braceletMoonstoneButterfly,
   },
   {
     id: "br-moonstone-amethyst",
