@@ -31,9 +31,9 @@ import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citri
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
-import charm1 from "@/assets/product-charm-1.jpg";
-import charm2 from "@/assets/product-charm-2.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
+import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
+import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
 import custom1 from "@/assets/product-custom-1.jpg";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms" | "custom";
@@ -390,24 +390,24 @@ export const products: Product[] = [
     image: charmBlackAgateBag,
   },
   {
-    id: "ch-1",
+    id: "ch-rock-crystal",
     category: "charms",
-    name: "Розовая капля",
-    mood: "Деликатный акцент",
-    materials: "розовый кварц, серебро",
-    size: "длина 42 см",
-    price: "3 600 ₽",
-    image: charm1,
+    name: "Горный хрусталь · кристальная актуальность",
+    mood: "Прозрачные грани играют на свету — словно кристаллы льда и бриллиантовая россыпь",
+    materials: "натуральный горный хрусталь, гранёные бусины, подвески-сердце и замок",
+    size: "универсальный",
+    price: "2 200 ₽",
+    image: charmRockCrystal,
   },
   {
-    id: "ch-2",
+    id: "ch-black-agate-faceted",
     category: "charms",
-    name: "Жемчужная грань",
-    mood: "Нежная вертикаль",
-    materials: "жемчуг, аметист, серебро",
-    size: "длина 45 см",
-    price: "3 900 ₽",
-    image: charm2,
+    name: "Чёрный агат · тёмная магия деталей",
+    mood: "Многогранный чёрный агат — идеальный акцент для сумки, рюкзака или пояса",
+    materials: "натуральный многогранный чёрный агат, фурнитура латунь с родиевым покрытием",
+    size: "универсальный",
+    price: "2 300 ₽",
+    image: charmBlackAgateFaceted,
   },
   {
     id: "cu-1",
