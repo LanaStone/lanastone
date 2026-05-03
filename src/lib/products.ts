@@ -28,9 +28,7 @@ import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multi
 import braceletLarvikiteSilver from "@/assets/product-bracelet-larvikite-silver.jpg";
 import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-cube-chain.jpg";
 import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
-import necklace1 from "@/assets/product-necklace-1.jpg";
-import necklace2 from "@/assets/product-necklace-2.jpg";
-import necklace3 from "@/assets/product-necklace-3.jpg";
+import necklaceHematiteRhodium from "@/assets/product-necklace-hematite-rhodium.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
