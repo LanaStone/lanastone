@@ -509,12 +509,12 @@ export function Landing() {
         </div>
 
         <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v as ProductCategory)} className="mt-12 relative">
-          <TabsList className="mx-auto flex flex-wrap justify-center gap-1.5 bg-secondary/50 p-1.5 h-auto">
+          <TabsList className="mx-auto flex flex-wrap justify-center gap-2 bg-secondary/40 p-2 h-auto rounded-full border border-border/60">
             {categories.map((c) => (
               <TabsTrigger
                 key={c.id}
                 value={c.id}
-                className="px-5 py-2.5 text-sm data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm"
+                className="px-5 py-2.5 text-sm font-medium rounded-full border border-transparent text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary hover:bg-card/60 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary data-[state=active]:shadow-glow"
               >
                 {c.label}
               </TabsTrigger>
