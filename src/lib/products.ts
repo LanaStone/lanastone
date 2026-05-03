@@ -18,6 +18,8 @@ import braceletMoonstoneButterfly from "@/assets/product-bracelet-moonstone-butt
 import braceletBlackAgateRedGlass from "@/assets/product-bracelet-black-agate-red-glass.jpg";
 import braceletBlackAgateRedHeart from "@/assets/product-bracelet-black-agate-red-heart.jpg";
 import braceletRockCrystalAgate from "@/assets/product-bracelet-rock-crystal-agate.jpg";
+import braceletBlackAgateFacetedSilver from "@/assets/product-bracelet-black-agate-faceted-silver.jpg";
+import braceletMoonstoneAmethystCharm from "@/assets/product-bracelet-moonstone-amethyst-charm.jpg";
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
@@ -293,6 +295,26 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: braceletRockCrystalAgate,
+  },
+  {
+    id: "br-black-agate-faceted-silver",
+    category: "bracelets",
+    name: "Чёрный агат · многогранное сияние",
+    mood: "Прохладные многогранные бусины ловят свет — успокаивающий акцент с серебром 925",
+    materials: "натуральный чёрный агат, многогранные бусины 4 мм, фурнитура серебро 925 пробы",
+    size: "16+ см",
+    price: "2 800 ₽",
+    image: braceletBlackAgateFacetedSilver,
+  },
+  {
+    id: "br-moonstone-amethyst-charm",
+    category: "bracelets",
+    name: "Лунный камень и аметист · талисман интуиции",
+    mood: "Мягкое сияние лунного камня и мудрость аметиста — благородный талисман и роскошный подарок",
+    materials: "натуральный лунный камень, аметист, подвеска-бусина, фурнитура серебро 925 пробы",
+    size: "17 см",
+    price: "2 600 ₽",
+    image: braceletMoonstoneAmethystCharm,
   },
   {
     id: "br-moonstone-amethyst",
