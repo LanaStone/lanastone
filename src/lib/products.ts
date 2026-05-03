@@ -18,6 +18,8 @@ import braceletMoonstoneButterfly from "@/assets/product-bracelet-moonstone-butt
 import braceletBlackAgateRedGlass from "@/assets/product-bracelet-black-agate-red-glass.jpg";
 import braceletBlackAgateRedHeart from "@/assets/product-bracelet-black-agate-red-heart.jpg";
 import braceletRockCrystalAgate from "@/assets/product-bracelet-rock-crystal-agate.jpg";
+import braceletBlackAgateFacetedSilver from "@/assets/product-bracelet-black-agate-faceted-silver.jpg";
+import braceletMoonstoneAmethystCharm from "@/assets/product-bracelet-moonstone-amethyst-charm.jpg";
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
