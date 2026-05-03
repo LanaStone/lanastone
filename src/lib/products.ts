@@ -380,6 +380,16 @@ export const products: Product[] = [
     image: necklace3,
   },
   {
+    id: "ch-black-agate-bag",
+    category: "charms",
+    name: "Чёрный агат · обвес для сумки",
+    mood: "Деталь с характером — оживит сумку, рюкзак или поясную петлю брюк",
+    materials: "натуральный чёрный агат, подвеска-замок и сердце, фурнитура латунь с родиевым покрытием",
+    size: "универсальный",
+    price: "2 000 ₽",
+    image: charmBlackAgateBag,
+  },
+  {
     id: "ch-1",
     category: "charms",
     name: "Розовая капля",
