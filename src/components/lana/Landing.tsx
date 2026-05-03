@@ -270,7 +270,7 @@ export function Landing() {
 
             {/* Category chips */}
             <div className="mt-5 flex flex-wrap gap-2">
-              {categories.filter((c) => c.id !== "custom").map((c) => (
+              {categories.map((c) => (
                 <button
                   key={c.id}
                   onClick={() => goToCategory(c.id)}
