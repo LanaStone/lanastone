@@ -151,7 +151,6 @@ export function Landing() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
-  const [activeCategory, setActiveCategory] = useState<ProductCategory>("bracelets");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   function openOrder(ref = "", title = "Оставить заявку") {
