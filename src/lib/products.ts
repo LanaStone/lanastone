@@ -8,6 +8,8 @@ import braceletAzurmalachiteHematiteLava from "@/assets/product-bracelet-azurmal
 import braceletSagittarius from "@/assets/product-bracelet-sagittarius.jpg";
 import braceletRockCrystal from "@/assets/product-bracelet-rock-crystal.jpg";
 import braceletMoonstoneAmethyst from "@/assets/product-bracelet-moonstone-amethyst.jpg";
+import braceletAgateAmethystHematiteCitrine from "@/assets/product-bracelet-agate-amethyst-hematite-citrine.jpg";
+import braceletAquamarineHematiteFlower from "@/assets/product-bracelet-aquamarine-hematite-flower.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -125,6 +127,26 @@ export const products: Product[] = [
     size: "16 см",
     price: "2 500 ₽",
     image: braceletRockCrystal,
+  },
+  {
+    id: "br-agate-amethyst-hematite-citrine",
+    category: "bracelets",
+    name: "Агат, аметист, гематит и цитрин · сияние звезды",
+    mood: "Энергия четырёх камней и сияющая подвеска-звезда — для тех, кто любит украшения с характером и блеском",
+    materials: "натуральный агат, аметист, гематит, цитрин, бусины 8 мм, подвеска-звезда",
+    size: "17 см",
+    price: "1 500 ₽",
+    image: braceletAgateAmethystHematiteCitrine,
+  },
+  {
+    id: "br-aquamarine-hematite-flower",
+    category: "bracelets",
+    name: "Аквамарин и гематит · цветок на запястье",
+    mood: "Нежный аквамарин и строгий гематит в дуэте контраста и гармонии — с сияющей застёжкой-цветком в фианитах",
+    materials: "натуральный аквамарин, гематит, бусины 8 мм, застёжка-цветок с фианитами",
+    size: "17 см",
+    price: "1 700 ₽",
+    image: braceletAquamarineHematiteFlower,
   },
   {
     id: "br-moonstone-amethyst",
