@@ -12,6 +12,9 @@ import braceletAgateAmethystHematiteCitrine from "@/assets/product-bracelet-agat
 import braceletAquamarineHematiteFlower from "@/assets/product-bracelet-aquamarine-hematite-flower.jpg";
 import braceletCacholong from "@/assets/product-bracelet-cacholong.jpg";
 import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquamarine-silver.jpg";
+import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
+import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
+import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
