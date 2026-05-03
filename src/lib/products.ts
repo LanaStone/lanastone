@@ -15,6 +15,9 @@ import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquam
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
+import braceletLarvikiteSilver from "@/assets/product-bracelet-larvikite-silver.jpg";
+import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-cube-chain.jpg";
+import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -33,6 +36,7 @@ export interface Product {
   size: string;
   price: string;
   image: string;
+  badge?: string;
 }
 
 export const categories: { id: ProductCategory; label: string }[] = [
@@ -122,6 +126,37 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 600 ₽",
     image: braceletSagittarius,
+  },
+  {
+    id: "br-larvikite-silver",
+    category: "bracelets",
+    name: "Лаврикит и серебро · глубина северного сияния",
+    mood: "Сдержанная мужская энергия и таинственные серебристо-синие переливы «камня северного сияния»",
+    materials: "натуральный лаврикит, бусины 8 мм, фурнитура серебро 925 пробы",
+    size: "18 см",
+    price: "1 600 ₽",
+    image: braceletLarvikiteSilver,
+    badge: "Мужской",
+  },
+  {
+    id: "br-black-agate-cube-chain",
+    category: "bracelets",
+    name: "Чёрный агат · кубы на родиевой цепи",
+    mood: "Идеальные кубы чёрного агата на стильной цепочке с родиевым покрытием — холодный блеск и устойчивость",
+    materials: "натуральный чёрный агат, кубы 8 мм, цепочка с родиевым покрытием",
+    size: "18 см",
+    price: "1 600 ₽",
+    image: braceletBlackAgateCubeChain,
+  },
+  {
+    id: "br-lava-agate-citrine",
+    category: "bracelets",
+    name: "Лава, агат и цитрин · три стихии",
+    mood: "Сила земли в лаве, защита агата и солнечный оптимизм цитрина — три энергии в одном браслете",
+    materials: "натуральная вулканическая лава, агат, цитрин, бусины 8 мм",
+    size: "18 см",
+    price: "1 800 ₽",
+    image: braceletLavaAgateCitrine,
   },
   {
     id: "br-white-onyx-silver",
