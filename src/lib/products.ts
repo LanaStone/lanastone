@@ -29,6 +29,7 @@ import braceletLarvikiteSilver from "@/assets/product-bracelet-larvikite-silver.
 import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-cube-chain.jpg";
 import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
 import necklaceHematiteRhodium from "@/assets/product-necklace-hematite-rhodium.jpg";
+import necklaceHematiteCharms from "@/assets/product-necklace-hematite-charms.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
@@ -357,6 +358,16 @@ export const products: Product[] = [
     size: "длина 45 см",
     price: "2 500 ₽",
     image: necklaceHematiteRhodium,
+  },
+  {
+    id: "nk-hematite-charms",
+    category: "necklaces",
+    name: "Гематит и родий · колье с подвесками",
+    mood: "Матовая серьёзность гематита и родиевые цепочки-подвески — драматичный акцент с характером",
+    materials: "натуральный гематит, цепь с родиевым покрытием, подвески-звёзды и луна",
+    size: "длина 45 см",
+    price: "2 500 ₽",
+    image: necklaceHematiteCharms,
   },
   {
     id: "ch-black-agate-bag",
