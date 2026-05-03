@@ -33,6 +33,7 @@ export interface Product {
   size: string;
   price: string;
   image: string;
+  badge?: string;
 }
 
 export const categories: { id: ProductCategory; label: string }[] = [
