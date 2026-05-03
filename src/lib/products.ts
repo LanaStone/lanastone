@@ -33,6 +33,7 @@ import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
 import charm1 from "@/assets/product-charm-1.jpg";
 import charm2 from "@/assets/product-charm-2.jpg";
+import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import custom1 from "@/assets/product-custom-1.jpg";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms" | "custom";
@@ -377,6 +378,16 @@ export const products: Product[] = [
     size: "длина 64 см",
     price: "6 700 ₽",
     image: necklace3,
+  },
+  {
+    id: "ch-black-agate-bag",
+    category: "charms",
+    name: "Чёрный агат · обвес для сумки",
+    mood: "Деталь с характером — оживит сумку, рюкзак или поясную петлю брюк",
+    materials: "натуральный чёрный агат, подвеска-замок и сердце, фурнитура латунь с родиевым покрытием",
+    size: "универсальный",
+    price: "2 000 ₽",
+    image: charmBlackAgateBag,
   },
   {
     id: "ch-1",
