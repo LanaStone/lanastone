@@ -15,6 +15,9 @@ import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquam
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
+import braceletLarvikiteSilver from "@/assets/product-bracelet-larvikite-silver.jpg";
+import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-cube-chain.jpg";
+import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
