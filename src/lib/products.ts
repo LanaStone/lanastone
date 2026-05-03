@@ -30,6 +30,10 @@ import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-c
 import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
 import necklaceHematiteRhodium from "@/assets/product-necklace-hematite-rhodium.jpg";
 import necklaceHematiteCharms from "@/assets/product-necklace-hematite-charms.jpg";
+import necklacePearlHeart from "@/assets/product-necklace-pearl-heart.jpg";
+import necklacePearlFlower from "@/assets/product-necklace-pearl-flower.jpg";
+import necklacePearlHorse from "@/assets/product-necklace-pearl-horse.jpg";
+import necklaceMarcasiteAgateBow from "@/assets/product-necklace-marcasite-agate-bow.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
