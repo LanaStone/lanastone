@@ -10,6 +10,8 @@ import braceletRockCrystal from "@/assets/product-bracelet-rock-crystal.jpg";
 import braceletMoonstoneAmethyst from "@/assets/product-bracelet-moonstone-amethyst.jpg";
 import braceletAgateAmethystHematiteCitrine from "@/assets/product-bracelet-agate-amethyst-hematite-citrine.jpg";
 import braceletAquamarineHematiteFlower from "@/assets/product-bracelet-aquamarine-hematite-flower.jpg";
+import braceletCacholong from "@/assets/product-bracelet-cacholong.jpg";
+import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquamarine-silver.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -147,6 +149,26 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: braceletAquamarineHematiteFlower,
+  },
+  {
+    id: "br-cacholong",
+    category: "bracelets",
+    name: "Опал-кахолонг · чистота в каждой бусине",
+    mood: "Молочно-белое сияние кахолонга — простота как высшая форма изящества",
+    materials: "натуральный опал-кахолонг, бусины 8 и 9,5 мм",
+    size: "18 см",
+    price: "2 200 ₽",
+    image: braceletCacholong,
+  },
+  {
+    id: "br-agate-aquamarine-silver",
+    category: "bracelets",
+    name: "Агат и аквамарин · дебют в серебре",
+    mood: "Прохладный аквамарин и мудрый серый агат в достойной оправе серебра 925 пробы",
+    materials: "натуральный агат, аквамарин, бусины 8 мм, фурнитура серебро 925 пробы",
+    size: "17 см",
+    price: "1 800 ₽",
+    image: braceletAgateAquamarineSilver,
   },
   {
     id: "br-moonstone-amethyst",
