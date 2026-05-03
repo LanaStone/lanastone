@@ -146,7 +146,8 @@ function FloatingDeco({
 }
 
 export function Landing() {
-  useReveal();
+  const [activeCategory, setActiveCategory] = useState<ProductCategory>("bracelets");
+  useReveal([activeCategory]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
