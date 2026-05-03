@@ -12,6 +12,9 @@ import braceletAgateAmethystHematiteCitrine from "@/assets/product-bracelet-agat
 import braceletAquamarineHematiteFlower from "@/assets/product-bracelet-aquamarine-hematite-flower.jpg";
 import braceletCacholong from "@/assets/product-bracelet-cacholong.jpg";
 import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquamarine-silver.jpg";
+import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
+import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
+import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
 import necklace1 from "@/assets/product-necklace-1.jpg";
 import necklace2 from "@/assets/product-necklace-2.jpg";
 import necklace3 from "@/assets/product-necklace-3.jpg";
@@ -121,14 +124,34 @@ export const products: Product[] = [
     image: braceletSagittarius,
   },
   {
-    id: "br-rock-crystal",
+    id: "br-white-onyx-silver",
     category: "bracelets",
-    name: "Горный хрусталь · ледяная чистота",
-    mood: "Прозрачный искристый браслет — словно горный ручей и кусочек зимы на запястье",
-    materials: "натуральный горный хрусталь, гранёные бусины 8 мм, фурнитура серебро 925 пробы",
-    size: "16 см",
-    price: "2 500 ₽",
-    image: braceletRockCrystal,
+    name: "Белый оникс и серебро · спокойная уверенность",
+    mood: "Кремовый белый оникс с лунным рисунком в холодной оправе серебра — унисекс и универсальность",
+    materials: "натуральный белый оникс, бусины 8 мм, фурнитура серебро 925 пробы",
+    size: "17,5 см",
+    price: "1 800 ₽",
+    image: braceletWhiteOnyxSilver,
+  },
+  {
+    id: "br-hematite-basic",
+    category: "bracelets",
+    name: "Гематит · базовый стилевой союзник",
+    mood: "Прохладный металлический блеск и стальная глубина — идеальная база и абсолютный унисекс",
+    materials: "натуральный гематит, бусины 6,5 мм",
+    size: "17 см",
+    price: "1 300 ₽",
+    image: braceletHematiteBasic,
+  },
+  {
+    id: "br-hematite-multilayer",
+    category: "bracelets",
+    name: "Гематит · многослойная геометрия",
+    mood: "Игра форм и оттенков сталинисто-серого — сдержанная геометрия и тактильный холодный блеск",
+    materials: "натуральный гематит, разноформатные бусины, серебристая застёжка-карабин",
+    size: "17 см",
+    price: "1 500 ₽",
+    image: braceletHematiteMultilayer,
   },
   {
     id: "br-agate-amethyst-hematite-citrine",
@@ -179,6 +202,16 @@ export const products: Product[] = [
     size: "17 см",
     price: "2 600 ₽",
     image: braceletMoonstoneAmethyst,
+  },
+  {
+    id: "br-rock-crystal",
+    category: "bracelets",
+    name: "Горный хрусталь · ледяная чистота",
+    mood: "Прозрачный искристый браслет — словно горный ручей и кусочек зимы на запястье",
+    materials: "натуральный горный хрусталь, гранёные бусины 8 мм, фурнитура серебро 925 пробы",
+    size: "16 см",
+    price: "2 500 ₽",
+    image: braceletRockCrystal,
   },
   {
     id: "nk-1",
