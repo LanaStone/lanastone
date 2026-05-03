@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
-export function useReveal() {
+export function useReveal(deps: unknown[] = []) {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const els = document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)");
     if (!("IntersectionObserver" in window)) {
       els.forEach((el) => el.classList.add("is-visible"));
       return;
@@ -21,5 +21,6 @@ export function useReveal() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 }
