@@ -15,6 +15,9 @@ import braceletAgateAquamarineSilver from "@/assets/product-bracelet-agate-aquam
 import braceletPearlHorseSilver from "@/assets/product-bracelet-pearl-horse-silver.jpg";
 import braceletMoonstoneSilver from "@/assets/product-bracelet-moonstone-silver.jpg";
 import braceletMoonstoneButterfly from "@/assets/product-bracelet-moonstone-butterfly.jpg";
+import braceletBlackAgateRedGlass from "@/assets/product-bracelet-black-agate-red-glass.jpg";
+import braceletBlackAgateRedHeart from "@/assets/product-bracelet-black-agate-red-heart.jpg";
+import braceletRockCrystalAgate from "@/assets/product-bracelet-rock-crystal-agate.jpg";
 import braceletWhiteOnyxSilver from "@/assets/product-bracelet-white-onyx-silver.jpg";
 import braceletHematiteBasic from "@/assets/product-bracelet-hematite-basic.jpg";
 import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multilayer.jpg";
@@ -260,6 +263,36 @@ export const products: Product[] = [
     size: "17+ см",
     price: "3 600 ₽",
     image: braceletMoonstoneButterfly,
+  },
+  {
+    id: "br-black-agate-red-glass",
+    category: "bracelets",
+    name: "Чёрный агат · красные акценты",
+    mood: "Матовый чёрный агат с сочными вставками из красного стекла — графичный контраст и характер",
+    materials: "натуральный матовый чёрный агат, вставки из красного стекла, бусины 8 мм",
+    size: "17 см",
+    price: "1 500 ₽",
+    image: braceletBlackAgateRedGlass,
+  },
+  {
+    id: "br-black-agate-red-heart",
+    category: "bracelets",
+    name: "Чёрный агат · красное сердце",
+    mood: "Матовый чёрный агат и глубокое бордовое стеклянное сердце — страсть и энергия в нужном русле",
+    materials: "натуральный матовый чёрный агат, стеклянная подвеска-сердце, бусины 8 мм",
+    size: "17 см",
+    price: "1 500 ₽",
+    image: braceletBlackAgateRedHeart,
+  },
+  {
+    id: "br-rock-crystal-agate",
+    category: "bracelets",
+    name: "Горный хрусталь и агат · идеальный спутник",
+    mood: "Чистота горного хрусталя и гармония натурального агата — классика на каждый день",
+    materials: "натуральный горный хрусталь, агат, гранёные бусины 8 мм",
+    size: "17 см",
+    price: "1 700 ₽",
+    image: braceletRockCrystalAgate,
   },
   {
     id: "br-moonstone-amethyst",
