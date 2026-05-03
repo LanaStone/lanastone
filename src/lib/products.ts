@@ -38,9 +38,10 @@ import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
 import charmHematiteHorse from "@/assets/product-charm-hematite-horse.jpg";
-import custom1 from "@/assets/product-custom-1.jpg";
+import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart.jpg";
+import setHematiteRhodium from "@/assets/product-set-hematite-rhodium.jpg";
 
-export type ProductCategory = "bracelets" | "necklaces" | "charms" | "custom";
+export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
 export interface Product {
   id: string;
@@ -58,7 +59,6 @@ export const categories: { id: ProductCategory; label: string }[] = [
   { id: "bracelets", label: "Браслеты" },
   { id: "necklaces", label: "Колье и чокеры" },
   { id: "charms", label: "Обвесы и акценты" },
-  { id: "custom", label: "Под заказ" },
 ];
 
 export const products: Product[] = [
@@ -382,6 +382,7 @@ export const products: Product[] = [
     size: "длина 45+ см",
     price: "3 500 ₽",
     image: necklacePearlHeart,
+    badge: "На заказ",
   },
   {
     id: "nk-pearl-flower",
@@ -392,6 +393,7 @@ export const products: Product[] = [
     size: "длина 40+ см",
     price: "4 100 ₽",
     image: necklacePearlFlower,
+    badge: "На заказ",
   },
   {
     id: "nk-pearl-horse",
@@ -454,13 +456,25 @@ export const products: Product[] = [
     image: charmHematiteHorse,
   },
   {
-    id: "cu-1",
-    category: "custom",
-    name: "Ваш собственный образ",
-    mood: "Создаётся под вас",
-    materials: "по выбору — натуральные камни",
-    size: "по индивидуальным меркам",
-    price: "от 5 000 ₽",
-    image: custom1,
+    id: "nk-black-agate-heart",
+    category: "necklaces",
+    name: "Чёрный агат · колье с сердцем",
+    mood: "Гранёный чёрный агат, родированная цепь и подвеска-сердце — драматичная элегантность",
+    materials: "натуральный чёрный агат, цепь и фурнитура с родиевым покрытием, подвеска-сердце",
+    size: "регулируемая длина",
+    price: "по запросу",
+    image: necklaceBlackAgateHeart,
+    badge: "На заказ",
+  },
+  {
+    id: "set-hematite-rhodium",
+    category: "necklaces",
+    name: "Гематит и родий · комплект колье и браслет",
+    mood: "Гранёный гематит и родированная цепь — стальной блеск в дуэте украшений",
+    materials: "натуральный гематит, цепь с родиевым покрытием, подвески-сердца",
+    size: "браслет 18+ см, колье регулируемое",
+    price: "1 800 ₽ (браслет)",
+    image: setHematiteRhodium,
+    badge: "На заказ",
   },
 ];
