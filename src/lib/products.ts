@@ -28,9 +28,7 @@ import braceletHematiteMultilayer from "@/assets/product-bracelet-hematite-multi
 import braceletLarvikiteSilver from "@/assets/product-bracelet-larvikite-silver.jpg";
 import braceletBlackAgateCubeChain from "@/assets/product-bracelet-black-agate-cube-chain.jpg";
 import braceletLavaAgateCitrine from "@/assets/product-bracelet-lava-agate-citrine.jpg";
-import necklace1 from "@/assets/product-necklace-1.jpg";
-import necklace2 from "@/assets/product-necklace-2.jpg";
-import necklace3 from "@/assets/product-necklace-3.jpg";
+import necklaceHematiteRhodium from "@/assets/product-necklace-hematite-rhodium.jpg";
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
@@ -351,34 +349,14 @@ export const products: Product[] = [
     image: braceletRockCrystal,
   },
   {
-    id: "nk-1",
+    id: "nk-hematite-rhodium",
     category: "necklaces",
-    name: "Чёрное сердце",
-    mood: "Сдержанность с характером",
-    materials: "агат, горный хрусталь, серебро",
-    size: "длина 78 см",
-    price: "8 600 ₽",
-    image: necklace1,
-  },
-  {
-    id: "nk-2",
-    category: "necklaces",
-    name: "Лунный чокер",
-    mood: "Мягкое сияние",
-    materials: "лунный камень, аметист, серебро 925",
-    size: "длина 38 см",
-    price: "5 400 ₽",
-    image: necklace2,
-  },
-  {
-    id: "nk-3",
-    category: "necklaces",
-    name: "Тихий рассвет",
-    mood: "Глубина и спокойствие",
-    materials: "агат, серый шёлк",
-    size: "длина 64 см",
-    price: "6 700 ₽",
-    image: necklace3,
+    name: "Гематит и родий · стальной блеск",
+    mood: "Матовая металлическая серьёзность гематита и зеркальный блеск родиевой цепи",
+    materials: "натуральный гематит, цепь с родиевым покрытием",
+    size: "длина 45 см",
+    price: "2 500 ₽",
+    image: necklaceHematiteRhodium,
   },
   {
     id: "ch-black-agate-bag",
