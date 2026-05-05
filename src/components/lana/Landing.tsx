@@ -627,9 +627,6 @@ export function Landing() {
             <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
               Не знаете, что выбрать? <em className="not-italic text-primary">Начните с ощущения.</em>
             </h2>
-            <p className="mt-5 text-muted-foreground text-lg max-w-2xl text-pretty">
-              Иногда «то самое» украшение находится не по категории, а по внутреннему отклику.
-            </p>
           </div>
           <div className="mt-14 grid md:grid-cols-2 gap-6">
             {MOODS.map((m, i) => (

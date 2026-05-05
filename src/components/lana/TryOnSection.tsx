@@ -105,16 +105,28 @@ export function TryOnSection() {
       <div className="relative max-w-6xl mx-auto px-5 lg:px-10">
         <div className="text-center max-w-3xl mx-auto reveal">
           <span className="divider-ornament">Примерка онлайн</span>
-          <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
-            <span className="script-accent text-6xl lg:text-7xl block mb-2">try it on</span>
-            Подберите украшение <em className="not-italic text-primary">к своему образу</em>
+          <h2 className="font-display text-4xl lg:text-5xl lg:text-6xl font-light mt-5 leading-tight text-balance">
+            AI поможет <em className="not-italic text-primary">определиться</em>
           </h2>
-          <p className="mt-6 text-muted-foreground text-lg text-pretty">
-            Хотите заранее увидеть, как украшение будет смотреться именно на вас? Загрузите своё фото или
-            селфи, выберите браслет, колье или обвес — и AI покажет результат за минуту. Готовитесь к
-            событию? Сфотографируйтесь в выбранном наряде и примеряйте украшения, пока не найдёте идеальное
-            сочетание для образа.
-          </p>
+
+          <div className="mt-8 space-y-6 max-w-2xl mx-auto text-left">
+            <div>
+              <p className="text-lg text-foreground font-medium">
+                Хотите заранее увидеть, как украшение будет смотреться именно на вас?
+              </p>
+              <blockquote className="mt-3 pl-5 border-l-2 border-primary/50 italic text-muted-foreground text-base lg:text-lg">
+                Загрузите своё фото или селфи, выберите браслет, колье или обвес — и AI покажет результат за минуту.
+              </blockquote>
+            </div>
+            <div>
+              <p className="text-lg text-foreground font-medium">
+                Готовитесь к событию?
+              </p>
+              <blockquote className="mt-3 pl-5 border-l-2 border-primary/50 italic text-muted-foreground text-base lg:text-lg">
+                Сфотографируйтесь в выбранном наряде и примеряйте украшения, пока не найдёте идеальное сочетание для образа.
+              </blockquote>
+            </div>
+          </div>
         </div>
 
         <div className="mt-10 grid lg:grid-cols-2 gap-8 reveal">
