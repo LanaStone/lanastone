@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { generateTryOn } from "@/lib/tryon.functions";
-import { products } from "@/lib/products";
+import { products, categories, type ProductCategory } from "@/lib/products";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
 
@@ -29,10 +30,22 @@ async function urlToDataUrl(url: string): Promise<string> {
 
 export function TryOnSection() {
   const [userImage, setUserImage] = useState<string | null>(null);
-  const [selected, setSelected] = useState<string>(products[0]?.id ?? "");
+  const [tryOnCategory, setTryOnCategory] = useState<ProductCategory>("bracelets");
+  const filtered = useMemo(
+    () => products.filter((p) => p.category === tryOnCategory),
+    [tryOnCategory],
+  );
+  const [selected, setSelected] = useState<string>(filtered[0]?.id ?? "");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const generate = useServerFn(generateTryOn);
+
+  function onCategoryChange(cat: ProductCategory) {
+    setTryOnCategory(cat);
+    const first = products.find((p) => p.category === cat);
+    if (first) setSelected(first.id);
+    setResult(null);
+  }
 
   async function onFile(e: React.ChangeEvent<HTMLInputElement>) {
     const f = e.target.files?.[0];
@@ -61,7 +74,6 @@ export function TryOnSection() {
     setBusy(true);
     setResult(null);
     try {
-      // Convert bundled product image to data URL so the AI can read it.
       const productDataUrl = await urlToDataUrl(product.image);
       const res = await generate({
         data: {
@@ -92,14 +104,16 @@ export function TryOnSection() {
 
       <div className="relative max-w-6xl mx-auto px-5 lg:px-10">
         <div className="text-center max-w-3xl mx-auto reveal">
-          <span className="divider-ornament">Online try-on</span>
+          <span className="divider-ornament">Примерка онлайн</span>
           <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-tight text-balance">
-            <span className="script-accent text-6xl lg:text-7xl block mb-2">Online </span>
-            <em className="not-italic text-primary">примерка</em> украшений
+            <span className="script-accent text-6xl lg:text-7xl block mb-2">try it on</span>
+            Подберите украшение <em className="not-italic text-primary">к своему образу</em>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg text-pretty">
-            Хотите сразу посмотреть, как украшение будет смотреться на вас? Загрузите своё фото или селфи,
-            выберите украшение из каталога — и AI покажет, как это будет выглядеть.
+            Хотите заранее увидеть, как украшение будет смотреться именно на вас? Загрузите своё фото или
+            селфи, выберите браслет, колье или обвес — и AI покажет результат за минуту. Готовитесь к
+            событию? Сфотографируйтесь в выбранном наряде и примеряйте украшения, пока не найдёте идеальное
+            сочетание для образа.
           </p>
         </div>
 
@@ -107,7 +121,7 @@ export function TryOnSection() {
             {/* LEFT — controls */}
             <div className="bg-card/90 backdrop-blur border border-border/60 rounded-sm p-7 shadow-card halo group">
               <h3 className="font-display text-2xl">1. Ваше фото</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Селфи или фото руки. До 8 МБ.</p>
+              <p className="mt-1 text-sm text-muted-foreground">Селфи, фото руки или образа целиком. До 8 МБ.</p>
 
               <label className="mt-4 flex flex-col items-center gap-3 cursor-pointer border-2 border-dashed border-primary/40 bg-secondary/30 hover:bg-secondary/60 hover:border-primary rounded-sm p-6 text-center transition-colors">
                 <input type="file" accept="image/*" onChange={onFile} className="hidden" />
@@ -137,8 +151,28 @@ export function TryOnSection() {
               </label>
 
               <h3 className="font-display text-2xl mt-7">2. Украшение</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Сначала выберите категорию — затем конкретное изделие.</p>
+
+              <Tabs
+                value={tryOnCategory}
+                onValueChange={(v) => onCategoryChange(v as ProductCategory)}
+                className="mt-3"
+              >
+                <TabsList className="flex flex-wrap justify-start gap-1 bg-secondary/40 p-1 h-auto rounded-full border border-border/60">
+                  {categories.map((c) => (
+                    <TabsTrigger
+                      key={c.id}
+                      value={c.id}
+                      className="px-4 py-1.5 text-xs font-medium rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                    >
+                      {c.label}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </Tabs>
+
               <div className="mt-3 grid grid-cols-3 sm:grid-cols-4 gap-2.5 max-h-72 overflow-y-auto pr-1">
-                {products.map((p) => (
+                {filtered.map((p) => (
                   <button
                     key={p.id}
                     onClick={() => setSelected(p.id)}
@@ -165,7 +199,7 @@ export function TryOnSection() {
                 {busy ? "Создаём примерку…" : "Примерить с помощью AI"}
               </Button>
               <p className="mt-3 text-xs text-muted-foreground text-center">
-                Обычно занимает 10–30 секунд. Вход не нужен.
+                Обычно занимает 10–30 секунд.
               </p>
             </div>
 
