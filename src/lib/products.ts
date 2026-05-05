@@ -362,6 +362,7 @@ export const products: Product[] = [
     size: "длина 45 см",
     price: "2 500 ₽",
     image: necklaceHematiteRhodium,
+    badge: "На заказ",
   },
   {
     id: "nk-hematite-charms",
