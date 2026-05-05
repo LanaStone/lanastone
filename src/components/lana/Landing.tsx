@@ -184,6 +184,7 @@ export function Landing() {
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [moodPick, setMoodPick] = useState<{ title: string; items: Product[] } | null>(null);
 
   function openOrder(ref = "", title = "Оставить заявку") {
     setProductRef(ref);
@@ -194,6 +195,11 @@ export function Landing() {
   function goToCategory(cat: ProductCategory) {
     setActiveCategory(cat);
     setTimeout(() => scrollTo("catalog"), 50);
+  }
+
+  function openMood(m: (typeof MOODS)[number]) {
+    const items = products.filter(m.filter);
+    setMoodPick({ title: m.title, items });
   }
 
   return (
