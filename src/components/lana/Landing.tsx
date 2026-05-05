@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 import { RequestDialog } from "./RequestDialog";
 import { TryOnSection } from "./TryOnSection";
 import { useReveal } from "@/hooks/use-reveal";
-import { categories, products, type ProductCategory } from "@/lib/products";
+import { categories, products, type Product, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
 import aboutPortrait from "@/assets/about-portrait-final.jpg";
