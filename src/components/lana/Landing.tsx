@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
-import { RequestDialog } from "./RequestDialog";
+import { OrderDialog } from "./OrderDialog";
 import { TryOnSection } from "./TryOnSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { categories, products, type Product, type ProductCategory } from "@/lib/products";
@@ -180,16 +180,15 @@ function FloatingDeco({
 export function Landing() {
   const [activeCategory, setActiveCategory] = useState<ProductCategory>("bracelets");
   useReveal([activeCategory]);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [productRef, setProductRef] = useState("");
-  const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
+  const [orderOpen, setOrderOpen] = useState(false);
+  const [orderProduct, setOrderProduct] = useState<Product | null>(null);
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [moodPick, setMoodPick] = useState<{ title: string; items: Product[] } | null>(null);
 
-  function openOrder(ref = "", title = "Оставить заявку") {
-    setProductRef(ref);
-    setDialogTitle(title);
-    setDialogOpen(true);
+  function openOrder(productName = "", _title?: string) {
+    const p = productName ? products.find((x) => x.name === productName) ?? null : null;
+    setOrderProduct(p);
+    setOrderOpen(true);
   }
 
   function goToCategory(cat: ProductCategory) {
@@ -798,11 +797,10 @@ export function Landing() {
         </div>
       </footer>
 
-      <RequestDialog
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-        defaultProductRef={productRef}
-        title={dialogTitle}
+      <OrderDialog
+        open={orderOpen}
+        onOpenChange={setOrderOpen}
+        initialProduct={orderProduct}
       />
 
       <Dialog open={!!lightbox} onOpenChange={(open) => !open && setLightbox(null)}>
