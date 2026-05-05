@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 import { RequestDialog } from "./RequestDialog";
 import { TryOnSection } from "./TryOnSection";
 import { useReveal } from "@/hooks/use-reveal";
-import { categories, products, type ProductCategory } from "@/lib/products";
+import { categories, products, type Product, type ProductCategory } from "@/lib/products";
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
 import aboutPortrait from "@/assets/about-portrait-final.jpg";
@@ -41,11 +41,43 @@ const ADVANTAGES = [
   { title: "Можно выбрать своё", text: "Есть готовые украшения и возможность собрать своё — в нужном цвете, длине и настроении." },
 ];
 
-const MOODS = [
-  { title: "Нежность и свет", text: "Для тех, кому близки мягкие оттенки, чистота, лёгкость и спокойствие.", img: moodLight, cta: "Смотреть подборку", category: "bracelets" as ProductCategory },
-  { title: "Сила и глубина", text: "Украшения с характером — сдержанные, выразительные, собранные.", img: moodDeep, cta: "Смотреть подборку", category: "necklaces" as ProductCategory },
-  { title: "Энергия и акцент", text: "Для образов, где хочется больше огня, настроения и заметной детали.", img: moodEnergy, cta: "Смотреть подборку", category: "necklaces" as ProductCategory },
-  { title: "Подарок со смыслом", text: "Когда хочется подарить не просто украшение, а внимание с характером.", img: moodGift, cta: "Выбрать подарок", category: "charms" as ProductCategory },
+type MoodFilter = (p: Product) => boolean;
+
+const MOODS: {
+  title: string;
+  text: string;
+  img: string;
+  cta: string;
+  filter: MoodFilter;
+}[] = [
+  {
+    title: "Спокойное и светлое",
+    text: "Для тех, кому близки мягкие оттенки, чистота и лёгкость — горный хрусталь и лунный камень.",
+    img: moodLight,
+    cta: "Смотреть подборку",
+    filter: (p) => /горный хрусталь|лунный камень|кахолонг/i.test(`${p.name} ${p.materials}`),
+  },
+  {
+    title: "Акцент и глубина",
+    text: "Украшения с характером — выразительные, графичные. Чёрный агат и гематит.",
+    img: moodDeep,
+    cta: "Смотреть подборку",
+    filter: (p) => /чёрный агат|черный агат|гематит/i.test(`${p.name} ${p.materials}`),
+  },
+  {
+    title: "Женственное и мягкое",
+    text: "Для образов, где важны нежность и романтика — жемчуг и невесомые чокеры.",
+    img: moodEnergy,
+    cta: "Смотреть подборку",
+    filter: (p) => /жемчуг|чокер|бантик/i.test(`${p.name} ${p.materials}`),
+  },
+  {
+    title: "Подарок со смыслом",
+    text: "Когда хочется подарить не просто украшение, а внимание с характером — украшение по настроению или камню.",
+    img: moodGift,
+    cta: "Выбрать подарок",
+    filter: (p) => /серебро|подвеска|лошадк|бабочк|сердц|звезд|цвет/i.test(`${p.name} ${p.materials}`),
+  },
 ];
 
 const FAQ = [
@@ -152,6 +184,7 @@ export function Landing() {
   const [productRef, setProductRef] = useState("");
   const [dialogTitle, setDialogTitle] = useState("Оставить заявку");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [moodPick, setMoodPick] = useState<{ title: string; items: Product[] } | null>(null);
 
   function openOrder(ref = "", title = "Оставить заявку") {
     setProductRef(ref);
@@ -162,6 +195,11 @@ export function Landing() {
   function goToCategory(cat: ProductCategory) {
     setActiveCategory(cat);
     setTimeout(() => scrollTo("catalog"), 50);
+  }
+
+  function openMood(m: (typeof MOODS)[number]) {
+    const items = products.filter(m.filter);
+    setMoodPick({ title: m.title, items });
   }
 
   return (
@@ -587,8 +625,7 @@ export function Landing() {
           <div className="max-w-3xl reveal">
             <Ornament label="По настроению" />
             <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
-              <span className="script-accent text-5xl lg:text-6xl block mb-1">by mood</span>
-              Выбирайте не только по форме. <em className="not-italic text-primary">По ощущению.</em>
+              Не знаете, что выбрать? <em className="not-italic text-primary">Начните с ощущения.</em>
             </h2>
             <p className="mt-5 text-muted-foreground text-lg max-w-2xl text-pretty">
               Иногда «то самое» украшение находится не по категории, а по внутреннему отклику.
@@ -608,7 +645,7 @@ export function Landing() {
                   <h3 className="font-display text-3xl font-light" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed max-w-md" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
                   <Button
-                    onClick={() => { goToCategory(m.category); }}
+                    onClick={() => openMood(m)}
                     variant="outline"
                     className="mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10"
                     style={{ color: "var(--color-cream)", borderColor: "oklch(0.99 0.005 80 / 0.5)" }}
@@ -791,6 +828,52 @@ export function Landing() {
                 <X className="h-5 w-5" />
               </button>
             </>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!moodPick} onOpenChange={(open) => !open && setMoodPick(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+          {moodPick && (
+            <div>
+              <p className="divider-ornament">Подборка</p>
+              <h3 className="font-display text-3xl mt-3">{moodPick.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {moodPick.items.length === 0
+                  ? "Пока нет изделий в этой подборке. Напишите — соберу под ваше настроение."
+                  : `Подобрано украшений: ${moodPick.items.length}`}
+              </p>
+              <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {moodPick.items.map((p) => (
+                  <article key={p.id} className="bg-card rounded-sm overflow-hidden border border-border/60 shadow-card">
+                    <div className="relative aspect-square overflow-hidden bg-secondary">
+                      <img src={p.image} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
+                      {p.badge && (
+                        <span className="absolute top-2 left-2 px-2.5 py-1 rounded-sm bg-primary/90 text-primary-foreground text-[10px] font-medium tracking-wide uppercase">
+                          {p.badge}
+                        </span>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-display text-lg leading-tight">{p.name}</h4>
+                      <p className="mt-1 text-xs italic text-primary">{p.mood}</p>
+                      <div className="mt-3 flex items-center justify-between">
+                        <span className="font-display text-lg">{p.price}</span>
+                        <Button
+                          size="sm"
+                          onClick={() => {
+                            setMoodPick(null);
+                            openOrder(p.name, `Заказать «${p.name}»`);
+                          }}
+                        >
+                          Заказать
+                        </Button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
           )}
         </DialogContent>
       </Dialog>
