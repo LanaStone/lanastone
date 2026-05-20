@@ -38,8 +38,8 @@ import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
 import charmHematiteHorse from "@/assets/product-charm-hematite-horse.jpg";
-import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart.jpg";
-import setHematiteRhodium from "@/assets/product-set-hematite-rhodium.jpg";
+import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart-v2.jpg";
+import setHematiteRhodium from "@/assets/product-set-hematite-rhodium-v2.jpg";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
