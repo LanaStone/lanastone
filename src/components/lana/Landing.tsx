@@ -12,10 +12,10 @@ import { categories, products, type Product, type ProductCategory } from "@/lib/
 
 import heroFullscreen from "@/assets/hero-fullscreen.jpg";
 import aboutPortrait from "@/assets/about-portrait-final.jpg";
-import moodLight from "@/assets/mood-light.jpg";
-import moodDeep from "@/assets/mood-deep.jpg";
-import moodEnergy from "@/assets/mood-energy.jpg";
-import moodGift from "@/assets/mood-gift.jpg";
+import moodLight from "@/assets/mood-light-new.jpg";
+import moodDeep from "@/assets/mood-deep-new.jpg";
+import moodEnergy from "@/assets/mood-feminine.jpg";
+import moodGift from "@/assets/mood-gift-new.jpg";
 import trustBg from "@/assets/trust-bg.jpg";
 import driedFlowers from "@/assets/dried-flowers.png";
 import stonesScatter from "@/assets/stones-scatter.jpg";
