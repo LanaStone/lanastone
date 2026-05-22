@@ -758,14 +758,14 @@ export function Landing() {
       {/* TRUST */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img src={trustBg} alt="" loading="lazy" width={1920} height={768}
-          className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ backgroundColor: "oklch(0.985 0.008 80 / 0.85)" }} />
+          className="absolute inset-0 w-full h-full object-cover opacity-40" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.18 0.014 235 / 0.85) 0%, oklch(0.14 0.014 235 / 0.92) 100%)" }} />
         <div className="relative max-w-3xl mx-auto px-5 lg:px-10 text-center reveal">
           <Ornament label="Доверие" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl text-foreground">
             Украшение становится особенным, когда <em className="not-italic text-primary">находит своего человека</em>
           </h2>
-          <div className="mt-7 space-y-4 text-foreground/75 text-[1.02rem] leading-relaxed text-pretty">
+          <div className="mt-7 space-y-4 text-foreground/80 text-[1.02rem] leading-relaxed text-pretty">
             <p>
               Я очень люблю момент, когда украшение перестаёт быть просто красивой вещью и становится
               чьим-то любимым.
