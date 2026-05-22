@@ -37,7 +37,7 @@ import necklaceMarcasiteAgateBow from "@/assets/product-necklace-marcasite-agate
 import charmBlackAgateBag from "@/assets/product-charm-black-agate-bag.jpg";
 import charmRockCrystal from "@/assets/product-charm-rock-crystal.jpg";
 import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.jpg";
-import charmHematiteHorse from "@/assets/product-charm-hematite-horse.jpg";
+import charmHematiteHorse from "@/assets/product-charm-hematite-horse-v2.jpg";
 import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart-v2.jpg";
 import setHematiteRhodium from "@/assets/product-set-hematite-rhodium-v2.jpg";
 
