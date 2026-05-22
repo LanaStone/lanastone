@@ -804,26 +804,26 @@ export function Landing() {
       </Section>
 
       {/* FINAL CTA */}
-      <section className="relative py-24 lg:py-32 bg-gradient-lilac overflow-hidden">
+      <section className="relative py-24 lg:py-32 bg-gradient-night overflow-hidden">
         <img
           src={stonesScatter}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen"
         />
         <div className="relative max-w-4xl mx-auto px-5 lg:px-10 text-center reveal">
           <p className="script-accent text-5xl lg:text-7xl mb-4">— for you —</p>
-          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl" style={{ color: "var(--color-graphite)" }}>
-            Выберите украшение, которое будет не просто красивым — <em className="not-italic" style={{ color: "var(--color-lilac-deep)" }}>а вашим</em>
+          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl text-cream">
+            Выберите украшение, которое будет не просто красивым — <em className="not-italic text-primary">а вашим</em>
           </h2>
-          <p className="mt-6 text-foreground/75 text-lg text-pretty">
+          <p className="mt-6 text-cream/75 text-lg text-pretty">
             Посмотрите каталог, примерьте онлайн или напишите мне лично.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Button onClick={() => scrollTo("catalog")} className="px-8 h-12" style={{ backgroundColor: "var(--color-graphite)", color: "var(--color-cream)" }}>
+            <Button onClick={() => scrollTo("catalog")} className="px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow">
               Смотреть каталог
             </Button>
-            <Button onClick={() => openOrder("", "Написать мастеру")} variant="outline" className="border-graphite/60 bg-card/60 hover:bg-card px-8 h-12">
+            <Button onClick={() => openOrder("", "Написать мастеру")} variant="outline" className="border-primary/40 bg-transparent text-cream hover:bg-primary/10 hover:text-cream px-8 h-12">
               Написать мастеру
             </Button>
           </div>
