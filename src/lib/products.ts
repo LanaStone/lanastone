@@ -52,7 +52,7 @@ export interface Product {
   size: string;
   price: string;
   image: string;
-  badge?: string;
+  badges?: string[];
 }
 
 export const categories: { id: ProductCategory; label: string }[] = [
@@ -115,7 +115,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 500 ₽",
     image: braceletCitrineAgateLava,
-    badges: ["Популярное"],
+    badges: ["Мужской", "Популярное"],
   },
   {
     id: "br-hematite-thin",
