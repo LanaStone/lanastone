@@ -724,7 +724,7 @@ export function Landing() {
                 </p>
               </div>
               <Button
-                onClick={() => openOrder("Индивидуальный заказ", "Обсудить индивидуальный заказ")}
+                onClick={() => setLeadKind("custom")}
                 className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 h-12 shadow-glow"
               >
                 Обсудить индивидуальный заказ
