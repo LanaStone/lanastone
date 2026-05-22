@@ -48,13 +48,11 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
     }
   }, [open, initialProduct]);
 
-  // upsell suggestions: same category, exclude existing items
+  // upsell suggestions: random across all categories, exclude existing items
   const suggestions = useMemo(() => {
     const inCart = new Set(items.map((i) => i.id));
-    const baseCategory = initialProduct?.category;
-    const pool = products.filter((p) => !inCart.has(p.id) && (!baseCategory || p.category === baseCategory));
-    // simple deterministic shuffle by id hash
-    return pool.slice(0, 12).sort(() => 0.5 - Math.random()).slice(0, 4);
+    const pool = products.filter((p) => !inCart.has(p.id));
+    return [...pool].sort(() => 0.5 - Math.random()).slice(0, 4);
   }, [items, initialProduct]);
 
   function addItem(p: Product) {
