@@ -71,6 +71,7 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: braceletAgateBlack,
+    badge: "Популярное",
   },
   {
     id: "br-agate-lava",
@@ -114,7 +115,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 500 ₽",
     image: braceletCitrineAgateLava,
-    badge: "Мужской",
+    badge: "Популярное",
   },
   {
     id: "br-hematite-thin",
@@ -167,6 +168,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 600 ₽",
     image: braceletBlackAgateCubeChain,
+    badge: "Популярное",
   },
   {
     id: "br-lava-agate-citrine",
@@ -188,6 +190,7 @@ export const products: Product[] = [
     size: "17,5 см",
     price: "1 800 ₽",
     image: braceletWhiteOnyxSilver,
+    badge: "Популярное",
   },
   {
     id: "br-hematite-basic",
@@ -258,6 +261,7 @@ export const products: Product[] = [
     size: "16+ см",
     price: "3 200 ₽",
     image: braceletPearlHorseSilver,
+    badge: "Популярное",
   },
   {
     id: "br-moonstone-silver",
@@ -308,6 +312,7 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: braceletRockCrystalAgate,
+    badge: "Популярное",
   },
   {
     id: "br-black-agate-faceted-silver",
