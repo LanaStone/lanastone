@@ -879,6 +879,12 @@ export function Landing() {
         initialProduct={orderProduct}
       />
 
+      <LeadDialog
+        open={leadKind !== null}
+        onOpenChange={(o) => !o && setLeadKind(null)}
+        kind={leadKind ?? "custom"}
+      />
+
       <Dialog open={!!lightbox} onOpenChange={(open) => !open && setLightbox(null)}>
         <DialogContent
           className="max-w-[100vw] sm:max-w-[95vw] w-[100vw] sm:w-auto h-[100vh] sm:h-auto sm:max-h-[95vh] p-0 border-0 bg-black/95 [&>button]:hidden flex items-center justify-center overflow-hidden"
