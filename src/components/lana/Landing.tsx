@@ -701,25 +701,57 @@ export function Landing() {
       <Section id="custom" className="py-24 lg:py-32 overflow-hidden">
         <FloatingDeco src={decoBraceletLilac} className="left-2 top-10 -rotate-6" />
         <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
-        <div className="max-w-3xl mx-auto text-center reveal relative">
+        <div className="max-w-4xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
           <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
             <span className="script-accent text-5xl lg:text-6xl block mb-1">made for you</span>
-            Не нашли то самое? <em className="not-italic text-primary">Создадим для вас.</em>
+            Не нашли то самое? <em className="not-italic text-primary">Создадим для вас</em>
+            <span className="block mt-2 text-3xl lg:text-4xl text-muted-foreground font-light">— или <em className="not-italic text-primary">вместе с вами</em></span>
           </h2>
-          <div className="mt-7 space-y-4 text-muted-foreground text-[1.02rem] leading-relaxed text-pretty">
-            <p>Иногда украшение хочется не выбрать, а почувствовать и собрать ближе к себе.</p>
-            <p>
-              Если нравится стиль Lana Stone, но хочется другой камень, длину, оттенок или настроение —
-              можно обсудить индивидуальный заказ.
-            </p>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-6 text-left">
+            {/* Individual order */}
+            <article className="rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-7 lg:p-8 shadow-card flex flex-col">
+              <p className="script-accent text-3xl mb-1">for you</p>
+              <h3 className="font-display text-2xl lg:text-3xl font-light mb-4">Индивидуальный заказ</h3>
+              <div className="space-y-3 text-muted-foreground text-[0.98rem] leading-relaxed text-pretty flex-1">
+                <p>Иногда украшение хочется не выбрать, а почувствовать и собрать ближе к себе.</p>
+                <p>
+                  Нравится стиль Lana Stone, но хочется другой камень, длину, оттенок или
+                  настроение — обсудим и создам для вас.
+                </p>
+              </div>
+              <Button
+                onClick={() => openOrder("Индивидуальный заказ", "Обсудить индивидуальный заказ")}
+                className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 h-12 shadow-glow"
+              >
+                Обсудить индивидуальный заказ
+              </Button>
+            </article>
+
+            {/* Masterclass */}
+            <article className="rounded-2xl border border-primary/30 bg-gradient-to-br from-card/60 to-card/20 backdrop-blur-sm p-7 lg:p-8 shadow-glow flex flex-col">
+              <p className="script-accent text-3xl mb-1">with you</p>
+              <h3 className="font-display text-2xl lg:text-3xl font-light mb-4">Персональный мастер-класс</h3>
+              <div className="space-y-3 text-muted-foreground text-[0.98rem] leading-relaxed text-pretty flex-1">
+                <p>
+                  Я провожу индивидуальные мастер-классы — вместе, вашими руками и с моей
+                  помощью, мы создаём украшение для вас или для близкого человека.
+                </p>
+                <p>
+                  Это не только необычный подарок и качественное изделие, но и тёплый процесс
+                  — отличная идея для свидания или вечера вдвоём.
+                </p>
+              </div>
+              <Button
+                onClick={() => openOrder("Мастер-класс", "Записаться на мастер-класс")}
+                variant="outline"
+                className="mt-6 border-primary/50 hover:bg-primary/10 h-12"
+              >
+                Записаться на мастер-класс
+              </Button>
+            </article>
           </div>
-          <Button
-            onClick={() => openOrder("Индивидуальный заказ", "Обсудить индивидуальный заказ")}
-            className="mt-9 bg-primary text-primary-foreground hover:bg-primary/90 px-10 h-12 shadow-glow"
-          >
-            Обсудить индивидуальный заказ
-          </Button>
         </div>
       </Section>
 
