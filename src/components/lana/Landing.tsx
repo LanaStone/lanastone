@@ -360,6 +360,37 @@ export function Landing() {
                 Заказать украшение
               </Button>
             </div>
+
+            {/* Promo — скидка 10% на первый заказ */}
+            <div className="mt-5 lg:mt-6 inline-flex items-center gap-2.5 pl-3 pr-4 py-1.5 rounded-full backdrop-blur-md"
+              style={{
+                backgroundColor: "oklch(0.18 0.014 235 / 0.45)",
+                border: "1px solid oklch(0.78 0.09 85 / 0.45)",
+                boxShadow: "0 0 0 1px oklch(0.78 0.09 85 / 0.08), 0 8px 24px -12px oklch(0.18 0.014 235 / 0.6)",
+              }}
+            >
+              <span
+                className="flex items-center justify-center w-6 h-6 rounded-full text-[0.6rem] font-semibold"
+                style={{
+                  background: "var(--gradient-gold)",
+                  color: "var(--color-ink, #0c0c0c)",
+                  fontFamily: "Inter, sans-serif",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                10%
+              </span>
+              <span
+                className="text-[0.68rem] sm:text-xs tracking-[0.22em] uppercase"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  color: "var(--color-cream)",
+                  fontWeight: 500,
+                }}
+              >
+                скидка на первый заказ
+              </span>
+            </div>
           </div>
         </div>
 
