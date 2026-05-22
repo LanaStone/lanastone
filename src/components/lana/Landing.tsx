@@ -581,10 +581,21 @@ export function Landing() {
                         height={1024}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      {p.badge && (
-                        <span className="absolute top-3 left-3 px-3 py-1 rounded-sm bg-primary/90 text-primary-foreground text-xs font-medium tracking-wide uppercase backdrop-blur-sm">
-                          {p.badge}
-                        </span>
+                      {p.badges && p.badges.length > 0 && (
+                        <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5">
+                          {p.badges.map((b) => (
+                            <span
+                              key={b}
+                              className={
+                                b === "Популярное"
+                                  ? "px-3 py-1 rounded-full bg-amber-500/90 text-white text-[10px] font-semibold tracking-[0.15em] uppercase backdrop-blur-sm shadow-sm"
+                                  : "px-3 py-1 rounded-sm bg-primary/90 text-primary-foreground text-xs font-medium tracking-wide uppercase backdrop-blur-sm"
+                              }
+                            >
+                              {b}
+                            </span>
+                          ))}
+                        </div>
                       )}
                     </button>
                     <div className="p-6">
@@ -843,10 +854,21 @@ export function Landing() {
                   <article key={p.id} className="bg-card rounded-sm overflow-hidden border border-border/60 shadow-card">
                     <div className="relative aspect-square overflow-hidden bg-secondary">
                       <img src={p.image} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
-                      {p.badge && (
-                        <span className="absolute top-2 left-2 px-2.5 py-1 rounded-sm bg-primary/90 text-primary-foreground text-[10px] font-medium tracking-wide uppercase">
-                          {p.badge}
-                        </span>
+                      {p.badges && p.badges.length > 0 && (
+                        <div className="absolute top-2 left-2 flex flex-col items-start gap-1">
+                          {p.badges.map((b) => (
+                            <span
+                              key={b}
+                              className={
+                                b === "Популярное"
+                                  ? "px-2.5 py-1 rounded-full bg-amber-500/90 text-white text-[9px] font-semibold tracking-[0.15em] uppercase"
+                                  : "px-2.5 py-1 rounded-sm bg-primary/90 text-primary-foreground text-[10px] font-medium tracking-wide uppercase"
+                              }
+                            >
+                              {b}
+                            </span>
+                          ))}
+                        </div>
                       )}
                     </div>
                     <div className="p-4">
