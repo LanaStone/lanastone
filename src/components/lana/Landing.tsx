@@ -746,7 +746,7 @@ export function Landing() {
                 </p>
               </div>
               <Button
-                onClick={() => openOrder("Мастер-класс", "Записаться на мастер-класс")}
+                onClick={() => setLeadKind("masterclass")}
                 variant="outline"
                 className="mt-6 border-primary/50 hover:bg-primary/10 h-12"
               >
