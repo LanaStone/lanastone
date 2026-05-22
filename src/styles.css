@@ -263,6 +263,7 @@
             mask-composite: exclude;
     opacity: 0;
     transition: opacity 600ms ease;
+    pointer-events: none;
   }
   .group:hover .frame-glow::before,
   .frame-glow:hover::before {
