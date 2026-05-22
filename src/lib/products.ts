@@ -71,7 +71,7 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: braceletAgateBlack,
-    badge: "Популярное",
+    badges: ["Популярное"],
   },
   {
     id: "br-agate-lava",
@@ -82,7 +82,7 @@ export const products: Product[] = [
     size: "19 см",
     price: "1 500 ₽",
     image: braceletAgateLava,
-    badge: "Мужской",
+    badges: ["Мужской"],
   },
   {
     id: "br-agate-lava-amber",
@@ -93,7 +93,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 700 ₽",
     image: braceletAgateLavaAmber,
-    badge: "Мужской",
+    badges: ["Мужской"],
   },
   {
     id: "br-labradorite-hematite",
@@ -104,7 +104,7 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 300 ₽",
     image: braceletLabradoriteHematite,
-    badge: "Мужской",
+    badges: ["Мужской"],
   },
   {
     id: "br-citrine-agate-lava",
@@ -115,7 +115,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 500 ₽",
     image: braceletCitrineAgateLava,
-    badge: "Популярное",
+    badges: ["Популярное"],
   },
   {
     id: "br-hematite-thin",
@@ -136,7 +136,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 600 ₽",
     image: braceletAzurmalachiteHematiteLava,
-    badge: "Мужской",
+    badges: ["Мужской"],
   },
   {
     id: "br-sagittarius",
@@ -157,7 +157,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 600 ₽",
     image: braceletLarvikiteSilver,
-    badge: "Мужской",
+    badges: ["Мужской"],
   },
   {
     id: "br-black-agate-cube-chain",
@@ -168,7 +168,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 600 ₽",
     image: braceletBlackAgateCubeChain,
-    badge: "Популярное",
+    badges: ["Популярное"],
   },
   {
     id: "br-lava-agate-citrine",
@@ -179,7 +179,7 @@ export const products: Product[] = [
     size: "18 см",
     price: "1 800 ₽",
     image: braceletLavaAgateCitrine,
-    badge: "Мужской",
+    badges: ["Мужской"],
   },
   {
     id: "br-white-onyx-silver",
@@ -190,7 +190,7 @@ export const products: Product[] = [
     size: "17,5 см",
     price: "1 800 ₽",
     image: braceletWhiteOnyxSilver,
-    badge: "Популярное",
+    badges: ["Популярное"],
   },
   {
     id: "br-hematite-basic",
@@ -261,7 +261,7 @@ export const products: Product[] = [
     size: "16+ см",
     price: "3 200 ₽",
     image: braceletPearlHorseSilver,
-    badge: "Популярное",
+    badges: ["Популярное"],
   },
   {
     id: "br-moonstone-silver",
@@ -312,7 +312,7 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: braceletRockCrystalAgate,
-    badge: "Популярное",
+    badges: ["Популярное"],
   },
   {
     id: "br-black-agate-faceted-silver",
@@ -373,7 +373,7 @@ export const products: Product[] = [
     size: "длина 45 см",
     price: "2 500 ₽",
     image: necklaceHematiteRhodium,
-    badge: "На заказ",
+    badges: ["На заказ"],
   },
   {
     id: "nk-hematite-charms",
@@ -394,7 +394,7 @@ export const products: Product[] = [
     size: "длина 45+ см",
     price: "3 500 ₽",
     image: necklacePearlHeart,
-    badge: "На заказ",
+    badges: ["На заказ"],
   },
   {
     id: "nk-pearl-flower",
@@ -405,7 +405,7 @@ export const products: Product[] = [
     size: "длина 40+ см",
     price: "4 100 ₽",
     image: necklacePearlFlower,
-    badge: "На заказ",
+    badges: ["На заказ"],
   },
   {
     id: "nk-pearl-horse",
@@ -476,7 +476,7 @@ export const products: Product[] = [
     size: "регулируемая длина",
     price: "по запросу",
     image: necklaceBlackAgateHeart,
-    badge: "На заказ",
+    badges: ["На заказ"],
   },
   {
     id: "set-hematite-rhodium",
@@ -487,6 +487,6 @@ export const products: Product[] = [
     size: "браслет 18+ см, колье регулируемое",
     price: "1 800 ₽ (браслет)",
     image: setHematiteRhodium,
-    badge: "На заказ",
+    badges: ["На заказ"],
   },
 ];
