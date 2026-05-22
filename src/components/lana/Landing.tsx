@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import { OrderDialog } from "./OrderDialog";
+import { LeadDialog, type LeadKind } from "./LeadDialog";
 import { TryOnSection } from "./TryOnSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { categories, products, type Product, type ProductCategory } from "@/lib/products";
