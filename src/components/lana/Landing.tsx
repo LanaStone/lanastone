@@ -185,6 +185,7 @@ export function Landing() {
   const [orderProduct, setOrderProduct] = useState<Product | null>(null);
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [moodPick, setMoodPick] = useState<{ title: string; items: Product[] } | null>(null);
+  const [leadKind, setLeadKind] = useState<LeadKind | null>(null);
 
   function openOrder(productName = "", _title?: string) {
     const p = productName ? products.find((x) => x.name === productName) ?? null : null;
