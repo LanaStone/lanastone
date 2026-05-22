@@ -701,39 +701,71 @@ export function Landing() {
       <Section id="custom" className="py-24 lg:py-32 overflow-hidden">
         <FloatingDeco src={decoBraceletLilac} className="left-2 top-10 -rotate-6" />
         <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
-        <div className="max-w-3xl mx-auto text-center reveal relative">
+        <div className="max-w-4xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
           <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
             <span className="script-accent text-5xl lg:text-6xl block mb-1">made for you</span>
-            Не нашли то самое? <em className="not-italic text-primary">Создадим для вас.</em>
+            Не нашли то самое? <em className="not-italic text-primary">Создадим для вас</em>
+            <span className="block mt-2 text-3xl lg:text-4xl text-muted-foreground font-light">— или <em className="not-italic text-primary">вместе с вами</em></span>
           </h2>
-          <div className="mt-7 space-y-4 text-muted-foreground text-[1.02rem] leading-relaxed text-pretty">
-            <p>Иногда украшение хочется не выбрать, а почувствовать и собрать ближе к себе.</p>
-            <p>
-              Если нравится стиль Lana Stone, но хочется другой камень, длину, оттенок или настроение —
-              можно обсудить индивидуальный заказ.
-            </p>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-6 text-left">
+            {/* Individual order */}
+            <article className="rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-7 lg:p-8 shadow-card flex flex-col">
+              <p className="script-accent text-3xl mb-1">for you</p>
+              <h3 className="font-display text-2xl lg:text-3xl font-light mb-4">Индивидуальный заказ</h3>
+              <div className="space-y-3 text-muted-foreground text-[0.98rem] leading-relaxed text-pretty flex-1">
+                <p>Иногда украшение хочется не выбрать, а почувствовать и собрать ближе к себе.</p>
+                <p>
+                  Нравится стиль Lana Stone, но хочется другой камень, длину, оттенок или
+                  настроение — обсудим и создам для вас.
+                </p>
+              </div>
+              <Button
+                onClick={() => openOrder("Индивидуальный заказ", "Обсудить индивидуальный заказ")}
+                className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 h-12 shadow-glow"
+              >
+                Обсудить индивидуальный заказ
+              </Button>
+            </article>
+
+            {/* Masterclass */}
+            <article className="rounded-2xl border border-primary/30 bg-gradient-to-br from-card/60 to-card/20 backdrop-blur-sm p-7 lg:p-8 shadow-glow flex flex-col">
+              <p className="script-accent text-3xl mb-1">with you</p>
+              <h3 className="font-display text-2xl lg:text-3xl font-light mb-4">Персональный мастер-класс</h3>
+              <div className="space-y-3 text-muted-foreground text-[0.98rem] leading-relaxed text-pretty flex-1">
+                <p>
+                  Я провожу индивидуальные мастер-классы — вместе, вашими руками и с моей
+                  помощью, мы создаём украшение для вас или для близкого человека.
+                </p>
+                <p>
+                  Это не только необычный подарок и качественное изделие, но и тёплый процесс
+                  — отличная идея для свидания или вечера вдвоём.
+                </p>
+              </div>
+              <Button
+                onClick={() => openOrder("Мастер-класс", "Записаться на мастер-класс")}
+                variant="outline"
+                className="mt-6 border-primary/50 hover:bg-primary/10 h-12"
+              >
+                Записаться на мастер-класс
+              </Button>
+            </article>
           </div>
-          <Button
-            onClick={() => openOrder("Индивидуальный заказ", "Обсудить индивидуальный заказ")}
-            className="mt-9 bg-primary text-primary-foreground hover:bg-primary/90 px-10 h-12 shadow-glow"
-          >
-            Обсудить индивидуальный заказ
-          </Button>
         </div>
       </Section>
 
       {/* TRUST */}
       <section className="relative py-28 lg:py-36 overflow-hidden">
         <img src={trustBg} alt="" loading="lazy" width={1920} height={768}
-          className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ backgroundColor: "oklch(0.985 0.008 80 / 0.85)" }} />
+          className="absolute inset-0 w-full h-full object-cover opacity-40" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.18 0.014 235 / 0.85) 0%, oklch(0.14 0.014 235 / 0.92) 100%)" }} />
         <div className="relative max-w-3xl mx-auto px-5 lg:px-10 text-center reveal">
           <Ornament label="Доверие" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl text-foreground">
             Украшение становится особенным, когда <em className="not-italic text-primary">находит своего человека</em>
           </h2>
-          <div className="mt-7 space-y-4 text-foreground/75 text-[1.02rem] leading-relaxed text-pretty">
+          <div className="mt-7 space-y-4 text-foreground/80 text-[1.02rem] leading-relaxed text-pretty">
             <p>
               Я очень люблю момент, когда украшение перестаёт быть просто красивой вещью и становится
               чьим-то любимым.
@@ -772,26 +804,26 @@ export function Landing() {
       </Section>
 
       {/* FINAL CTA */}
-      <section className="relative py-24 lg:py-32 bg-gradient-lilac overflow-hidden">
+      <section className="relative py-24 lg:py-32 bg-gradient-night overflow-hidden">
         <img
           src={stonesScatter}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen"
         />
         <div className="relative max-w-4xl mx-auto px-5 lg:px-10 text-center reveal">
           <p className="script-accent text-5xl lg:text-7xl mb-4">— for you —</p>
-          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl" style={{ color: "var(--color-graphite)" }}>
-            Выберите украшение, которое будет не просто красивым — <em className="not-italic" style={{ color: "var(--color-lilac-deep)" }}>а вашим</em>
+          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl text-cream">
+            Выберите украшение, которое будет не просто красивым — <em className="not-italic text-primary">а вашим</em>
           </h2>
-          <p className="mt-6 text-foreground/75 text-lg text-pretty">
+          <p className="mt-6 text-cream/75 text-lg text-pretty">
             Посмотрите каталог, примерьте онлайн или напишите мне лично.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Button onClick={() => scrollTo("catalog")} className="px-8 h-12" style={{ backgroundColor: "var(--color-graphite)", color: "var(--color-cream)" }}>
+            <Button onClick={() => scrollTo("catalog")} className="px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow">
               Смотреть каталог
             </Button>
-            <Button onClick={() => openOrder("", "Написать мастеру")} variant="outline" className="border-graphite/60 bg-card/60 hover:bg-card px-8 h-12">
+            <Button onClick={() => openOrder("", "Написать мастеру")} variant="outline" className="border-primary/40 bg-transparent text-cream hover:bg-primary/10 hover:text-cream px-8 h-12">
               Написать мастеру
             </Button>
           </div>
