@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import { OrderDialog } from "./OrderDialog";
+import { LeadDialog, type LeadKind } from "./LeadDialog";
 import { TryOnSection } from "./TryOnSection";
 import { useReveal } from "@/hooks/use-reveal";
 import { categories, products, type Product, type ProductCategory } from "@/lib/products";
@@ -184,6 +185,7 @@ export function Landing() {
   const [orderProduct, setOrderProduct] = useState<Product | null>(null);
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const [moodPick, setMoodPick] = useState<{ title: string; items: Product[] } | null>(null);
+  const [leadKind, setLeadKind] = useState<LeadKind | null>(null);
 
   function openOrder(productName = "", _title?: string) {
     const p = productName ? products.find((x) => x.name === productName) ?? null : null;
@@ -722,7 +724,7 @@ export function Landing() {
                 </p>
               </div>
               <Button
-                onClick={() => openOrder("Индивидуальный заказ", "Обсудить индивидуальный заказ")}
+                onClick={() => setLeadKind("custom")}
                 className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 h-12 shadow-glow"
               >
                 Обсудить индивидуальный заказ
@@ -744,7 +746,7 @@ export function Landing() {
                 </p>
               </div>
               <Button
-                onClick={() => openOrder("Мастер-класс", "Записаться на мастер-класс")}
+                onClick={() => setLeadKind("masterclass")}
                 variant="outline"
                 className="mt-6 border-primary/50 hover:bg-primary/10 h-12"
               >
@@ -875,6 +877,12 @@ export function Landing() {
         open={orderOpen}
         onOpenChange={setOrderOpen}
         initialProduct={orderProduct}
+      />
+
+      <LeadDialog
+        open={leadKind !== null}
+        onOpenChange={(o) => !o && setLeadKind(null)}
+        kind={leadKind ?? "custom"}
       />
 
       <Dialog open={!!lightbox} onOpenChange={(open) => !open && setLightbox(null)}>
