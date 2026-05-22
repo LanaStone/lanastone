@@ -188,7 +188,6 @@ export function Landing() {
   const [leadKind, setLeadKind] = useState<LeadKind | null>(null);
 
   function openOrder(productName = "", _title?: string) {
-    console.log("[openOrder] called with:", productName);
     const p = productName ? products.find((x) => x.name === productName) ?? null : null;
     setOrderProduct(p);
     setOrderOpen(true);
