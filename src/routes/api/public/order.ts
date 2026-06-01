@@ -18,7 +18,7 @@ const orderSchema = z.object({
 });
 
 const RECIPIENT = "lanastonevrn@gmail.com";
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
+const RESEND_API_URL = "https://api.resend.com";
 
 function escapeHtml(s: string): string {
   return s
