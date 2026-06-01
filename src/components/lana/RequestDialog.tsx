@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { formatRussianPhone, isValidRussianPhone } from "@/lib/phoneValidation";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Введите имя").max(100, "До 100 символов"),
@@ -55,6 +56,10 @@ export function RequestDialog({
       toast.error(parsed.error.issues[0]?.message ?? "Проверьте поля формы");
       return;
     }
+    if (channel === "phone" && !isValidRussianPhone(contact)) {
+      toast.error("Введите корректный российский номер: +7 (XXX) XXX-XX-XX");
+      return;
+    }
     setSubmitting(true);
     const { error } = await supabase.from("lead_requests").insert({
       name: parsed.data.name,
@@ -90,8 +95,17 @@ export function RequestDialog({
             <Input id="ln-name" value={name} onChange={(e) => setName(e.target.value)} maxLength={100} required />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="ln-contact">Телефон, email или ник в мессенджере</Label>
-            <Input id="ln-contact" value={contact} onChange={(e) => setContact(e.target.value)} maxLength={200} required />
+            <Label htmlFor="ln-contact">
+              {channel === "phone" ? "Телефон *" : "Телефон, email или ник в мессенджере *"}
+            </Label>
+            <Input
+              id="ln-contact"
+              value={contact}
+              onChange={(e) => setContact(channel === "phone" ? formatRussianPhone(e.target.value) : e.target.value)}
+              maxLength={200}
+              required
+              placeholder={channel === "phone" ? "+7 (___) ___-__-__" : "@username, email или телефон"}
+            />
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="ln-channel">Удобный способ связи</Label>

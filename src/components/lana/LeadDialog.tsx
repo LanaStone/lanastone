@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Check } from "lucide-react";
+import { formatRussianPhone, isValidRussianPhone } from "@/lib/phoneValidation";
 
 export type LeadKind = "custom" | "masterclass";
 
@@ -68,6 +69,7 @@ export function LeadDialog({ open, onOpenChange, kind }: Props) {
     e.preventDefault();
     if (!firstName.trim()) return toast.error("Укажите имя");
     if (!phone.trim()) return toast.error("Укажите телефон");
+    if (!isValidRussianPhone(phone)) return toast.error("Введите корректный российский номер: +7 (XXX) XXX-XX-XX");
     if (!consent) return toast.error("Нужно согласие на обработку данных");
 
     setSubmitting(true);
@@ -139,7 +141,7 @@ export function LeadDialog({ open, onOpenChange, kind }: Props) {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="l-phone">Телефон *</Label>
-                  <Input id="l-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={50} required placeholder="+7 ..." />
+                  <Input id="l-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="l-city">Город</Label>
