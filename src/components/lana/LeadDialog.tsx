@@ -141,7 +141,7 @@ export function LeadDialog({ open, onOpenChange, kind }: Props) {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="l-phone">Телефон *</Label>
-                  <Input id="l-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={50} required placeholder="+7 ..." />
+                  <Input id="l-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="l-city">Город</Label>
