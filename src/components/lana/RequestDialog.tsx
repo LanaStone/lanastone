@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -61,18 +60,23 @@ export function RequestDialog({
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("lead_requests").insert({
-      name: parsed.data.name,
-      contact: parsed.data.contact,
-      channel: parsed.data.channel,
-      message: parsed.data.message || null,
-      product_ref: parsed.data.product_ref || null,
-    });
-    setSubmitting(false);
-    if (error) {
-      toast.error("Не удалось отправить. Попробуйте ещё раз или напишите в мессенджер.");
-      return;
+    let ok = false;
+    try {
+      const res = await fetch("/api/public/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data),
+      });
+      const json = await res.json().catch(() => ({}));
+      ok = res.ok && json?.ok === true;
+      if (!ok) {
+        toast.error(json?.error ?? "Не удалось отправить. Попробуйте ещё раз или напишите в мессенджер.");
+      }
+    } catch {
+      toast.error("Не удалось отправить. Проверьте интернет-соединение.");
     }
+    setSubmitting(false);
+    if (!ok) return;
     toast.success("Спасибо! Я свяжусь с вами в течение дня.");
     setName("");
     setContact("");

@@ -9,15 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicOrderRouteImport } from './routes/api/public/order'
+import { Route as ApiPublicLeadRouteImport } from './routes/api/public/lead'
 
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -28,46 +23,44 @@ const ApiPublicOrderRoute = ApiPublicOrderRouteImport.update({
   path: '/api/public/order',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicLeadRoute = ApiPublicLeadRouteImport.update({
+  id: '/api/public/lead',
+  path: '/api/public/lead',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/api/public/lead': typeof ApiPublicLeadRoute
   '/api/public/order': typeof ApiPublicOrderRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/api/public/lead': typeof ApiPublicLeadRoute
   '/api/public/order': typeof ApiPublicOrderRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/api/public/lead': typeof ApiPublicLeadRoute
   '/api/public/order': typeof ApiPublicOrderRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/api/public/order'
+  fullPaths: '/' | '/api/public/lead' | '/api/public/order'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/api/public/order'
-  id: '__root__' | '/' | '/auth' | '/api/public/order'
+  to: '/' | '/api/public/lead' | '/api/public/order'
+  id: '__root__' | '/' | '/api/public/lead' | '/api/public/order'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthRoute: typeof AuthRoute
+  ApiPublicLeadRoute: typeof ApiPublicLeadRoute
   ApiPublicOrderRoute: typeof ApiPublicOrderRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -82,14 +75,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicOrderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/lead': {
+      id: '/api/public/lead'
+      path: '/api/public/lead'
+      fullPath: '/api/public/lead'
+      preLoaderRoute: typeof ApiPublicLeadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthRoute: AuthRoute,
+  ApiPublicLeadRoute: ApiPublicLeadRoute,
   ApiPublicOrderRoute: ApiPublicOrderRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
