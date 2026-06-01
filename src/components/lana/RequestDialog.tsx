@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { formatRussianPhone, isValidRussianPhone } from "@/lib/phoneValidation";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Введите имя").max(100, "До 100 символов"),
