@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Plus, X, Check } from "lucide-react";
 import { products, type Product } from "@/lib/products";
+import { formatRussianPhone, isValidRussianPhone } from "@/lib/phoneValidation";
 
 type CartItem = { id: string; name: string; price: string; image: string };
 
