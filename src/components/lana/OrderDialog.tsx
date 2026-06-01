@@ -68,6 +68,7 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
     e.preventDefault();
     if (!firstName.trim()) return toast.error("Укажите имя");
     if (!phone.trim()) return toast.error("Укажите телефон");
+    if (!isValidRussianPhone(phone)) return toast.error("Введите корректный российский номер: +7 (XXX) XXX-XX-XX");
     if (items.length === 0) return toast.error("Добавьте хотя бы одно украшение");
     if (!consent) return toast.error("Нужно согласие на обработку данных");
 
