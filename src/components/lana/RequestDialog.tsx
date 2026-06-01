@@ -56,6 +56,10 @@ export function RequestDialog({
       toast.error(parsed.error.issues[0]?.message ?? "Проверьте поля формы");
       return;
     }
+    if (channel === "phone" && !isValidRussianPhone(contact)) {
+      toast.error("Введите корректный российский номер: +7 (XXX) XXX-XX-XX");
+      return;
+    }
     setSubmitting(true);
     const { error } = await supabase.from("lead_requests").insert({
       name: parsed.data.name,
