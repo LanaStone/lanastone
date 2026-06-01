@@ -18,7 +18,7 @@ const orderSchema = z.object({
 });
 
 const RECIPIENT = "lanastonevrn@gmail.com";
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
+const RESEND_API_URL = "https://api.resend.com";
 
 function escapeHtml(s: string): string {
   return s
@@ -49,9 +49,8 @@ export const Route = createFileRoute("/api/public/order")({
         }
         const data = parsed.data;
 
-        const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
-        const RESEND_API_KEY = process.env.RESEND_API_KEY;
-        if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
+        const RESEND_API_KEY = process.env.RESEND_API_KEY_DIRECT;
+        if (!RESEND_API_KEY) {
           return Response.json({ error: "Email-сервис не настроен" }, { status: 500 });
         }
 
@@ -85,12 +84,11 @@ export const Route = createFileRoute("/api/public/order")({
 
         const subject = `Новый заказ от ${fullName} (${data.items.length} поз.)`;
 
-        const res = await fetch(`${GATEWAY_URL}/emails`, {
+        const res = await fetch(`${RESEND_API_URL}/emails`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${LOVABLE_API_KEY}`,
-            "X-Connection-Api-Key": RESEND_API_KEY,
+            Authorization: `Bearer ${RESEND_API_KEY}`,
           },
           body: JSON.stringify({
             from: "Lana Stone <onboarding@resend.dev>",
