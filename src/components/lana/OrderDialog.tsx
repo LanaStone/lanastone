@@ -212,7 +212,7 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="o-phone">Телефон *</Label>
-                  <Input id="o-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={50} required placeholder="+7 ..." />
+                  <Input id="o-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="o-city">Город</Label>
