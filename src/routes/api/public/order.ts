@@ -49,9 +49,8 @@ export const Route = createFileRoute("/api/public/order")({
         }
         const data = parsed.data;
 
-        const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
-        const RESEND_API_KEY = process.env.RESEND_API_KEY;
-        if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
+        const RESEND_API_KEY = process.env.RESEND_API_KEY_DIRECT;
+        if (!RESEND_API_KEY) {
           return Response.json({ error: "Email-сервис не настроен" }, { status: 500 });
         }
 
