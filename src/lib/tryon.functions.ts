@@ -34,7 +34,7 @@ Match shadows, lighting direction and color temperature of the original photo. M
           "X-Title": "Lana Stone Try-On",
         },
         body: JSON.stringify({
-          model: "google/gemini-2.5-flash-image-preview",
+          model: "google/gemini-2.5-flash-image",
           messages: [
             {
               role: "user",
