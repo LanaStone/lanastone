@@ -11,12 +11,12 @@ const TryOnInput = z.object({
 export const generateTryOn = createServerFn({ method: "POST" })
   .inputValidator((input) => TryOnInput.parse(input))
   .handler(async ({ data }) => {
-    const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
-    if (!LOVABLE_API_KEY) {
+    const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+    if (!OPENROUTER_API_KEY) {
       return { ok: false as const, error: "AI service is not configured." };
     }
 
-    // Call Lovable AI image edit to put the jewelry on the user without requiring an account.
+    // Call OpenRouter (Gemini image model) to place the jewelry on the user.
     const prompt = `You are an editorial product visualization artist. Take the person from the FIRST image and naturally place the handmade jewelry shown in the SECOND image onto them. The jewelry is "${data.productName}". 
 Preserve the person's face, hair, skin tone, pose, lighting, and background EXACTLY. 
 - If it's a bracelet: place it on the wrist that is most visible, matching scale and perspective.
@@ -25,14 +25,16 @@ Preserve the person's face, hair, skin tone, pose, lighting, and background EXAC
 Match shadows, lighting direction and color temperature of the original photo. Make it look like a real photo, not a collage. Output only the final image.`;
 
     const callAi = async (): Promise<Response> => {
-      return fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      return fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          Authorization: `Bearer ${OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
+          "HTTP-Referer": "https://lanastone.lovable.app",
+          "X-Title": "Lana Stone Try-On",
         },
         body: JSON.stringify({
-          model: "google/gemini-2.5-flash-image",
+          model: "google/gemini-2.5-flash-image-preview",
           messages: [
             {
               role: "user",
