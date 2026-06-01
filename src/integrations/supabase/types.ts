@@ -14,66 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      lead_requests: {
-        Row: {
-          channel: string | null
-          contact: string
-          created_at: string
-          id: string
-          message: string | null
-          name: string
-          product_ref: string | null
-        }
-        Insert: {
-          channel?: string | null
-          contact: string
-          created_at?: string
-          id?: string
-          message?: string | null
-          name: string
-          product_ref?: string | null
-        }
-        Update: {
-          channel?: string | null
-          contact?: string
-          created_at?: string
-          id?: string
-          message?: string | null
-          name?: string
-          product_ref?: string | null
-        }
-        Relationships: []
-      }
-      tryon_results: {
-        Row: {
-          created_at: string
-          id: string
-          product_id: string
-          product_name: string | null
-          result_image_url: string
-          source_image_url: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          product_id: string
-          product_name?: string | null
-          result_image_url: string
-          source_image_url: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          product_id?: string
-          product_name?: string | null
-          result_image_url?: string
-          source_image_url?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
