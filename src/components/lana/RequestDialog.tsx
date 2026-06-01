@@ -95,8 +95,17 @@ export function RequestDialog({
             <Input id="ln-name" value={name} onChange={(e) => setName(e.target.value)} maxLength={100} required />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="ln-contact">Телефон, email или ник в мессенджере</Label>
-            <Input id="ln-contact" value={contact} onChange={(e) => setContact(e.target.value)} maxLength={200} required />
+            <Label htmlFor="ln-contact">
+              {channel === "phone" ? "Телефон *" : "Телефон, email или ник в мессенджере *"}
+            </Label>
+            <Input
+              id="ln-contact"
+              value={contact}
+              onChange={(e) => setContact(channel === "phone" ? formatRussianPhone(e.target.value) : e.target.value)}
+              maxLength={200}
+              required
+              placeholder={channel === "phone" ? "+7 (___) ___-__-__" : "@username, email или телефон"}
+            />
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="ln-channel">Удобный способ связи</Label>
