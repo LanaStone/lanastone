@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Check } from "lucide-react";
+import { formatRussianPhone, isValidRussianPhone } from "@/lib/phoneValidation";
 
 export type LeadKind = "custom" | "masterclass";
 
