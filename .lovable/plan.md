@@ -6,11 +6,13 @@
    - Оставить Lovable/Vite-конфиг для разработки.
    - Отключить Cloudflare/Worker-адаптер для production-сборки на вашем сервере.
    - Добавить Node/Nitro-адаптер, чтобы после `npm run build` появлялся запускной файл `.output/server/index.mjs`.
+   - Запускать его через `start.sh`, который сам выставляет `HOST=0.0.0.0`, `PORT=3000`, `NITRO_HOST` и `NITRO_PORT`.
 
 2. Добавить правильные npm-скрипты
    - `build`: собирает приложение.
-   - `start`: запускает `node .output/server/index.mjs`.
-   - PM2 должен запускать именно `npm start` или `.output/server/index.mjs`, а не `dist/server/server.js`.
+   - `start`: запускает `sh start.sh`.
+   - Dockerfile должен содержать `ENTRYPOINT ["sh", "start.sh"]`, чтобы Timeweb не зависел от внешнего поля «Команда запуска».
+   - PM2 должен запускать именно `npm start`, а не `dist/server/server.js`.
 
 3. После внесения изменений на сервере выполнить один чистый сценарий
 
