@@ -3,14 +3,15 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-ENV NODE_ENV=production
 ENV NITRO_PRESET=node-server
 
 COPY package.json package-lock.json ./
 
-RUN npm ci --legacy-peer-deps
+RUN npm ci --include=dev --legacy-peer-deps
 
 COPY . .
+
+ENV NODE_ENV=production
 
 RUN npm run build
 
