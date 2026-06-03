@@ -51,11 +51,11 @@ ufw allow 'Nginx Full'
 ufw --force enable
 ```
 
-Установить Node.js 20:
+Установить Node.js 22:
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 apt install -y nodejs
-node -v  # должно показать v20.x.x
+node -v  # должно показать v22.x.x
 ```
 
 Установить pm2 (менеджер процессов) и bun:
@@ -87,7 +87,7 @@ export default defineConfig({
 
 ### 3.1 Собрать локально для проверки
 ```bash
-npm install --legacy-peer-deps
+npm ci --include=dev --legacy-peer-deps
 npm run build
 npm run start
 # открыть http://localhost:3000
@@ -104,8 +104,8 @@ npm run start
 cd /var/www
 git clone https://github.com/USER/lanastone.git
 cd lanastone
-bun install
-bun run build
+npm ci --include=dev --legacy-peer-deps
+npm run build
 ```
 
 Создать файл `.env` (см. `.env.example`):
@@ -185,8 +185,8 @@ certbot renew --dry-run
 ```bash
 cd /var/www/lanastone
 git pull
-bun install
-bun run build
+npm ci --include=dev --legacy-peer-deps
+npm run build
 pm2 restart lanastone
 ```
 
