@@ -70,8 +70,8 @@ npm install -g pm2 bun
 В проекте уже настроен Docker/Node-запуск для Timeweb:
 
 - `vite.config.ts` отключает hosted-адаптер и собирает Node-сервер через Nitro;
-- `server.mjs` принудительно запускает сервер на `0.0.0.0:3000`;
-- `Dockerfile` открывает порт `3000` и проверяет `/api/public/health`.
+- сервер запускается напрямую командой `node .output/server/index.mjs`;
+- `Dockerfile` открывает порт `3000`, задаёт `0.0.0.0:3000` и проверяет `/api/public/health`.
 
 Актуальная конфигурация `vite.config.ts`:
 
@@ -81,7 +81,7 @@ import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 
 export default defineConfig({
   nitro: false,
-  plugins: [nitroV2Plugin()],
+  plugins: [nitroV2Plugin({ preset: "node-server" })],
 });
 ```
 
@@ -119,7 +119,7 @@ nano .env
 
 Запустить через pm2:
 ```bash
-pm2 start server.mjs --name lanastone --env-from-file .env
+pm2 start .output/server/index.mjs --name lanastone --env-from-file .env
 pm2 save
 pm2 startup   # выполнить команду, которую он выведет
 ```
