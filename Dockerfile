@@ -1,4 +1,4 @@
-# ---------- Этап 1: сборка ----------
+# ---------- Этап 1: сборка фронтенда ----------
 FROM node:22-alpine AS builder
 
 WORKDIR /app
@@ -14,10 +14,9 @@ COPY . .
 ENV NODE_ENV=production
 
 RUN npm run build
-RUN cp start.mjs .output/server/index.mjs
 
 
-# ---------- Этап 2: запуск ----------
+# ---------- Этап 2: максимально простой запуск для Timeweb ----------
 FROM node:22-alpine AS runner
 
 WORKDIR /app
@@ -26,17 +25,18 @@ ENV NODE_ENV=production
 ENV APP_HOST=0.0.0.0
 ENV APP_PORT=3000
 ENV APP_ROOT=/app
-ENV PORT=3000
-
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev --legacy-peer-deps
+ENV APP_PUBLIC_DIR=/app/public
 
 COPY --from=builder /app/.output ./.output
-COPY --from=builder /app/start.mjs ./start.mjs
+COPY --from=builder /app/start.mjs ./server.mjs
+COPY --from=builder /app/package.json ./package.json
+RUN mkdir -p /app/public /app/.output/server \
+  && if [ -d /app/.output/public ]; then cp -a /app/.output/public/. /app/public/; fi \
+  && cp /app/server.mjs /app/.output/server/index.mjs
 
 EXPOSE 3000
 
-HEALTHCHECK --interval=10s --timeout=3s --start-period=3s --retries=18 \
+HEALTHCHECK --interval=2s --timeout=2s --start-period=0s --retries=60 \
   CMD node -e "const http=require('node:http');const req=http.get({host:'127.0.0.1',port:3000,path:'/',timeout:2500},res=>process.exit(res.statusCode>=200&&res.statusCode<300?0:1));req.on('error',()=>process.exit(1));req.on('timeout',()=>{req.destroy();process.exit(1);});"
 
-CMD ["node", ".output/server/index.mjs"]
+ENTRYPOINT ["node", "/app/server.mjs"]
