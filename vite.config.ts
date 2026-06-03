@@ -7,5 +7,10 @@ import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 
 export default defineConfig({
   nitro: false,
-  plugins: [nitroV2Plugin({ preset: "node-server" })],
+  plugins: [
+    nitroV2Plugin({
+      preset: "node-server",
+      compatibilityDate: "2026-06-03",
+    }),
+  ],
 });
