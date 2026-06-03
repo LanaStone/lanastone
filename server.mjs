@@ -1,5 +1,5 @@
 const port = process.env.PORT || process.env.NITRO_PORT || "3000";
-const host = process.env.HOST || process.env.NITRO_HOST || "0.0.0.0";
+const host = process.env.BIND_HOST || process.env.NITRO_HOST || "0.0.0.0";
 
 process.env.PORT = port;
 process.env.NITRO_PORT = port;
