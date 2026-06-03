@@ -58,9 +58,9 @@ apt install -y nodejs
 node -v  # должно показать v22.x.x
 ```
 
-Установить pm2 (менеджер процессов) и bun:
+Установить pm2 (менеджер процессов):
 ```bash
-npm install -g pm2 bun
+npm install -g pm2
 ```
 
 ---
@@ -70,7 +70,7 @@ npm install -g pm2 bun
 В проекте уже настроен Docker/Node-запуск для Timeweb:
 
 - `vite.config.ts` отключает hosted-адаптер и собирает Node-сервер через Nitro;
-- сервер запускается напрямую командой `node .output/server/index.mjs`;
+- сервер запускается через `sh start.sh`, который сам выставляет `0.0.0.0:3000` и запускает `.output/server/index.mjs`;
 - `Dockerfile` открывает порт `3000`, задаёт `0.0.0.0:3000` и проверяет `/api/public/health`.
 
 Актуальная конфигурация `vite.config.ts`:
@@ -119,7 +119,10 @@ nano .env
 
 Запустить через pm2:
 ```bash
-pm2 start .output/server/index.mjs --name lanastone --env-from-file .env
+set -a
+. ./.env
+set +a
+pm2 start npm --name lanastone -- start
 pm2 save
 pm2 startup   # выполнить команду, которую он выведет
 ```
