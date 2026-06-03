@@ -34,6 +34,7 @@ COPY --from=builder /app/start.mjs ./server.mjs
 COPY --from=builder /app/package.json ./package.json
 RUN mkdir -p /app/public /app/.output/server \
   && if [ -d /app/.output/public ]; then cp -a /app/.output/public/. /app/public/; fi \
+  && if [ ! -f /app/public/index.html ]; then printf '<!doctype html><html><body>Lana Stone is starting</body></html>' > /app/public/index.html; fi \
   && cp /app/server.mjs /app/.output/server/index.mjs
 COPY nginx.conf /etc/nginx/http.d/default.conf
 COPY docker-entrypoint.sh /app/docker-entrypoint.sh

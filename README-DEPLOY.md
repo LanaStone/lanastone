@@ -70,13 +70,14 @@ npm install -g pm2
 В проекте уже настроен Docker/Node-запуск для Timeweb:
 
 - `vite.config.ts` отключает hosted-адаптер и собирает Node-сервер через Nitro;
-- сервер запускается через Docker `ENTRYPOINT ["node", "/app/server.mjs"]`: это встроенный Node-шлюз без Nitro runtime и без `node_modules` в runtime-контейнере;
-- шлюз слушает строго `0.0.0.0:3000`, сразу отвечает на `/`, `/health`, `/healthz`, `/api/public/health` и обслуживает собранный сайт из `/app/public`;
-- `Dockerfile` открывает только порт `3000` и содержит встроенный `HEALTHCHECK` по корневому пути `/`.
+- контейнер запускается через Docker `ENTRYPOINT ["/app/docker-entrypoint.sh"]`;
+- Nginx слушает внешний порт `3000` и мгновенно отвечает на `/`, `/health`, `/healthz`, `/api/public/health` — поэтому healthcheck Timeweb проходит без ожидания Node/Nitro;
+- Node API работает внутри контейнера на `127.0.0.1:3001`, а Nginx проксирует туда `/api/*`;
+- runtime-контейнер не запускает Nitro и не устанавливает `node_modules`, поэтому старт максимально быстрый и предсказуемый.
 
 Если Timeweb всё же покажет поле **«Команда запуска»**, оставьте его пустым. Если поле обязательно — укажите:
 ```bash
-node /app/server.mjs
+/app/docker-entrypoint.sh
 ```
 
 Актуальная конфигурация `vite.config.ts`:
@@ -95,7 +96,7 @@ export default defineConfig({
 ```bash
 npm ci --include=dev --legacy-peer-deps
 npm run build
-APP_PUBLIC_DIR=.output/public npm run start
+APP_PUBLIC_DIR=.output/public APP_PORT=3000 npm run start
 # открыть http://localhost:3000
 ```
 
