@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicOrderRouteImport } from './routes/api/public/order'
 import { Route as ApiPublicLeadRouteImport } from './routes/api/public/lead'
+import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,33 +29,51 @@ const ApiPublicLeadRoute = ApiPublicLeadRouteImport.update({
   path: '/api/public/lead',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHealthRoute = ApiPublicHealthRouteImport.update({
+  id: '/api/public/health',
+  path: '/api/public/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
   '/api/public/lead': typeof ApiPublicLeadRoute
   '/api/public/order': typeof ApiPublicOrderRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
   '/api/public/lead': typeof ApiPublicLeadRoute
   '/api/public/order': typeof ApiPublicOrderRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
   '/api/public/lead': typeof ApiPublicLeadRoute
   '/api/public/order': typeof ApiPublicOrderRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/lead' | '/api/public/order'
+  fullPaths:
+    | '/'
+    | '/api/public/health'
+    | '/api/public/lead'
+    | '/api/public/order'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/lead' | '/api/public/order'
-  id: '__root__' | '/' | '/api/public/lead' | '/api/public/order'
+  to: '/' | '/api/public/health' | '/api/public/lead' | '/api/public/order'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/health'
+    | '/api/public/lead'
+    | '/api/public/order'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicHealthRoute: typeof ApiPublicHealthRoute
   ApiPublicLeadRoute: typeof ApiPublicLeadRoute
   ApiPublicOrderRoute: typeof ApiPublicOrderRoute
 }
@@ -82,11 +101,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicLeadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/health': {
+      id: '/api/public/health'
+      path: '/api/public/health'
+      fullPath: '/api/public/health'
+      preLoaderRoute: typeof ApiPublicHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicHealthRoute: ApiPublicHealthRoute,
   ApiPublicLeadRoute: ApiPublicLeadRoute,
   ApiPublicOrderRoute: ApiPublicOrderRoute,
 }
