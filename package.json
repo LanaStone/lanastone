@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "postbuild": "node -e \"require('node:fs').copyFileSync('start.mjs','.output/server/index.mjs')\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-    "start": "node start.mjs",
+    "start": "node .output/server/index.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
