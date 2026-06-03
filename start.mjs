@@ -6,8 +6,13 @@ import { fileURLToPath } from "node:url";
 // Timeweb healthcheck checks 3000/tcp. Do not trust platform-provided PORT/HOST
 // overrides here: the container must always bind to 0.0.0.0:3000 by default.
 const HOST = process.env.APP_HOST || "0.0.0.0";
-const PORT = Number(process.env.APP_PORT || 3000);
-const ROOT = fileURLToPath(new URL(".", import.meta.url));
+const PORT = Number(process.env.APP_PORT || process.env.PORT || 3000);
+const SCRIPT_DIR = fileURLToPath(new URL(".", import.meta.url));
+const ROOT = process.env.APP_ROOT
+  ? resolve(process.env.APP_ROOT)
+  : SCRIPT_DIR.endsWith(`${normalize(".output/server/")}`)
+    ? resolve(SCRIPT_DIR, "../..")
+    : SCRIPT_DIR;
 const PUBLIC_DIRS = [
   resolve(ROOT, ".output/public"),
   resolve(ROOT, "dist/client"),

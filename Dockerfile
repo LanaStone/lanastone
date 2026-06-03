@@ -14,6 +14,7 @@ COPY . .
 ENV NODE_ENV=production
 
 RUN npm run build
+RUN cp start.mjs .output/server/index.mjs
 
 
 # ---------- Этап 2: запуск ----------
@@ -24,6 +25,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV APP_HOST=0.0.0.0
 ENV APP_PORT=3000
+ENV APP_ROOT=/app
 ENV PORT=3000
 
 COPY package.json package-lock.json ./
@@ -35,6 +37,6 @@ COPY --from=builder /app/start.mjs ./start.mjs
 EXPOSE 3000
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=3s --retries=18 \
-  CMD node -e "const http=require('node:http');const req=http.get({host:'127.0.0.1',port:3000,path:'/api/public/health',timeout:2500},res=>process.exit(res.statusCode>=200&&res.statusCode<300?0:1));req.on('error',()=>process.exit(1));req.on('timeout',()=>{req.destroy();process.exit(1);});"
+  CMD node -e "const http=require('node:http');const req=http.get({host:'127.0.0.1',port:3000,path:'/',timeout:2500},res=>process.exit(res.statusCode>=200&&res.statusCode<300?0:1));req.on('error',()=>process.exit(1));req.on('timeout',()=>{req.destroy();process.exit(1);});"
 
-CMD ["node", "start.mjs"]
+CMD ["node", ".output/server/index.mjs"]
