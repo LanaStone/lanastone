@@ -3,13 +3,13 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "main": ".output/server/index.mjs",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "postbuild": "node -e \"const fs=require('node:fs');fs.mkdirSync('.output/server',{recursive:true});fs.copyFileSync('start.mjs','.output/server/index.mjs')\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-    "start": "node start.mjs",
+    "start": "node .output/server/index.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
