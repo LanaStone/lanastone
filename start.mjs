@@ -3,8 +3,10 @@ import { extname, join, normalize, resolve } from "node:path";
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-const HOST = process.env.HOST || "0.0.0.0";
-const PORT = Number(process.env.PORT || 3000);
+// Timeweb healthcheck checks 3000/tcp. Do not trust platform-provided PORT/HOST
+// overrides here: the container must always bind to 0.0.0.0:3000 by default.
+const HOST = process.env.APP_HOST || "0.0.0.0";
+const PORT = Number(process.env.APP_PORT || 3000);
 const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const PUBLIC_DIRS = [
   resolve(ROOT, ".output/public"),
@@ -279,8 +281,14 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+server.on("error", (error) => {
+  console.error("Lana Stone server failed to start", error);
+  process.exit(1);
+});
+
 server.listen(PORT, HOST, () => {
   console.log(`Lana Stone server listening on ${HOST}:${PORT}`);
+  console.log(`Healthcheck ready at http://127.0.0.1:${PORT}/api/public/health`);
   console.log(`Serving static files from ${PUBLIC_DIR}`);
 });
 
