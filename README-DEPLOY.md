@@ -65,51 +65,31 @@ npm install -g pm2 bun
 
 ---
 
-## 3. Перевод проекта на Node.js-сборку
+## 3. Node.js-сборка для Timeweb
 
-В корне проекта (на компьютере, перед заливкой на сервер):
+В проекте уже настроен Docker/Node-запуск для Timeweb:
 
-### 3.1 Удалить файлы Cloudflare
-```bash
-rm wrangler.jsonc
-```
+- `vite.config.ts` отключает hosted-адаптер и собирает Node-сервер через Nitro;
+- `server.mjs` принудительно запускает сервер на `0.0.0.0:3000`;
+- `Dockerfile` открывает порт `3000` и проверяет `/api/public/health`.
 
-### 3.2 Заменить `vite.config.ts`
-
-Сейчас он использует `@lovable.dev/vite-tanstack-config`, который собирает под Cloudflare Workers. Заменить на стандартную конфигурацию TanStack Start для Node:
+Актуальная конфигурация `vite.config.ts`:
 
 ```ts
-// vite.config.ts
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import { defineConfig } from "vite";
-import tsConfigPaths from "vite-tsconfig-paths";
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
 
 export default defineConfig({
-  plugins: [
-    tsConfigPaths(),
-    tanstackStart({ target: "node-server" }),
-    tailwindcss(),
-  ],
+  nitro: false,
+  plugins: [nitroV2Plugin()],
 });
 ```
 
-### 3.3 Убрать ненужные зависимости
-
-В `package.json` можно удалить (но не обязательно):
-- `@cloudflare/vite-plugin`
-- `@lovable.dev/vite-tanstack-config`
-- `@supabase/supabase-js` (больше не используется)
-
-Затем:
+### 3.1 Собрать локально для проверки
 ```bash
-bun install
-```
-
-### 3.4 Собрать локально для проверки
-```bash
-bun run build
-node .output/server/index.mjs
+npm install --legacy-peer-deps
+npm run build
+npm run start
 # открыть http://localhost:3000
 ```
 
@@ -139,7 +119,7 @@ nano .env
 
 Запустить через pm2:
 ```bash
-pm2 start .output/server/index.mjs --name lanastone --env-from-file .env
+pm2 start server.mjs --name lanastone --env-from-file .env
 pm2 save
 pm2 startup   # выполнить команду, которую он выведет
 ```
