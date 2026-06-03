@@ -35,7 +35,7 @@ COPY --from=builder /app/.output ./.output
 
 EXPOSE 3000
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD node -e "fetch('http://127.0.0.1:' + (process.env.PORT || 3000) + '/api/public/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=18 \
+  CMD node -e "const http=require('node:http');const port=process.env.NITRO_PORT||process.env.PORT||3000;const req=http.get({host:'127.0.0.1',port,path:'/api/public/health',timeout:2500},res=>process.exit(res.statusCode>=200&&res.statusCode<300?0:1));req.on('error',()=>process.exit(1));req.on('timeout',()=>{req.destroy();process.exit(1);});"
 
-CMD ["node", ".output/server/index.mjs"]
+ENTRYPOINT ["node", ".output/server/index.mjs"]
