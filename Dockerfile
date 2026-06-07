@@ -42,4 +42,4 @@ COPY --from=builder /app/.output ./.output
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "echo START HOST=$HOST PORT=$PORT NITRO_HOST=$NITRO_HOST NITRO_PORT=$NITRO_PORT; node .output/server/index.mjs & sleep 8; echo LOCAL_CHECK_START; wget -S -O - http://127.0.0.1:${PORT}/api/public/health || true; echo LOCAL_CHECK_ROOT; wget -S -O - http://127.0.0.1:${PORT}/ || true; echo LOCAL_CHECK_END; wait"]
+CMD ["node", ".output/server/index.mjs"]
