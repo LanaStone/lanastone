@@ -41,9 +41,5 @@ COPY --from=builder /app/.output ./.output
 
 EXPOSE 3000
 
-# Healthcheck — лёгкий публичный endpoint без зависимостей от env
-HEALTHCHECK --interval=10s --timeout=3s --start-period=15s --retries=10 \
-  CMD node -e "require('node:http').get({host:'127.0.0.1',port:process.env.PORT||3000,path:'/api/public/health',timeout:2500},r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"
-
 # Никакого entrypoint-скрипта — Nitro сам читает PORT/HOST из env
 CMD ["node", ".output/server/index.mjs"]
