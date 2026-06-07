@@ -1,237 +1,145 @@
-# Развёртывание Lana Stone на Timeweb Cloud
+# Развёртывание Lana Stone на Timeweb Cloud (Docker)
 
-Эта инструкция описывает перенос сайта с Lovable на собственный VPS Timeweb с доменом и SSL. Все шаги выполняются по SSH на сервере.
+Сайт — full-stack приложение на TanStack Start (React 19 SSR + Nitro Node-сервер). Никаких баз данных, авторизации и файлового хранилища. Только две интеграции по HTTPS: **OpenRouter** (AI-примерка) и **Resend** (email-уведомления о заявках).
 
-> Сайт не использует базу данных, авторизацию и файловое хранилище. Только лид-форма (email) и AI-примерка (OpenRouter). Это сильно упрощает деплой.
-
----
-
-## 1. Что нужно подготовить заранее
-
-1. **VPS в Timeweb Cloud**
-   - Раздел: **Cloud → Серверы → Создать сервер**
-   - Тариф: 2 vCPU / 2 ГБ RAM / 30 ГБ NVMe (от 300 ₽/мес)
-   - ОС: **Ubuntu 22.04 LTS**
-   - Локация: **Москва** или **Санкт-Петербург** (для 152-ФЗ)
-   - После создания записать **IP-адрес сервера**, **root-пароль** (или SSH-ключ)
-
-2. **Домен** (например `lanastone.ru`)
-   - Купить можно у reg.ru или прямо в Timeweb
-   - В панели управления доменом создать **A-запись**: `@` → IP сервера
-   - И ещё одну для `www`: `www` → тот же IP
-   - DNS обновляется до 1–2 часов
-
-3. **Ключи**
-   - `OPENROUTER_API_KEY` — на https://openrouter.ai/keys (пополнить баланс хотя бы на $5)
-   - `RESEND_API_KEY_DIRECT` — на https://resend.com/api-keys
-
-4. **Код проекта**
-   - В Lovable: **GitHub → Connect → Create Repository** (экспортировать в свой репозиторий)
-   - Или скачать ZIP и залить на сервер вручную
+Деплой выполняется как **Docker-приложение** на Timeweb Cloud Apps.
 
 ---
 
-## 2. Первичная настройка сервера
+## 1. Что готово в репозитории
 
-Подключиться по SSH:
-```bash
-ssh root@IP_СЕРВЕРА
-```
-
-Обновить систему и поставить базовые пакеты:
-```bash
-apt update && apt upgrade -y
-apt install -y curl git nginx ufw
-```
-
-Настроить firewall:
-```bash
-ufw allow OpenSSH
-ufw allow 'Nginx Full'
-ufw --force enable
-```
-
-Установить Node.js 22:
-```bash
-curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
-apt install -y nodejs
-node -v  # должно показать v22.x.x
-```
-
-Установить pm2 (менеджер процессов):
-```bash
-npm install -g pm2
-```
+| Файл | Назначение |
+|---|---|
+| `Dockerfile` | двух-этапная сборка Node 22 + Nitro, слушает `0.0.0.0:$PORT` |
+| `.dockerignore` | исключает `.env`, `.output`, `node_modules`, и т.п. |
+| `scripts/patch-srvx.mjs` | постбилд-патчи для известных багов Nitro v2 beta (срабатывают автоматически в `npm run build`) |
+| `.env.example` | шаблон переменных окружения |
+| `src/routes/api/public/health.ts` | endpoint для healthcheck Timeweb |
 
 ---
 
-## 3. Node.js-сборка для Timeweb
+## 2. Что подготовить заранее
 
-В проекте уже настроен Docker/Node-запуск для Timeweb:
+1. **Аккаунт Timeweb Cloud** и проект уровня "Apps" (Docker).
+2. **Домен** (например `lanastone.ru`) — A-запись `@` и `www` на адрес, который Timeweb выдаст после деплоя. SSL Timeweb выпустит автоматически.
+3. **Ключи API:**
+   - `OPENROUTER_API_KEY` — https://openrouter.ai/keys (пополнить баланс ~$5)
+   - `RESEND_API_KEY_DIRECT` — https://resend.com/api-keys
+4. **Email для заявок** (опционально, по умолчанию `lanastonevrn@gmail.com`).
+5. **GitHub-репозиторий** с этим кодом (или ZIP-загрузка в Timeweb).
 
-- `vite.config.ts` отключает hosted-адаптер и собирает Node-сервер через Nitro;
-- контейнер запускается через Docker `ENTRYPOINT ["/app/docker-entrypoint.sh"]`;
-- Nginx слушает внешний порт `3000` и мгновенно отвечает на `/`, `/health`, `/healthz`, `/api/public/health` — поэтому healthcheck Timeweb проходит без ожидания Node/Nitro;
-- Node API работает внутри контейнера на `127.0.0.1:3001`, а Nginx проксирует туда `/api/*`;
-- runtime-контейнер не запускает Nitro и не устанавливает `node_modules`, поэтому старт максимально быстрый и предсказуемый.
+---
 
-Если Timeweb всё же покажет поле **«Команда запуска»**, оставьте его пустым. Если поле обязательно — укажите:
+## 3. Создание приложения в Timeweb
+
+1. **Cloud → Apps → Создать приложение → Docker**.
+2. **Источник:** свой GitHub-репозиторий (рекомендуется) либо архив.
+3. **Branch:** `main`.
+4. **Dockerfile path:** `Dockerfile` (в корне репозитория).
+5. **Build context:** `.` (корень).
+6. **Внутренний порт контейнера:** `3000`.
+7. **Healthcheck path:** `/api/public/health` (HTTP GET, ожидаемый код 200).
+8. **Region:** Москва или Санкт-Петербург (для 152-ФЗ).
+
+---
+
+## 4. Переменные окружения (Environment)
+
+Добавьте в разделе "Environment" приложения:
+
+| Переменная | Обязательная | Назначение |
+|---|---|---|
+| `OPENROUTER_API_KEY` | да | AI-примерка (OpenRouter, Gemini image) |
+| `RESEND_API_KEY_DIRECT` | да | Email через Resend |
+| `ADMIN_EMAIL` | нет | Куда приходят заявки и заказы. По умолчанию `lanastonevrn@gmail.com` |
+| `HOST` | нет | По умолчанию `0.0.0.0` (задано в Dockerfile) |
+| `PORT` | нет | По умолчанию `3000` (задано в Dockerfile) |
+| `NODE_ENV` | нет | По умолчанию `production` (задано в Dockerfile) |
+
+Все секреты добавляйте **через UI Timeweb**, а не файлом `.env` в репозиторий. Файл `.env` исключён из git (`.gitignore`) и из Docker-контекста (`.dockerignore`).
+
+---
+
+## 5. Деплой
+
+После сохранения настроек Timeweb автоматически:
+
+1. Клонирует репозиторий.
+2. Запускает `docker build` по `Dockerfile`. Сборка занимает ~3–5 минут на первом деплое (кэш слоёв ускоряет последующие).
+3. Запускает контейнер, передаёт переменные окружения.
+4. Делает healthcheck `GET /api/public/health`, ждёт `200 OK`.
+5. Подключает HTTPS-домен и выпускает SSL.
+
+---
+
+## 6. Проверка после деплоя
+
 ```bash
-/app/docker-entrypoint.sh
+# Healthcheck
+curl -i https://<your-domain>/api/public/health
+# → HTTP/2 200, тело "ok"
+
+# Главная страница (SSR)
+curl -s https://<your-domain>/ | head -c 200
+# → должно начинаться с <!DOCTYPE html>...
+
+# Лид-форма (валидация — должна вернуть 400)
+curl -i -X POST https://<your-domain>/api/public/lead \
+  -H 'content-type: application/json' \
+  -d '{"bad":"payload"}'
+# → HTTP/2 400 с {"error":"..."}
 ```
 
-Актуальная конфигурация `vite.config.ts`:
+В браузере проверьте:
+- Главная страница открывается, фото и шрифты загружаются.
+- Кнопка "Оставить заявку" — заполните форму, отправьте — на `ADMIN_EMAIL` приходит письмо.
+- AI-примерка: загрузите фото, выберите украшение, нажмите "Примерить" — через 5–30 секунд возвращается результат.
 
-```ts
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { nitroV2Plugin } from "@tanstack/nitro-v2-vite-plugin";
+---
 
-export default defineConfig({
-  nitro: false,
-  plugins: [nitroV2Plugin({ preset: "node-server" })],
-});
-```
+## 7. Обновление сайта
 
-### 3.1 Собрать локально для проверки
+Если репозиторий подключён через GitHub — Timeweb автоматически пересобирает контейнер при пуше в `main`. Иначе нажмите "Redeploy" в UI приложения.
+
+---
+
+## 8. Логи и отладка
+
+- **Cloud → Apps → Lana Stone → Логи** — stdout/stderr контейнера.
+- Если healthcheck не проходит — посмотрите логи запуска и убедитесь, что внутренний порт в настройках = `3000` (и НЕ переопределён переменной `PORT`).
+- Если AI-примерка возвращает "Сервис временно недоступен" — проверьте баланс OpenRouter.
+- Если письма не приходят — проверьте, что `RESEND_API_KEY_DIRECT` валиден и что отправитель `onboarding@resend.dev` не заблокирован (для production желательно подключить свой домен в Resend).
+
+---
+
+## 9. Локальная проверка перед пушем (опционально)
+
 ```bash
-npm ci --include=dev --legacy-peer-deps
+npm install --legacy-peer-deps
 npm run build
-APP_PUBLIC_DIR=.output/public APP_PORT=3000 npm run start
+HOST=0.0.0.0 PORT=3000 \
+OPENROUTER_API_KEY=... \
+RESEND_API_KEY_DIRECT=... \
+ADMIN_EMAIL=test@example.com \
+npm start
 # открыть http://localhost:3000
 ```
 
-Если всё работает — закоммитить и запушить в GitHub.
-
----
-
-## 4. Деплой на сервер
-
-На сервере:
+Или через Docker:
 ```bash
-cd /var/www
-git clone https://github.com/USER/lanastone.git
-cd lanastone
-npm ci --include=dev --legacy-peer-deps
-npm run build
-```
-
-Создать файл `.env` (см. `.env.example`):
-```bash
-nano .env
-# вставить:
-# OPENROUTER_API_KEY=sk-or-v1-...
-# RESEND_API_KEY_DIRECT=re_...
-# APP_PORT=3000  # необязательно, по умолчанию уже 3000
-```
-
-Запустить через pm2:
-```bash
-set -a
-. ./.env
-set +a
-pm2 start npm --name lanastone -- start
-pm2 save
-pm2 startup   # выполнить команду, которую он выведет
-```
-
-Проверить:
-```bash
-curl http://localhost:3000
+docker build -t lanastone .
+docker run --rm -p 3000:3000 \
+  -e OPENROUTER_API_KEY=... \
+  -e RESEND_API_KEY_DIRECT=... \
+  lanastone
 ```
 
 ---
 
-## 5. Nginx + домен + SSL
+## 10. Что НЕ делать
 
-Создать конфиг Nginx:
-```bash
-nano /etc/nginx/sites-available/lanastone
-```
-
-Вставить:
-```nginx
-server {
-    listen 80;
-    server_name lanastone.ru www.lanastone.ru;
-
-    client_max_body_size 20M;  # для загрузки фото в AI-примерку
-
-    location / {
-        proxy_pass http://127.0.0.1:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_read_timeout 120s;  # AI-примерка может занимать до минуты
-    }
-}
-```
-
-Активировать:
-```bash
-ln -s /etc/nginx/sites-available/lanastone /etc/nginx/sites-enabled/
-rm /etc/nginx/sites-enabled/default
-nginx -t && systemctl reload nginx
-```
-
-Получить SSL-сертификат Let's Encrypt:
-```bash
-apt install -y certbot python3-certbot-nginx
-certbot --nginx -d lanastone.ru -d www.lanastone.ru
-# выбрать "redirect" — автоматический редирект с HTTP на HTTPS
-```
-
-Сертификат обновляется автоматически. Проверить:
-```bash
-certbot renew --dry-run
-```
-
----
-
-## 6. Обновление сайта (потом)
-
-Когда нужно выкатить изменения:
-```bash
-cd /var/www/lanastone
-git pull
-npm ci --include=dev --legacy-peer-deps
-npm run build
-pm2 restart lanastone
-```
-
----
-
-## 7. Полезные команды
-
-```bash
-pm2 logs lanastone        # смотреть логи
-pm2 restart lanastone     # перезапустить
-pm2 status                # статус процессов
-tail -f /var/log/nginx/access.log
-tail -f /var/log/nginx/error.log
-```
-
----
-
-## 8. Что НЕ нужно делать
-
-- НЕ ставить Supabase, PostgreSQL, Redis — БД не используется
-- НЕ настраивать SMTP — письма уходят через Resend по HTTPS
-- НЕ выставлять порт 3000 наружу — он только для Nginx (firewall его блокирует)
-
----
-
-## 9. Если что-то пошло не так
-
-| Проблема | Что проверить |
-|---|---|
-| Сайт не открывается | `pm2 status`, `pm2 logs lanastone`, DNS прописан? |
-| 502 Bad Gateway | Node-процесс упал — `pm2 logs` покажет причину |
-| AI-примерка не работает | `OPENROUTER_API_KEY` в `.env`, баланс пополнен? |
-| Письма не приходят | `RESEND_API_KEY_DIRECT` в `.env`, проверить spam |
-| SSL не работает | `certbot certificates`, домен указывает на сервер? |
-
----
-
-Готово. После всех шагов сайт работает на `https://lanastone.ru` полностью на российских серверах.
+- ❌ Не коммитить `.env` (он в `.gitignore`).
+- ❌ Не публиковать `OPENROUTER_API_KEY` и `RESEND_API_KEY_DIRECT` в коде — только через переменные окружения Timeweb.
+- ❌ Не менять внутренний порт контейнера на нестандартный — оставляйте `3000`, если нужен другой — задайте через `PORT` в env, и обновите `EXPOSE` в Dockerfile.
+- ❌ Не добавлять Supabase/PostgreSQL — БД не используется.
+- ❌ Не устанавливать Nginx/PM2 внутри контейнера — Node слушает напрямую, Timeweb сам проксирует HTTPS.

@@ -17,7 +17,6 @@ const orderSchema = z.object({
   items: z.array(itemSchema).min(1, "Добавьте хотя бы одно украшение").max(20),
 });
 
-const RECIPIENT = "lanastonevrn@gmail.com";
 const RESEND_API_URL = "https://api.resend.com";
 
 function escapeHtml(s: string): string {
@@ -53,6 +52,9 @@ export const Route = createFileRoute("/api/public/order")({
         if (!RESEND_API_KEY) {
           return Response.json({ error: "Email-сервис не настроен" }, { status: 500 });
         }
+        const RECIPIENT = process.env.ADMIN_EMAIL || "lanastonevrn@gmail.com";
+
+
 
         const itemsHtml = data.items
           .map(
