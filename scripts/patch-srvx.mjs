@@ -1,17 +1,19 @@
-// Postbuild patches for Nitro v3 beta + TanStack Router on node-server preset.
-// Two upstream bugs cause production server to return 500 on every request:
+// Postbuild patches for Nitro v2 (nitropack) + TanStack Start on the
+// node-server preset. Three upstream bugs cause production server to return
+// 500 on every request:
 //
-// 1. srvx FastURL (0.11.x): constructor crashes on path-only strings (input
-//    "/foo" → "Invalid URL"). The H3Event constructor falls back to
-//    `new FastURL(req.url)` and currently throws.
+// 1. srvx FastURL (0.11.x): constructor crashes on path-only strings
+//    ("/foo" → "Invalid URL").
 //
-// 2. @tanstack/router-core getNormalizedURL: passes `request.url` (which is
-//    a path on the Node node-server preset) into `new URL(url, base)`
-//    without a base, so any incoming request throws "Invalid URL" before
-//    the router ever runs.
+// 2. @tanstack/router-core getNormalizedURL: calls `new URL(url, base)`
+//    without a base when given a path, so any request throws "Invalid URL".
 //
-// Both patches are conservative: they preserve original behavior for
-// absolute URLs and only add a default base for path-only inputs.
+// 3. virtual/entry.mjs fromWebHandler: passes Node's IncomingMessage as the
+//    "Web Request" to TanStack handlers. TanStack expects WHATWG Request
+//    (request.headers.get, etc.). We wrap IncomingMessage into a real
+//    Web Request before forwarding.
+//
+// All patches are conservative and idempotent.
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
 function patchFile(path, replacements) {
@@ -35,7 +37,7 @@ function patchFile(path, replacements) {
   writeFileSync(path, src);
 }
 
-// 1. srvx FastURL: store parts instead of leaving #href as a path
+// 1. srvx FastURL
 patchFile(".output/server/node_modules/srvx/dist/_chunks/_url.mjs", [
   {
     name: "FastURL path-only constructor",
@@ -44,12 +46,59 @@ patchFile(".output/server/node_modules/srvx/dist/_chunks/_url.mjs", [
   },
 ]);
 
-// 2. router-core getNormalizedURL: default base for path-only URLs
+// 2. router-core getNormalizedURL
 patchFile(".output/server/node_modules/@tanstack/router-core/dist/esm/ssr/ssr-server.js", [
   {
     name: "getNormalizedURL default base",
     needle: `const rawUrl = new URL(url, base);`,
     replacement: `const rawUrl = new URL(url, base || "http://localhost");`,
+  },
+]);
+
+// 3. virtual/entry.mjs fromWebHandler — wrap Node IncomingMessage as Web Request
+const fromWebHandlerNeedle = `function fromWebHandler(handler) {
+	return function _webHandler(event) {
+		return handler(event.req, event.context);
+	};
+}`;
+const fromWebHandlerReplacement = `function fromWebHandler(handler) {
+	return async function _webHandler(event) {
+		const nodeReq = event?.node?.req || event?.req;
+		// Already a WHATWG Request (h3 v2)
+		if (nodeReq && typeof nodeReq.headers?.get === "function" && typeof nodeReq.url === "string" && nodeReq.url.includes("://")) {
+			return handler(nodeReq, event.context);
+		}
+		// Wrap Node IncomingMessage as a real Web Request
+		const _host = nodeReq.headers.host || "localhost";
+		const _proto = nodeReq.socket?.encrypted || nodeReq.headers["x-forwarded-proto"] === "https" ? "https" : "http";
+		const _url = nodeReq.url && nodeReq.url.includes("://") ? nodeReq.url : _proto + "://" + _host + (nodeReq.url || "/");
+		const _headers = new Headers();
+		for (const _k in nodeReq.headers) {
+			const _v = nodeReq.headers[_k];
+			if (Array.isArray(_v)) for (const _vv of _v) _headers.append(_k, String(_vv));
+			else if (_v != null) _headers.set(_k, String(_v));
+		}
+		const _init = { method: nodeReq.method || "GET", headers: _headers };
+		const _method = (_init.method).toUpperCase();
+		if (_method !== "GET" && _method !== "HEAD") {
+			const _chunks = [];
+			await new Promise((resolve, reject) => {
+				nodeReq.on("data", (c) => _chunks.push(c));
+				nodeReq.on("end", resolve);
+				nodeReq.on("error", reject);
+			});
+			_init.body = _chunks.length ? Buffer.concat(_chunks) : undefined;
+			if (_init.body) _init.duplex = "half";
+		}
+		const _request = new Request(_url, _init);
+		return handler(_request, event.context);
+	};
+}`;
+patchFile(".output/server/chunks/virtual/entry.mjs", [
+  {
+    name: "fromWebHandler wraps IncomingMessage",
+    needle: fromWebHandlerNeedle,
+    replacement: fromWebHandlerReplacement,
   },
 ]);
 
