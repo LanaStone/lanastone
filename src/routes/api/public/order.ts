@@ -17,7 +17,6 @@ const orderSchema = z.object({
   items: z.array(itemSchema).min(1, "Добавьте хотя бы одно украшение").max(20),
 });
 
-const RECIPIENT = "lanastonevrn@gmail.com";
 const RESEND_API_URL = "https://api.resend.com";
 
 function escapeHtml(s: string): string {

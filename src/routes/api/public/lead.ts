@@ -9,7 +9,6 @@ const leadSchema = z.object({
   product_ref: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
-const RECIPIENT = "lanastonevrn@gmail.com";
 const RESEND_API_URL = "https://api.resend.com";
 
 function escapeHtml(s: string): string {
@@ -53,6 +52,9 @@ export const Route = createFileRoute("/api/public/lead")({
         if (!RESEND_API_KEY) {
           return Response.json({ error: "Email-сервис не настроен" }, { status: 500 });
         }
+        const RECIPIENT = process.env.ADMIN_EMAIL || "lanastonevrn@gmail.com";
+
+
 
         const safe = (v?: string) => (v ? escapeHtml(v) : "—");
 
