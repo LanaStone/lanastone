@@ -35,11 +35,11 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=8080
+ENV NITRO_HOST=0.0.0.0
+ENV NITRO_PORT=8080
 
-# Берём только готовую сборку Nitro (содержит пропатченный srvx и router-core)
 COPY --from=builder /app/.output ./.output
 
 EXPOSE 8080
 
-# Никакого entrypoint-скрипта — Nitro сам читает PORT/HOST из env
-CMD ["node", ".output/server/index.mjs"]
+CMD ["sh", "-c", "echo START HOST=$HOST PORT=$PORT NITRO_HOST=$NITRO_HOST NITRO_PORT=$NITRO_PORT; node .output/server/index.mjs & sleep 8; echo LOCAL_CHECK_START; wget -S -O - http://127.0.0.1:${PORT}/api/public/health || true; echo LOCAL_CHECK_ROOT; wget -S -O - http://127.0.0.1:${PORT}/ || true; echo LOCAL_CHECK_END; wait"]
