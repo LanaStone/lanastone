@@ -52,6 +52,9 @@ export const Route = createFileRoute("/api/public/order")({
         if (!RESEND_API_KEY) {
           return Response.json({ error: "Email-сервис не настроен" }, { status: 500 });
         }
+        const RECIPIENT = process.env.ADMIN_EMAIL || "lanastonevrn@gmail.com";
+
+
 
         const itemsHtml = data.items
           .map(
