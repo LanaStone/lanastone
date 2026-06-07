@@ -34,12 +34,12 @@ WORKDIR /app
 # HOST=0.0.0.0 обязателен, иначе сервер не виден снаружи контейнера.
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
-ENV PORT=3000
+ENV PORT=8080
 
 # Берём только готовую сборку Nitro (содержит пропатченный srvx и router-core)
 COPY --from=builder /app/.output ./.output
 
-EXPOSE 3000
+EXPOSE 8080
 
 # Никакого entrypoint-скрипта — Nitro сам читает PORT/HOST из env
 CMD ["node", ".output/server/index.mjs"]
