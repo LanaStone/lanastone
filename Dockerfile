@@ -17,7 +17,7 @@ ENV NITRO_PRESET=node-server
 
 # Сначала только манифесты — для кэширования npm-слоя
 COPY package.json package-lock.json* ./
-RUN npm ci --include=dev --legacy-peer-deps
+RUN npm install --include=dev --legacy-peer-deps
 
 # Затем остальной код и сборка
 COPY . .
