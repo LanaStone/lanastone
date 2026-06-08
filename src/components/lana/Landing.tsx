@@ -258,19 +258,19 @@ export function Landing() {
           </p>
         </div>
 
-        {/* Hero content — left aligned on desktop, bottom on mobile */}
-        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-14 pt-8 lg:pt-10 z-10">
+        {/* Hero content — left aligned on desktop, lower (около уровня груди) on mobile */}
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-[48vh] sm:pt-[42vh] lg:pt-10 z-10">
           <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
             {/* Heading */}
             <h1 className="leading-[0.95] flex flex-col items-start text-left">
               <span
-                className="hero-display-ice text-4xl sm:text-5xl lg:text-7xl xl:text-8xl"
+                className="hero-display-ice text-3xl sm:text-5xl lg:text-7xl xl:text-8xl"
               >
                 Украшения
               </span>
               <span
-                className="hero-display-ice mt-4 lg:mt-5 text-lg sm:text-xl lg:text-2xl xl:text-3xl"
-                style={{ letterSpacing: "0.22em" }}
+                className="hero-display-ice mt-2 lg:mt-5 text-[0.85rem] sm:text-xl lg:text-2xl xl:text-3xl"
+                style={{ letterSpacing: "0.2em" }}
               >
                 Ручной работы из натуральных камней
               </span>
