@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { products, categories, type ProductCategory } from "@/lib/products";
+import { generateTryOn } from "@/lib/tryon.functions";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
 
@@ -36,6 +38,7 @@ export function TryOnSection() {
   const [selected, setSelected] = useState<string>(filtered[0]?.id ?? "");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<string | null>(null);
+  const tryOn = useServerFn(generateTryOn);
 
   function onCategoryChange(cat: ProductCategory) {
     setTryOnCategory(cat);
@@ -72,17 +75,14 @@ export function TryOnSection() {
     setResult(null);
     try {
       const productDataUrl = await urlToDataUrl(product.image);
-      const response = await fetch("/api/public/tryon", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const res = await tryOn({
+        data: {
           productId: product.id,
           productName: product.name,
           productImageUrl: productDataUrl,
           userImageUrl: userImage,
-        }),
+        },
       });
-      const res = await response.json().catch(() => ({ ok: false, error: "Не удалось выполнить примерку" }));
       if (!res.ok) {
         toast.error(res.error ?? "Не удалось выполнить примерку");
       } else {
