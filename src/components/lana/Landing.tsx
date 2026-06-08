@@ -593,7 +593,7 @@ export function Landing() {
 
           {categories.map((c) => (
             <TabsContent key={c.id} value={c.id} className="mt-10">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                 {products.filter((p) => p.category === c.id).map((p, i) => (
                   <article
                     key={p.id}
