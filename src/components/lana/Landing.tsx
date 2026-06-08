@@ -572,8 +572,8 @@ export function Landing() {
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
-            <span className="script-accent text-5xl lg:text-6xl block mb-2">collection</span>
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
+            <span className="script-accent text-4xl sm:text-5xl lg:text-6xl block mb-2">collection</span>
             Выберите украшение, <em className="not-italic text-primary">которое откликается</em>
           </h2>
         </div>
