@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { products, categories, type ProductCategory } from "@/lib/products";
+import { generateTryOn } from "@/lib/tryon.functions";
 
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
 
