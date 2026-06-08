@@ -75,17 +75,14 @@ export function TryOnSection() {
     setResult(null);
     try {
       const productDataUrl = await urlToDataUrl(product.image);
-      const response = await fetch("/api/public/tryon", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const res = await tryOn({
+        data: {
           productId: product.id,
           productName: product.name,
           productImageUrl: productDataUrl,
           userImageUrl: userImage,
-        }),
+        },
       });
-      const res = await response.json().catch(() => ({ ok: false, error: "Не удалось выполнить примерку" }));
       if (!res.ok) {
         toast.error(res.error ?? "Не удалось выполнить примерку");
       } else {
