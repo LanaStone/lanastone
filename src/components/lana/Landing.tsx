@@ -258,19 +258,19 @@ export function Landing() {
           </p>
         </div>
 
-        {/* Hero content — left aligned on desktop, bottom on mobile */}
-        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-14 pt-8 lg:pt-10 z-10">
+        {/* Hero content — left aligned on desktop, lower (около уровня груди) on mobile */}
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-[48vh] sm:pt-[42vh] lg:pt-10 z-10">
           <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
             {/* Heading */}
             <h1 className="leading-[0.95] flex flex-col items-start text-left">
               <span
-                className="hero-display-ice text-4xl sm:text-5xl lg:text-7xl xl:text-8xl"
+                className="hero-display-ice text-3xl sm:text-5xl lg:text-7xl xl:text-8xl"
               >
                 Украшения
               </span>
               <span
-                className="hero-display-ice mt-4 lg:mt-5 text-lg sm:text-xl lg:text-2xl xl:text-3xl"
-                style={{ letterSpacing: "0.22em" }}
+                className="hero-display-ice mt-2 lg:mt-5 text-[0.85rem] sm:text-xl lg:text-2xl xl:text-3xl"
+                style={{ letterSpacing: "0.2em" }}
               >
                 Ручной работы из натуральных камней
               </span>
@@ -540,25 +540,25 @@ export function Landing() {
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto reveal">
             <Ornament label="Почему" />
-            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
               Lana Stone <em className="not-italic text-primary">выбирают сердцем</em> — и возвращаются снова
             </h2>
           </div>
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-10 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {ADVANTAGES.map((a, i) => (
               <div
                 key={a.title}
-                className="reveal halo group rounded-sm p-7 shadow-card border border-primary/20 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 frame-glow backdrop-blur-sm"
+                className="reveal halo group rounded-sm p-4 sm:p-7 shadow-card border border-primary/20 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 frame-glow backdrop-blur-sm"
                 style={{
                   transitionDelay: `${i * 60}ms`,
                   background: "linear-gradient(160deg, oklch(0.32 0.025 235 / 0.85) 0%, oklch(0.26 0.022 235 / 0.85) 100%)",
                 }}
               >
-                <div className="w-12 h-12 mb-5 rounded-full bg-accent/60 flex items-center justify-center ring-1 ring-primary/20">
-                  <span className="text-primary font-script text-3xl leading-none">0{i + 1}</span>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-5 rounded-full bg-accent/60 flex items-center justify-center ring-1 ring-primary/20">
+                  <span className="text-primary font-script text-2xl sm:text-3xl leading-none">0{i + 1}</span>
                 </div>
-                <h3 className="font-display text-xl text-foreground">{a.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                <h3 className="font-display text-base sm:text-xl text-foreground">{a.title}</h3>
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">{a.text}</p>
               </div>
             ))}
           </div>
@@ -572,8 +572,8 @@ export function Landing() {
 
         <div className="text-center max-w-3xl mx-auto reveal relative">
           <Ornament label="Каталог" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
-            <span className="script-accent text-5xl lg:text-6xl block mb-2">collection</span>
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
+            <span className="script-accent text-4xl sm:text-5xl lg:text-6xl block mb-2">collection</span>
             Выберите украшение, <em className="not-italic text-primary">которое откликается</em>
           </h2>
         </div>
@@ -593,7 +593,7 @@ export function Landing() {
 
           {categories.map((c) => (
             <TabsContent key={c.id} value={c.id} className="mt-10">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                 {products.filter((p) => p.category === c.id).map((p, i) => (
                   <article
                     key={p.id}
@@ -631,19 +631,19 @@ export function Landing() {
                         </div>
                       )}
                     </button>
-                    <div className="p-6">
-                      <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
-                      <p className="mt-1 italic text-primary text-sm">{p.mood}</p>
-                      <dl className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+                    <div className="p-3 sm:p-6">
+                      <h3 className="font-display text-base sm:text-2xl text-foreground leading-tight">{p.name}</h3>
+                      <p className="mt-1 italic text-primary text-[11px] sm:text-sm">{p.mood}</p>
+                      <dl className="mt-2 sm:mt-4 space-y-1 sm:space-y-1.5 text-[11px] sm:text-sm text-muted-foreground hidden sm:block">
                         <div className="flex justify-between gap-3"><dt className="opacity-70">Материалы</dt><dd className="text-right text-foreground/80">{p.materials}</dd></div>
                         <div className="flex justify-between gap-3"><dt className="opacity-70">Размер</dt><dd className="text-right text-foreground/80">{p.size}</dd></div>
                       </dl>
-                      <div className="mt-5 flex items-center justify-between">
-                        <span className="font-display text-2xl text-foreground">{p.price}</span>
+                      <div className="mt-3 sm:mt-5 flex items-center justify-between gap-2 flex-wrap">
+                        <span className="font-display text-base sm:text-2xl text-foreground">{p.price}</span>
                         <Button
                           onClick={() => openOrder(p.name, `Заказать «${p.name}»`)}
                           size="sm"
-                          className="bg-primary text-primary-foreground hover:bg-primary/90"
+                          className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 px-3 text-xs sm:h-9 sm:px-4 sm:text-sm"
                         >
                           Заказать
                         </Button>
@@ -667,11 +667,11 @@ export function Landing() {
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="max-w-3xl reveal">
             <Ornament label="По настроению" />
-            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
               Не знаете, что выбрать? <em className="not-italic text-primary">Начните с ощущения.</em>
             </h2>
           </div>
-          <div className="mt-14 grid md:grid-cols-2 gap-6">
+          <div className="mt-10 sm:mt-14 grid grid-cols-2 gap-3 sm:gap-6">
             {MOODS.map((m, i) => (
               <article
                 key={m.title}
@@ -679,15 +679,15 @@ export function Landing() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <img src={m.img} alt={m.title} loading="lazy" width={1024} height={1024}
-                  className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-[1200ms]" />
+                  className="w-full h-[220px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-[1200ms]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/30 to-transparent" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end text-cream">
-                  <h3 className="font-display text-3xl font-light" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed max-w-md" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
+                <div className="absolute inset-0 p-3 sm:p-8 flex flex-col justify-end text-cream">
+                  <h3 className="font-display text-base sm:text-3xl font-light leading-tight" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
+                  <p className="mt-1 sm:mt-2 text-[11px] sm:text-sm leading-relaxed max-w-md hidden sm:block" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
                   <Button
                     onClick={() => openMood(m)}
                     variant="outline"
-                    className="mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10"
+                    className="mt-2 sm:mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10 h-8 px-3 text-[11px] sm:h-9 sm:px-4 sm:text-sm"
                     style={{ color: "var(--color-cream)", borderColor: "oklch(0.99 0.005 80 / 0.5)" }}
                   >
                     {m.cta}
@@ -705,10 +705,10 @@ export function Landing() {
         <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
         <div className="max-w-4xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
-            <span className="script-accent text-5xl lg:text-6xl block mb-1">made for you</span>
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
+            <span className="script-accent text-4xl sm:text-5xl lg:text-6xl block mb-1">made for you</span>
             Не нашли то самое? <em className="not-italic text-primary">Создадим для вас</em>
-            <span className="block mt-2 text-3xl lg:text-4xl text-muted-foreground font-light">— или <em className="not-italic text-primary">вместе с вами</em></span>
+            <span className="block mt-2 text-2xl sm:text-3xl lg:text-4xl text-muted-foreground font-light">— или <em className="not-italic text-primary">вместе с вами</em></span>
           </h2>
 
           <div className="mt-12 grid md:grid-cols-2 gap-6 text-left">
@@ -764,7 +764,7 @@ export function Landing() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.18 0.014 235 / 0.85) 0%, oklch(0.14 0.014 235 / 0.92) 100%)" }} />
         <div className="relative max-w-3xl mx-auto px-5 lg:px-10 text-center reveal">
           <Ornament label="Доверие" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl text-foreground">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl text-foreground">
             Украшение становится особенным, когда <em className="not-italic text-primary">находит своего человека</em>
           </h2>
           <div className="mt-7 space-y-4 text-foreground/80 text-[1.02rem] leading-relaxed text-pretty">
@@ -815,7 +815,7 @@ export function Landing() {
         />
         <div className="relative max-w-4xl mx-auto px-5 lg:px-10 text-center reveal">
           <p className="script-accent text-5xl lg:text-7xl mb-4">— for you —</p>
-          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl text-cream">
+          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-3xl sm:text-4xl text-cream">
             Выберите украшение, которое будет не просто красивым — <em className="not-italic text-primary">а вашим</em>
           </h2>
           <p className="mt-6 text-cream/75 text-lg text-pretty">
@@ -857,8 +857,9 @@ export function Landing() {
           <div>
             <h3 className="font-display text-xl mb-4" style={{ color: "var(--color-cream)" }}>Связаться</h3>
             <div className="space-y-2.5 text-sm">
-              <a href="https://wa.me/79999999999" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>WhatsApp</a>
-              <a href="https://t.me/lanastone" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Telegram</a>
+              <a href="https://t.me/Lana_Shatalova" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Telegram</a>
+              <a href="tel:+79081407718" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>+7 908 140-77-18</a>
+              <a href="https://vk.com/id33777758" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Написать в ВК</a>
               <a href="https://instagram.com/lanastone" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Instagram</a>
               <button onClick={() => openOrder("", "Оставить заявку")} className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>
                 Оставить заявку на сайте →
