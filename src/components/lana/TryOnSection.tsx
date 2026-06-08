@@ -38,6 +38,7 @@ export function TryOnSection() {
   const [selected, setSelected] = useState<string>(filtered[0]?.id ?? "");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<string | null>(null);
+  const tryOn = useServerFn(generateTryOn);
 
   function onCategoryChange(cat: ProductCategory) {
     setTryOnCategory(cat);
