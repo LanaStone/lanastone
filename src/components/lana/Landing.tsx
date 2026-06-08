@@ -667,11 +667,11 @@ export function Landing() {
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="max-w-3xl reveal">
             <Ornament label="По настроению" />
-            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
               Не знаете, что выбрать? <em className="not-italic text-primary">Начните с ощущения.</em>
             </h2>
           </div>
-          <div className="mt-14 grid md:grid-cols-2 gap-6">
+          <div className="mt-10 sm:mt-14 grid grid-cols-2 gap-3 sm:gap-6">
             {MOODS.map((m, i) => (
               <article
                 key={m.title}
@@ -679,15 +679,15 @@ export function Landing() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <img src={m.img} alt={m.title} loading="lazy" width={1024} height={1024}
-                  className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-[1200ms]" />
+                  className="w-full h-[220px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-[1200ms]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/30 to-transparent" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end text-cream">
-                  <h3 className="font-display text-3xl font-light" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed max-w-md" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
+                <div className="absolute inset-0 p-3 sm:p-8 flex flex-col justify-end text-cream">
+                  <h3 className="font-display text-base sm:text-3xl font-light leading-tight" style={{ color: "var(--color-cream)" }}>{m.title}</h3>
+                  <p className="mt-1 sm:mt-2 text-[11px] sm:text-sm leading-relaxed max-w-md hidden sm:block" style={{ color: "var(--color-lilac-soft)" }}>{m.text}</p>
                   <Button
                     onClick={() => openMood(m)}
                     variant="outline"
-                    className="mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10"
+                    className="mt-2 sm:mt-5 self-start border-cream/60 bg-transparent hover:bg-cream/10 h-8 px-3 text-[11px] sm:h-9 sm:px-4 sm:text-sm"
                     style={{ color: "var(--color-cream)", borderColor: "oklch(0.99 0.005 80 / 0.5)" }}
                   >
                     {m.cta}
