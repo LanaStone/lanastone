@@ -815,7 +815,7 @@ export function Landing() {
         />
         <div className="relative max-w-4xl mx-auto px-5 lg:px-10 text-center reveal">
           <p className="script-accent text-5xl lg:text-7xl mb-4">— for you —</p>
-          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-5xl text-cream">
+          <h2 className="font-heading lg:text-7xl leading-tight text-balance text-3xl sm:text-4xl text-cream">
             Выберите украшение, которое будет не просто красивым — <em className="not-italic text-primary">а вашим</em>
           </h2>
           <p className="mt-6 text-cream/75 text-lg text-pretty">
