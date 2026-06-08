@@ -631,19 +631,19 @@ export function Landing() {
                         </div>
                       )}
                     </button>
-                    <div className="p-6">
-                      <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
-                      <p className="mt-1 italic text-primary text-sm">{p.mood}</p>
-                      <dl className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+                    <div className="p-3 sm:p-6">
+                      <h3 className="font-display text-base sm:text-2xl text-foreground leading-tight">{p.name}</h3>
+                      <p className="mt-1 italic text-primary text-[11px] sm:text-sm">{p.mood}</p>
+                      <dl className="mt-2 sm:mt-4 space-y-1 sm:space-y-1.5 text-[11px] sm:text-sm text-muted-foreground hidden sm:block">
                         <div className="flex justify-between gap-3"><dt className="opacity-70">Материалы</dt><dd className="text-right text-foreground/80">{p.materials}</dd></div>
                         <div className="flex justify-between gap-3"><dt className="opacity-70">Размер</dt><dd className="text-right text-foreground/80">{p.size}</dd></div>
                       </dl>
-                      <div className="mt-5 flex items-center justify-between">
-                        <span className="font-display text-2xl text-foreground">{p.price}</span>
+                      <div className="mt-3 sm:mt-5 flex items-center justify-between gap-2 flex-wrap">
+                        <span className="font-display text-base sm:text-2xl text-foreground">{p.price}</span>
                         <Button
                           onClick={() => openOrder(p.name, `Заказать «${p.name}»`)}
                           size="sm"
-                          className="bg-primary text-primary-foreground hover:bg-primary/90"
+                          className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 px-3 text-xs sm:h-9 sm:px-4 sm:text-sm"
                         >
                           Заказать
                         </Button>
