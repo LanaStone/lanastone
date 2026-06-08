@@ -540,11 +540,11 @@ export function Landing() {
         <div className="relative max-w-7xl mx-auto px-5 lg:px-10">
           <div className="text-center max-w-3xl mx-auto reveal">
             <Ornament label="Почему" />
-            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
+            <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
               Lana Stone <em className="not-italic text-primary">выбирают сердцем</em> — и возвращаются снова
             </h2>
           </div>
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-10 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {ADVANTAGES.map((a, i) => (
               <div
                 key={a.title}
