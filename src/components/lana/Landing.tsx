@@ -705,10 +705,10 @@ export function Landing() {
         <FloatingDeco src={decoNecklace} className="right-2 bottom-10 rotate-12 w-28 lg:w-40" />
         <div className="max-w-4xl mx-auto text-center reveal relative">
           <Ornament label="Под заказ" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl">
-            <span className="script-accent text-5xl lg:text-6xl block mb-1">made for you</span>
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl">
+            <span className="script-accent text-4xl sm:text-5xl lg:text-6xl block mb-1">made for you</span>
             Не нашли то самое? <em className="not-italic text-primary">Создадим для вас</em>
-            <span className="block mt-2 text-3xl lg:text-4xl text-muted-foreground font-light">— или <em className="not-italic text-primary">вместе с вами</em></span>
+            <span className="block mt-2 text-2xl sm:text-3xl lg:text-4xl text-muted-foreground font-light">— или <em className="not-italic text-primary">вместе с вами</em></span>
           </h2>
 
           <div className="mt-12 grid md:grid-cols-2 gap-6 text-left">
