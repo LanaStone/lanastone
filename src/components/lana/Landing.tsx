@@ -548,17 +548,17 @@ export function Landing() {
             {ADVANTAGES.map((a, i) => (
               <div
                 key={a.title}
-                className="reveal halo group rounded-sm p-7 shadow-card border border-primary/20 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 frame-glow backdrop-blur-sm"
+                className="reveal halo group rounded-sm p-4 sm:p-7 shadow-card border border-primary/20 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 frame-glow backdrop-blur-sm"
                 style={{
                   transitionDelay: `${i * 60}ms`,
                   background: "linear-gradient(160deg, oklch(0.32 0.025 235 / 0.85) 0%, oklch(0.26 0.022 235 / 0.85) 100%)",
                 }}
               >
-                <div className="w-12 h-12 mb-5 rounded-full bg-accent/60 flex items-center justify-center ring-1 ring-primary/20">
-                  <span className="text-primary font-script text-3xl leading-none">0{i + 1}</span>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-5 rounded-full bg-accent/60 flex items-center justify-center ring-1 ring-primary/20">
+                  <span className="text-primary font-script text-2xl sm:text-3xl leading-none">0{i + 1}</span>
                 </div>
-                <h3 className="font-display text-xl text-foreground">{a.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{a.text}</p>
+                <h3 className="font-display text-base sm:text-xl text-foreground">{a.title}</h3>
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">{a.text}</p>
               </div>
             ))}
           </div>
