@@ -764,7 +764,7 @@ export function Landing() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.18 0.014 235 / 0.85) 0%, oklch(0.14 0.014 235 / 0.92) 100%)" }} />
         <div className="relative max-w-3xl mx-auto px-5 lg:px-10 text-center reveal">
           <Ornament label="Доверие" />
-          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-5xl text-foreground">
+          <h2 className="font-heading lg:text-7xl mt-5 leading-tight text-balance text-3xl sm:text-4xl text-foreground">
             Украшение становится особенным, когда <em className="not-italic text-primary">находит своего человека</em>
           </h2>
           <div className="mt-7 space-y-4 text-foreground/80 text-[1.02rem] leading-relaxed text-pretty">
