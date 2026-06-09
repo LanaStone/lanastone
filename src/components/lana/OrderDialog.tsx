@@ -111,7 +111,7 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl w-[95vw] max-h-[92vh] overflow-y-auto p-6 sm:p-8 bg-card">
+      <DialogContent className="max-w-2xl w-[96vw] max-h-[92vh] overflow-y-auto p-4 sm:p-8 bg-card">
         {success ? (
           <div className="py-6 text-center">
             <div className="mx-auto w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center">
@@ -128,30 +128,30 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
           </div>
         ) : (
           <>
-            <DialogHeader>
-              <DialogTitle className="font-display text-3xl font-light">Оформление заказа</DialogTitle>
-              <DialogDescription>
+            <DialogHeader className="space-y-1">
+              <DialogTitle className="font-display text-xl sm:text-3xl font-light">Оформление заказа</DialogTitle>
+              <DialogDescription className="text-xs sm:text-sm">
                 Заполните контактные данные — я свяжусь с вами для подтверждения заказа лично.
               </DialogDescription>
             </DialogHeader>
 
-            <form onSubmit={onSubmit} className="space-y-6">
+            <form onSubmit={onSubmit} className="space-y-3 sm:space-y-6">
               {/* Cart */}
               <section>
-                <h4 className="font-display text-lg mb-2">Ваш заказ</h4>
+                <h4 className="font-display text-sm sm:text-lg mb-1.5 sm:mb-2">Ваш заказ</h4>
                 {items.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">Пока ничего не выбрано.</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Пока ничего не выбрано.</p>
                 ) : (
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {items.map((i) => (
                       <li
                         key={i.id}
-                        className="flex items-center gap-3 p-2 rounded-sm border border-border/60 bg-background/50"
+                        className="flex items-center gap-2 sm:gap-3 p-1.5 sm:p-2 rounded-sm border border-border/60 bg-background/50"
                       >
-                        <img src={i.image} alt="" className="w-12 h-12 object-cover rounded-sm" />
+                        <img src={i.image} alt="" className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-sm" />
                         <div className="flex-1 min-w-0">
-                          <div className="text-sm font-medium truncate">{i.name}</div>
-                          <div className="text-xs text-muted-foreground">{i.price}</div>
+                          <div className="text-xs sm:text-sm font-medium truncate">{i.name}</div>
+                          <div className="text-[11px] sm:text-xs text-muted-foreground">{i.price}</div>
                         </div>
                         <button
                           type="button"
@@ -169,12 +169,12 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
 
               {/* Upsell */}
               {suggestions.length > 0 && (
-                <section className="rounded-sm border border-border/60 bg-secondary/30 p-4">
-                  <h4 className="font-display text-base">С этим часто выбирают</h4>
-                  <p className="text-xs text-muted-foreground mt-0.5">
+                <section className="rounded-sm border border-border/60 bg-secondary/30 p-2.5 sm:p-4">
+                  <h4 className="font-display text-sm sm:text-base">С этим часто выбирают</h4>
+                  <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">
                     Можно добавить в этот же заказ.
                   </p>
-                  <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  <div className="mt-2 sm:mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
                     {suggestions.map((p) => (
                       <button
                         key={p.id}
@@ -190,9 +190,9 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
                             </span>
                           </div>
                         </div>
-                        <div className="p-2">
-                          <div className="text-[11px] leading-tight line-clamp-2">{p.name}</div>
-                          <div className="text-[11px] text-primary mt-0.5">{p.price}</div>
+                        <div className="p-1.5 sm:p-2">
+                          <div className="text-[10px] sm:text-[11px] leading-tight line-clamp-2">{p.name}</div>
+                          <div className="text-[10px] sm:text-[11px] text-primary mt-0.5">{p.price}</div>
                         </div>
                       </button>
                     ))}
@@ -201,35 +201,35 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
               )}
 
               {/* Contact info */}
-              <section className="grid sm:grid-cols-2 gap-3">
-                <div className="space-y-1.5">
-                  <Label htmlFor="o-fname">Имя *</Label>
-                  <Input id="o-fname" value={firstName} onChange={(e) => setFirstName(e.target.value)} maxLength={100} required />
+              <section className="grid sm:grid-cols-2 gap-2 sm:gap-3">
+                <div className="space-y-1">
+                  <Label htmlFor="o-fname" className="text-xs sm:text-sm">Имя *</Label>
+                  <Input id="o-fname" value={firstName} onChange={(e) => setFirstName(e.target.value)} maxLength={100} required className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="o-lname">Фамилия</Label>
-                  <Input id="o-lname" value={lastName} onChange={(e) => setLastName(e.target.value)} maxLength={100} />
+                <div className="space-y-1">
+                  <Label htmlFor="o-lname" className="text-xs sm:text-sm">Фамилия</Label>
+                  <Input id="o-lname" value={lastName} onChange={(e) => setLastName(e.target.value)} maxLength={100} className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="o-phone">Телефон *</Label>
-                  <Input id="o-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" />
+                <div className="space-y-1">
+                  <Label htmlFor="o-phone" className="text-xs sm:text-sm">Телефон *</Label>
+                  <Input id="o-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="o-city">Город</Label>
-                  <Input id="o-city" value={city} onChange={(e) => setCity(e.target.value)} maxLength={100} />
+                <div className="space-y-1">
+                  <Label htmlFor="o-city" className="text-xs sm:text-sm">Город</Label>
+                  <Input id="o-city" value={city} onChange={(e) => setCity(e.target.value)} maxLength={100} className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5 sm:col-span-2">
-                  <Label htmlFor="o-contact">Telegram / ссылка на соцсеть</Label>
-                  <Input id="o-contact" value={contact} onChange={(e) => setContact(e.target.value)} maxLength={200} placeholder="@username или ссылка" />
+                <div className="space-y-1 sm:col-span-2">
+                  <Label htmlFor="o-contact" className="text-xs sm:text-sm">Telegram / ссылка на соцсеть</Label>
+                  <Input id="o-contact" value={contact} onChange={(e) => setContact(e.target.value)} maxLength={200} placeholder="@username или ссылка" className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5 sm:col-span-2">
-                  <Label htmlFor="o-comment">Комментарий к заказу</Label>
-                  <Textarea id="o-comment" value={comment} onChange={(e) => setComment(e.target.value)} maxLength={2000} rows={3} placeholder="Размер, пожелания, удобное время связи..." />
+                <div className="space-y-1 sm:col-span-2">
+                  <Label htmlFor="o-comment" className="text-xs sm:text-sm">Комментарий к заказу</Label>
+                  <Textarea id="o-comment" value={comment} onChange={(e) => setComment(e.target.value)} maxLength={2000} rows={2} placeholder="Размер, пожелания, удобное время связи..." />
                 </div>
               </section>
 
               {/* Consent */}
-              <label className="flex items-start gap-2.5 text-xs text-muted-foreground cursor-pointer">
+              <label className="flex items-start gap-2 text-[11px] sm:text-xs text-muted-foreground cursor-pointer">
                 <Checkbox
                   checked={consent}
                   onCheckedChange={(v) => setConsent(!!v)}
@@ -244,7 +244,7 @@ export function OrderDialog({ open, onOpenChange, initialProduct }: Props) {
               <Button
                 type="submit"
                 disabled={submitting || items.length === 0}
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-10 sm:h-12"
               >
                 {submitting ? "Отправляем заказ…" : "Заказать"}
               </Button>
