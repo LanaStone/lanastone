@@ -110,54 +110,54 @@ export function LeadDialog({ open, onOpenChange, kind }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg w-[95vw] max-h-[92vh] overflow-y-auto p-6 sm:p-8 bg-card">
+      <DialogContent className="max-w-lg w-[96vw] max-h-[92vh] overflow-y-auto p-4 sm:p-8 bg-card">
         {success ? (
           <div className="py-6 text-center">
             <div className="mx-auto w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center">
               <Check className="h-7 w-7 text-primary" />
             </div>
-            <h3 className="font-display text-3xl mt-5">{cfg.successTitle}</h3>
-            <p className="mt-3 text-muted-foreground max-w-md mx-auto">{cfg.successText}</p>
+            <h3 className="font-display text-2xl sm:text-3xl mt-5">{cfg.successTitle}</h3>
+            <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-md mx-auto">{cfg.successText}</p>
             <Button className="mt-6" onClick={() => onOpenChange(false)}>
               Закрыть
             </Button>
           </div>
         ) : (
           <>
-            <DialogHeader>
-              <DialogTitle className="font-display text-3xl font-light">{cfg.title}</DialogTitle>
-              <DialogDescription>{cfg.description}</DialogDescription>
+            <DialogHeader className="space-y-1">
+              <DialogTitle className="font-display text-xl sm:text-3xl font-light">{cfg.title}</DialogTitle>
+              <DialogDescription className="text-xs sm:text-sm">{cfg.description}</DialogDescription>
             </DialogHeader>
 
-            <form onSubmit={onSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-3">
-                <div className="space-y-1.5">
-                  <Label htmlFor="l-fname">Имя *</Label>
-                  <Input id="l-fname" value={firstName} onChange={(e) => setFirstName(e.target.value)} maxLength={100} required />
+            <form onSubmit={onSubmit} className="space-y-3 sm:space-y-4">
+              <div className="grid sm:grid-cols-2 gap-2 sm:gap-3">
+                <div className="space-y-1">
+                  <Label htmlFor="l-fname" className="text-xs sm:text-sm">Имя *</Label>
+                  <Input id="l-fname" value={firstName} onChange={(e) => setFirstName(e.target.value)} maxLength={100} required className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="l-lname">Фамилия</Label>
-                  <Input id="l-lname" value={lastName} onChange={(e) => setLastName(e.target.value)} maxLength={100} />
+                <div className="space-y-1">
+                  <Label htmlFor="l-lname" className="text-xs sm:text-sm">Фамилия</Label>
+                  <Input id="l-lname" value={lastName} onChange={(e) => setLastName(e.target.value)} maxLength={100} className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="l-phone">Телефон *</Label>
-                  <Input id="l-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" />
+                <div className="space-y-1">
+                  <Label htmlFor="l-phone" className="text-xs sm:text-sm">Телефон *</Label>
+                  <Input id="l-phone" type="tel" value={phone} onChange={(e) => setPhone(formatRussianPhone(e.target.value))} maxLength={50} required placeholder="+7 (___) ___-__-__" className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="l-city">Город</Label>
-                  <Input id="l-city" value={city} onChange={(e) => setCity(e.target.value)} maxLength={100} />
+                <div className="space-y-1">
+                  <Label htmlFor="l-city" className="text-xs sm:text-sm">Город</Label>
+                  <Input id="l-city" value={city} onChange={(e) => setCity(e.target.value)} maxLength={100} className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5 sm:col-span-2">
-                  <Label htmlFor="l-contact">Telegram / ссылка на соцсеть</Label>
-                  <Input id="l-contact" value={contact} onChange={(e) => setContact(e.target.value)} maxLength={200} placeholder="@username или ссылка" />
+                <div className="space-y-1 sm:col-span-2">
+                  <Label htmlFor="l-contact" className="text-xs sm:text-sm">Telegram / ссылка на соцсеть</Label>
+                  <Input id="l-contact" value={contact} onChange={(e) => setContact(e.target.value)} maxLength={200} placeholder="@username или ссылка" className="h-9 sm:h-10" />
                 </div>
-                <div className="space-y-1.5 sm:col-span-2">
-                  <Label htmlFor="l-comment">{cfg.commentLabel}</Label>
-                  <Textarea id="l-comment" value={comment} onChange={(e) => setComment(e.target.value)} maxLength={2000} rows={4} placeholder={cfg.commentPlaceholder} />
+                <div className="space-y-1 sm:col-span-2">
+                  <Label htmlFor="l-comment" className="text-xs sm:text-sm">{cfg.commentLabel}</Label>
+                  <Textarea id="l-comment" value={comment} onChange={(e) => setComment(e.target.value)} maxLength={2000} rows={3} placeholder={cfg.commentPlaceholder} />
                 </div>
               </div>
 
-              <label className="flex items-start gap-2.5 text-xs text-muted-foreground cursor-pointer">
+              <label className="flex items-start gap-2 text-[11px] sm:text-xs text-muted-foreground cursor-pointer">
                 <Checkbox checked={consent} onCheckedChange={(v) => setConsent(!!v)} className="mt-0.5" />
                 <span>
                   Согласен(на) на обработку моих контактных данных для связи.
@@ -168,7 +168,7 @@ export function LeadDialog({ open, onOpenChange, kind }: Props) {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-10 sm:h-12"
               >
                 {submitting ? "Отправляем…" : cfg.submitLabel}
               </Button>
