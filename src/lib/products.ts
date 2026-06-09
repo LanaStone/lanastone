@@ -40,6 +40,8 @@ import charmBlackAgateFaceted from "@/assets/product-charm-black-agate-faceted.j
 import charmHematiteHorse from "@/assets/product-charm-hematite-horse-v2.jpg";
 import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart-v2.jpg";
 import setHematiteRhodium from "@/assets/product-set-hematite-rhodium-v2.jpg";
+import necklaceRoseQuartzHeartAsset from "@/assets/necklace-rose-quartz-heart.jpg.asset.json";
+import necklaceObsidianCrystalAsset from "@/assets/necklace-obsidian-crystal.jpg.asset.json";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
@@ -363,6 +365,28 @@ export const products: Product[] = [
     size: "16 см",
     price: "2 500 ₽",
     image: braceletRockCrystal,
+  },
+  {
+    id: "nk-rose-quartz-heart",
+    category: "necklaces",
+    name: "Розовый кварц · колье с сердцем",
+    mood: "Розовый кварц — «камень сердца», символ любви, нежности и душевной гармонии",
+    materials: "натуральный розовый кварц, цепь с родиевым покрытием, подвеска-сердце",
+    size: "длина 45 см",
+    price: "3 000 ₽",
+    image: necklaceRoseQuartzHeartAsset.url,
+    badges: ["Популярное"],
+  },
+  {
+    id: "nk-obsidian-rock-crystal",
+    category: "necklaces",
+    name: "Обсидиан и горный хрусталь · колье",
+    mood: "Глубина обсидиана и кристальная чистота горного хрусталя — графичный акцент с характером",
+    materials: "натуральный обсидиан, горный хрусталь, цепь с родиевым покрытием",
+    size: "длина 45 см",
+    price: "по запросу",
+    image: necklaceObsidianCrystalAsset.url,
+    badges: ["На заказ"],
   },
   {
     id: "nk-hematite-rhodium",

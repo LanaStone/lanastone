@@ -220,7 +220,7 @@ export function Landing() {
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-[78%_center] lg:object-[75%_center]"
+          className="absolute right-0 top-0 h-[72svh] w-auto max-w-[88%] object-cover object-[60%_top] sm:inset-0 sm:w-full sm:h-full sm:max-w-none sm:object-[78%_center] lg:object-[75%_center]"
         />
 
         {/* Left-side gradient for text legibility (keeps face clear on the right) */}
@@ -259,7 +259,7 @@ export function Landing() {
         </div>
 
         {/* Hero content — left aligned on desktop, lower (около уровня груди) on mobile */}
-        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-[48vh] sm:pt-[42vh] lg:pt-10 z-10">
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-[56vh] sm:pt-[42vh] lg:pt-10 z-10">
           <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
             {/* Heading */}
             <h1 className="leading-[0.95] flex flex-col items-start text-left">
@@ -857,10 +857,8 @@ export function Landing() {
           <div>
             <h3 className="font-display text-xl mb-4" style={{ color: "var(--color-cream)" }}>Связаться</h3>
             <div className="space-y-2.5 text-sm">
-              <a href="https://t.me/Lana_Shatalova" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Telegram</a>
               <a href="tel:+79081407718" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>+7 908 140-77-18</a>
               <a href="https://vk.com/id33777758" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Написать в ВК</a>
-              <a href="https://instagram.com/lanastone" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Instagram</a>
               <button onClick={() => openOrder("", "Оставить заявку")} className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>
                 Оставить заявку на сайте →
               </button>
@@ -911,17 +909,17 @@ export function Landing() {
       </Dialog>
 
       <Dialog open={!!moodPick} onOpenChange={(open) => !open && setMoodPick(null)}>
-        <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+        <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto p-4 sm:p-8">
           {moodPick && (
             <div>
               <p className="divider-ornament">Подборка</p>
-              <h3 className="font-display text-3xl mt-3">{moodPick.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <h3 className="font-display text-2xl sm:text-3xl mt-3">{moodPick.title}</h3>
+              <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
                 {moodPick.items.length === 0
                   ? "Пока нет изделий в этой подборке. Напишите — соберу под ваше настроение."
                   : `Подобрано украшений: ${moodPick.items.length}`}
               </p>
-              <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="mt-6 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
                 {moodPick.items.map((p) => (
                   <article key={p.id} className="bg-card rounded-sm overflow-hidden border border-border/60 shadow-card">
                     <div className="relative aspect-square overflow-hidden bg-secondary">
@@ -943,13 +941,14 @@ export function Landing() {
                         </div>
                       )}
                     </div>
-                    <div className="p-4">
-                      <h4 className="font-display text-lg leading-tight">{p.name}</h4>
-                      <p className="mt-1 text-xs italic text-primary">{p.mood}</p>
-                      <div className="mt-3 flex items-center justify-between">
-                        <span className="font-display text-lg">{p.price}</span>
+                    <div className="p-2.5 sm:p-4">
+                      <h4 className="font-display text-sm sm:text-lg leading-tight line-clamp-2">{p.name}</h4>
+                      <p className="mt-1 text-[10px] sm:text-xs italic text-primary hidden sm:block">{p.mood}</p>
+                      <div className="mt-2 sm:mt-3 flex items-center justify-between gap-2 flex-wrap">
+                        <span className="font-display text-sm sm:text-lg">{p.price}</span>
                         <Button
                           size="sm"
+                          className="h-7 px-2.5 text-[11px] sm:h-8 sm:px-3 sm:text-xs"
                           onClick={() => {
                             setMoodPick(null);
                             openOrder(p.name, `Заказать «${p.name}»`);
