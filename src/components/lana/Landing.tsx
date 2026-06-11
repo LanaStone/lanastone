@@ -213,7 +213,15 @@ export function Landing() {
         className="relative min-h-[100svh] overflow-hidden flex flex-col"
         style={{ backgroundColor: "var(--color-night-deep)" }}
       >
-        {/* Portrait — mobile: right column, fully visible (object-contain); desktop: full-bleed */}
+        {/* Portrait — mobile full-bleed crop, desktop full-bleed */}
+        <img
+          src={heroFullscreen}
+          alt="Светлана — автор украшений Lana Stone"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          className="lg:hidden absolute inset-0 w-full h-full object-cover object-[68%_top]"
+        />
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
@@ -229,6 +237,15 @@ export function Landing() {
           style={{
             background:
               "linear-gradient(90deg, oklch(0.13 0.04 290 / 0.92) 0%, oklch(0.13 0.04 290 / 0.7) 35%, oklch(0.13 0.04 290 / 0.2) 60%, transparent 80%)",
+          }}
+          aria-hidden="true"
+        />
+        {/* Mobile readability layer — keeps text left, expert clear right */}
+        <div
+          className="lg:hidden absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, oklch(0.11 0.012 235 / 0.9) 0%, oklch(0.11 0.012 235 / 0.62) 43%, transparent 62%), linear-gradient(180deg, oklch(0.11 0.012 235 / 0.16) 0%, transparent 42%, oklch(0.11 0.012 235 / 0.52) 100%)",
           }}
           aria-hidden="true"
         />
@@ -249,32 +266,24 @@ export function Landing() {
           </p>
         </div>
 
-        {/* MOBILE: heading left + portrait right (two columns) */}
-        <div className="relative z-10 lg:hidden px-5 pt-6 grid grid-cols-[1fr_46%] gap-3 items-center">
-          <h1 className="leading-[1] flex flex-col items-start text-left">
-            <span className="hero-display-ice text-[1.55rem] xs:text-[1.75rem]">
+        {/* MOBILE: heading left, no overlap with expert */}
+        <div className="relative z-10 lg:hidden px-5 pt-[5.5rem] min-h-[42svh] flex items-start">
+          <h1 className="leading-[1] flex max-w-[48%] flex-col items-start text-left">
+            <span className="hero-display-ice text-[1.48rem] xs:text-[1.65rem]">
               Украшения
             </span>
             <span
-              className="hero-display-ice mt-2 text-[0.6rem]"
-              style={{ letterSpacing: "0.14em", lineHeight: 1.35 }}
+              className="hero-display-ice mt-2 text-[0.56rem]"
+              style={{ letterSpacing: "0.12em", lineHeight: 1.35 }}
             >
               Ручной работы из натуральных камней
             </span>
           </h1>
-          <img
-            src={heroFullscreen}
-            alt="Светлана — автор украшений Lana Stone"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-            className="w-full h-auto max-h-[42svh] object-contain object-top"
-          />
         </div>
 
         {/* Hero content — left aligned on desktop, below photo on mobile */}
-        <div className="relative flex-1 flex flex-col justify-start lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-4 lg:pt-10 z-10">
-          <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-7 lg:pb-14 pt-4 lg:pt-10 z-10">
+          <div className="reveal w-full max-w-[18rem] lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
             {/* Heading — desktop only (mobile heading is rendered above) */}
             <h1 className="hidden lg:flex leading-[0.95] flex-col items-start text-left">
               <span className="hero-display-ice text-7xl xl:text-8xl">
