@@ -213,14 +213,22 @@ export function Landing() {
         className="relative min-h-[100svh] overflow-hidden flex flex-col"
         style={{ backgroundColor: "var(--color-night-deep)" }}
       >
-        {/* Full-bleed background portrait */}
+        {/* Portrait — mobile: right column ~52% with feathered left edge; desktop: full-bleed */}
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute right-0 top-0 h-[72svh] w-auto max-w-[88%] object-cover object-[60%_top] sm:inset-0 sm:w-full sm:h-full sm:max-w-none sm:object-[78%_center] lg:object-[75%_center]"
+          className="absolute right-0 top-14 h-[58svh] w-[58%] object-cover object-[62%_top] lg:inset-0 lg:top-0 lg:w-full lg:h-full lg:object-[75%_center]"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%), linear-gradient(180deg, #000 70%, transparent 100%)",
+            maskImage:
+              "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%), linear-gradient(180deg, #000 70%, transparent 100%)",
+            WebkitMaskComposite: "source-in",
+            maskComposite: "intersect",
+          }}
         />
 
         {/* Left-side gradient for text legibility (keeps face clear on the right) */}
@@ -228,22 +236,22 @@ export function Landing() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, oklch(0.13 0.04 290 / 0.92) 0%, oklch(0.13 0.04 290 / 0.75) 30%, oklch(0.13 0.04 290 / 0.35) 55%, transparent 75%)",
+              "linear-gradient(90deg, oklch(0.13 0.04 290 / 0.92) 0%, oklch(0.13 0.04 290 / 0.7) 35%, oklch(0.13 0.04 290 / 0.2) 60%, transparent 80%)",
           }}
           aria-hidden="true"
         />
         {/* Mobile bottom dim so text under face stays readable */}
         <div
-          className="absolute inset-x-0 bottom-0 h-2/3 lg:hidden"
+          className="absolute inset-x-0 bottom-0 h-1/2 lg:hidden"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, oklch(0.13 0.04 290 / 0.85) 60%, oklch(0.13 0.04 290) 100%)",
+              "linear-gradient(180deg, transparent 0%, oklch(0.13 0.04 290 / 0.85) 55%, var(--color-night-deep) 100%)",
           }}
           aria-hidden="true"
         />
         {/* Top dim for header readability */}
         <div
-          className="absolute inset-x-0 top-0 h-40"
+          className="absolute inset-x-0 top-0 h-32"
           style={{
             background:
               "linear-gradient(180deg, oklch(0.13 0.04 290 / 0.85) 0%, transparent 100%)",
@@ -258,18 +266,31 @@ export function Landing() {
           </p>
         </div>
 
-        {/* Hero content — left aligned on desktop, lower (около уровня груди) on mobile */}
-        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-[56vh] sm:pt-[42vh] lg:pt-10 z-10">
+        {/* Heading — mobile: left column next to photo; desktop: keep in main content block */}
+        <div className="relative z-10 px-5 pt-6 lg:hidden">
+          <h1 className="leading-[0.92] flex flex-col items-start text-left max-w-[55%]">
+            <span className="hero-display-ice text-[2rem] xs:text-4xl">
+              Украшения
+            </span>
+            <span
+              className="hero-display-ice mt-2 text-[0.7rem]"
+              style={{ letterSpacing: "0.18em" }}
+            >
+              Ручной работы из натуральных камней
+            </span>
+          </h1>
+        </div>
+
+        {/* Hero content — left aligned on desktop, below photo on mobile */}
+        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-4 lg:pt-10 z-10">
           <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
-            {/* Heading */}
-            <h1 className="leading-[0.95] flex flex-col items-start text-left">
-              <span
-                className="hero-display-ice text-3xl sm:text-5xl lg:text-7xl xl:text-8xl"
-              >
+            {/* Heading — desktop only (mobile heading is rendered above) */}
+            <h1 className="hidden lg:flex leading-[0.95] flex-col items-start text-left">
+              <span className="hero-display-ice text-7xl xl:text-8xl">
                 Украшения
               </span>
               <span
-                className="hero-display-ice mt-2 lg:mt-5 text-[0.85rem] sm:text-xl lg:text-2xl xl:text-3xl"
+                className="hero-display-ice mt-5 text-2xl xl:text-3xl"
                 style={{ letterSpacing: "0.2em" }}
               >
                 Ручной работы из натуральных камней
@@ -278,7 +299,7 @@ export function Landing() {
 
             {/* Quote-style tagline */}
             <figure
-              className="mt-6 lg:mt-7 max-w-sm relative pl-4 pr-3 py-1.5"
+              className="mt-2 lg:mt-7 max-w-sm relative pl-4 pr-3 py-1.5"
               style={{
                 borderLeft: "2px solid oklch(0.75 0.07 230 / 0.7)",
               }}
@@ -294,7 +315,7 @@ export function Landing() {
                 «
               </span>
               <blockquote
-                className="text-xl sm:text-2xl lg:text-2xl"
+                className="text-lg sm:text-2xl lg:text-2xl"
                 style={{
                   fontFamily: '"Marck Script", "Caveat", cursive',
                   color: "oklch(0.97 0.025 230)",
@@ -308,7 +329,7 @@ export function Landing() {
             </figure>
 
             {/* Category chips */}
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-4 lg:mt-5 flex flex-wrap gap-2">
               {categories.map((c) => (
                 <button
                   key={c.id}
@@ -340,7 +361,7 @@ export function Landing() {
             </div>
 
             {/* CTA */}
-            <div className="mt-7 lg:mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-5 lg:mt-8 flex flex-wrap items-center gap-3">
               <Button
                 onClick={() => scrollTo("catalog")}
                 className="bg-gradient-gold text-primary-foreground hover:opacity-90 px-7 h-11 rounded-none tracking-[0.3em] uppercase text-[0.7rem] shadow-gold"
@@ -364,7 +385,7 @@ export function Landing() {
             </div>
 
             {/* Promo — скидка 10% на первый заказ */}
-            <div className="mt-5 lg:mt-6 inline-flex items-center gap-2.5 pl-3 pr-4 py-1.5 rounded-full backdrop-blur-md"
+            <div className="mt-4 lg:mt-6 inline-flex items-center gap-2.5 pl-3 pr-4 py-1.5 rounded-full backdrop-blur-md"
               style={{
                 backgroundColor: "oklch(0.18 0.014 235 / 0.45)",
                 border: "1px solid oklch(0.78 0.09 85 / 0.45)",
