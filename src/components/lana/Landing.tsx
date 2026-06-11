@@ -220,7 +220,7 @@ export function Landing() {
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="lg:hidden absolute inset-0 w-full h-full object-cover object-[68%_top]"
+          className="lg:hidden absolute inset-0 w-full h-full object-cover object-[66%_top]"
         />
         <img
           src={heroFullscreen}
@@ -245,7 +245,7 @@ export function Landing() {
           className="lg:hidden absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, oklch(0.11 0.012 235 / 0.9) 0%, oklch(0.11 0.012 235 / 0.62) 43%, transparent 62%), linear-gradient(180deg, oklch(0.11 0.012 235 / 0.16) 0%, transparent 42%, oklch(0.11 0.012 235 / 0.52) 100%)",
+              "linear-gradient(90deg, oklch(0.11 0.012 235 / 0.94) 0%, oklch(0.11 0.012 235 / 0.76) 38%, oklch(0.11 0.012 235 / 0.2) 54%, transparent 68%), linear-gradient(180deg, oklch(0.11 0.012 235 / 0.16) 0%, transparent 42%, oklch(0.11 0.012 235 / 0.52) 100%)",
           }}
           aria-hidden="true"
         />
@@ -267,14 +267,14 @@ export function Landing() {
         </div>
 
         {/* MOBILE: heading left, no overlap with expert */}
-        <div className="relative z-10 lg:hidden px-5 pt-[5.5rem] min-h-[42svh] flex items-start">
-          <h1 className="leading-[1] flex max-w-[48%] flex-col items-start text-left">
-            <span className="hero-display-ice text-[1.48rem] xs:text-[1.65rem]">
+        <div className="relative z-10 lg:hidden px-5 pt-[5.25rem] min-h-[42svh] flex items-start">
+          <h1 className="leading-[1] flex max-w-[42%] flex-col items-start text-left">
+            <span className="hero-display-ice text-[1.28rem] xs:text-[1.42rem]">
               Украшения
             </span>
             <span
-              className="hero-display-ice mt-2 text-[0.56rem]"
-              style={{ letterSpacing: "0.12em", lineHeight: 1.35 }}
+              className="hero-display-ice mt-2 text-[0.5rem]"
+              style={{ letterSpacing: "0.1em", lineHeight: 1.35 }}
             >
               Ручной работы из натуральных камней
             </span>
