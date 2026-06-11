@@ -220,7 +220,7 @@ export function Landing() {
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute right-0 top-14 h-[58svh] w-[58%] object-cover object-[62%_top] lg:inset-0 lg:top-0 lg:w-full lg:h-full lg:object-[75%_center]"
+          className="absolute right-0 top-14 h-[56svh] w-[66%] object-cover object-[78%_top] lg:inset-0 lg:top-0 lg:w-full lg:h-full lg:object-[75%_center]"
           style={{
             WebkitMaskImage:
               "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%), linear-gradient(180deg, #000 70%, transparent 100%)",
@@ -267,14 +267,14 @@ export function Landing() {
         </div>
 
         {/* Heading — mobile: left column next to photo; desktop: keep in main content block */}
-        <div className="relative z-10 px-5 pt-6 lg:hidden">
-          <h1 className="leading-[0.92] flex flex-col items-start text-left max-w-[55%]">
-            <span className="hero-display-ice text-[2rem] xs:text-4xl">
+        <div className="relative z-10 px-5 pt-10 lg:hidden">
+          <h1 className="leading-[0.94] flex flex-col items-start text-left max-w-[48%]">
+            <span className="hero-display-ice text-[1.72rem] xs:text-[1.9rem]">
               Украшения
             </span>
             <span
-              className="hero-display-ice mt-2 text-[0.7rem]"
-              style={{ letterSpacing: "0.18em" }}
+              className="hero-display-ice mt-2 text-[0.58rem]"
+              style={{ letterSpacing: "0.14em" }}
             >
               Ручной работы из натуральных камней
             </span>
