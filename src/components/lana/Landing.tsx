@@ -880,9 +880,6 @@ export function Landing() {
             <div className="space-y-2.5 text-sm">
               <a href="tel:+79081407718" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>+7 908 140-77-18</a>
               <a href="https://vk.com/id33777758" target="_blank" rel="noopener noreferrer" className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>Написать в ВК</a>
-              <button onClick={() => openOrder("", "Оставить заявку")} className="block hover:text-cream transition-colors" style={{ color: "var(--color-lilac-soft)" }}>
-                Оставить заявку на сайте →
-              </button>
             </div>
           </div>
         </div>
