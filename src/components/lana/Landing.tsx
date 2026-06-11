@@ -213,39 +213,22 @@ export function Landing() {
         className="relative min-h-[100svh] overflow-hidden flex flex-col"
         style={{ backgroundColor: "var(--color-night-deep)" }}
       >
-        {/* Portrait — mobile: right column ~52% with feathered left edge; desktop: full-bleed */}
+        {/* Portrait — mobile: right column, fully visible (object-contain); desktop: full-bleed */}
         <img
           src={heroFullscreen}
           alt="Светлана — автор украшений Lana Stone"
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute right-0 top-14 h-[56svh] w-[66%] object-cover object-[78%_top] lg:inset-0 lg:top-0 lg:w-full lg:h-full lg:object-[75%_center]"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%), linear-gradient(180deg, #000 70%, transparent 100%)",
-            maskImage:
-              "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%), linear-gradient(180deg, #000 70%, transparent 100%)",
-            WebkitMaskComposite: "source-in",
-            maskComposite: "intersect",
-          }}
+          className="hidden lg:block absolute inset-0 w-full h-full object-cover object-[75%_center]"
         />
 
-        {/* Left-side gradient for text legibility (keeps face clear on the right) */}
+        {/* Left-side gradient for text legibility (desktop only — keeps face clear on the right) */}
         <div
-          className="absolute inset-0"
+          className="hidden lg:block absolute inset-0"
           style={{
             background:
               "linear-gradient(90deg, oklch(0.13 0.04 290 / 0.92) 0%, oklch(0.13 0.04 290 / 0.7) 35%, oklch(0.13 0.04 290 / 0.2) 60%, transparent 80%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Mobile bottom dim so text under face stays readable */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-1/2 lg:hidden"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 0%, oklch(0.13 0.04 290 / 0.85) 55%, var(--color-night-deep) 100%)",
           }}
           aria-hidden="true"
         />
@@ -266,23 +249,31 @@ export function Landing() {
           </p>
         </div>
 
-        {/* Heading — mobile: left column next to photo; desktop: keep in main content block */}
-        <div className="relative z-10 px-5 pt-10 lg:hidden">
-          <h1 className="leading-[0.94] flex flex-col items-start text-left max-w-[48%]">
-            <span className="hero-display-ice text-[1.72rem] xs:text-[1.9rem]">
+        {/* MOBILE: heading left + portrait right (two columns) */}
+        <div className="relative z-10 lg:hidden px-5 pt-6 grid grid-cols-[1fr_46%] gap-3 items-center">
+          <h1 className="leading-[1] flex flex-col items-start text-left">
+            <span className="hero-display-ice text-[1.55rem] xs:text-[1.75rem]">
               Украшения
             </span>
             <span
-              className="hero-display-ice mt-2 text-[0.58rem]"
-              style={{ letterSpacing: "0.14em" }}
+              className="hero-display-ice mt-2 text-[0.6rem]"
+              style={{ letterSpacing: "0.14em", lineHeight: 1.35 }}
             >
               Ручной работы из натуральных камней
             </span>
           </h1>
+          <img
+            src={heroFullscreen}
+            alt="Светлана — автор украшений Lana Stone"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            className="w-full h-auto max-h-[42svh] object-contain object-top"
+          />
         </div>
 
         {/* Hero content — left aligned on desktop, below photo on mobile */}
-        <div className="relative flex-1 flex flex-col justify-end lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-4 lg:pt-10 z-10">
+        <div className="relative flex-1 flex flex-col justify-start lg:justify-center px-5 lg:px-12 pb-8 lg:pb-14 pt-4 lg:pt-10 z-10">
           <div className="reveal w-full max-w-xl lg:max-w-lg xl:max-w-xl lg:ml-4 xl:ml-10">
             {/* Heading — desktop only (mobile heading is rendered above) */}
             <h1 className="hidden lg:flex leading-[0.95] flex-col items-start text-left">
@@ -299,7 +290,7 @@ export function Landing() {
 
             {/* Quote-style tagline */}
             <figure
-              className="mt-2 lg:mt-7 max-w-sm relative pl-4 pr-3 py-1.5"
+              className="mt-4 lg:mt-7 max-w-sm relative pl-4 pr-3 py-1.5"
               style={{
                 borderLeft: "2px solid oklch(0.75 0.07 230 / 0.7)",
               }}
@@ -315,18 +306,19 @@ export function Landing() {
                 «
               </span>
               <blockquote
-                className="text-lg sm:text-2xl lg:text-2xl"
+                className="text-base sm:text-2xl lg:text-2xl"
                 style={{
                   fontFamily: '"Marck Script", "Caveat", cursive',
                   color: "oklch(0.97 0.025 230)",
                   fontWeight: 400,
-                  lineHeight: 1.15,
+                  lineHeight: 1.2,
                   letterSpacing: "0.01em",
                 }}
               >
                 Для тех, кто выбирает не просто красивую вещь, а деталь с настроением, характером и&nbsp;смыслом.
               </blockquote>
             </figure>
+
 
             {/* Category chips */}
             <div className="mt-4 lg:mt-5 flex flex-wrap gap-2">
