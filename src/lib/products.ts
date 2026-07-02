@@ -374,7 +374,7 @@ export const products: Product[] = [
     materials: "натуральный розовый кварц, цепь с родиевым покрытием, подвеска-сердце",
     size: "длина 45 см",
     price: "3 000 ₽",
-    image: necklaceRoseQuartzHeartAsset.url,
+    image: necklaceRoseQuartzHeart,
     badges: ["Популярное"],
   },
   {
@@ -385,7 +385,7 @@ export const products: Product[] = [
     materials: "натуральный обсидиан, горный хрусталь, цепь с родиевым покрытием",
     size: "длина 45 см",
     price: "по запросу",
-    image: necklaceObsidianCrystalAsset.url,
+    image: necklaceObsidianCrystal,
     badges: ["На заказ"],
   },
   {
