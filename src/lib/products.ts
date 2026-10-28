@@ -42,6 +42,13 @@ import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart
 import setHematiteRhodium from "@/assets/product-set-hematite-rhodium-v2.jpg";
 import necklaceRoseQuartzHeart from "@/assets/product-necklace-rose-quartz-heart.jpg";
 import necklaceObsidianCrystal from "@/assets/product-necklace-obsidian-crystal.jpg";
+import braceletHematiteRoseBud from "@/assets/product-bracelet-hematite-rose-bud.png.asset.json";
+import braceletHematitePearlRoseQuartz from "@/assets/product-bracelet-hematite-pearl-rose-quartz.png.asset.json";
+import braceletHematiteElasticHeart from "@/assets/product-bracelet-hematite-elastic-heart.png.asset.json";
+import braceletHematiteElasticGold from "@/assets/product-bracelet-hematite-elastic-gold.png.asset.json";
+import braceletHematiteCrystalCzHeart from "@/assets/product-bracelet-hematite-crystal-cz-heart.png.asset.json";
+import braceletHematiteRoseQuartz16 from "@/assets/product-bracelet-hematite-rose-quartz-16.png.asset.json";
+import braceletAquamarineCrystal from "@/assets/product-bracelet-aquamarine-crystal.png.asset.json";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
