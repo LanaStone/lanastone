@@ -42,6 +42,13 @@ import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart
 import setHematiteRhodium from "@/assets/product-set-hematite-rhodium-v2.jpg";
 import necklaceRoseQuartzHeart from "@/assets/product-necklace-rose-quartz-heart.jpg";
 import necklaceObsidianCrystal from "@/assets/product-necklace-obsidian-crystal.jpg";
+import braceletHematiteRoseBud from "@/assets/product-bracelet-hematite-rose-bud.png.asset.json";
+import braceletHematitePearlRoseQuartz from "@/assets/product-bracelet-hematite-pearl-rose-quartz.png.asset.json";
+import braceletHematiteElasticHeart from "@/assets/product-bracelet-hematite-elastic-heart.png.asset.json";
+import braceletHematiteElasticGold from "@/assets/product-bracelet-hematite-elastic-gold.png.asset.json";
+import braceletHematiteCrystalCzHeart from "@/assets/product-bracelet-hematite-crystal-cz-heart.png.asset.json";
+import braceletHematiteRoseQuartz16 from "@/assets/product-bracelet-hematite-rose-quartz-16.png.asset.json";
+import braceletAquamarineCrystal from "@/assets/product-bracelet-aquamarine-crystal.png.asset.json";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
@@ -365,6 +372,78 @@ export const products: Product[] = [
     size: "16 см",
     price: "2 500 ₽",
     image: braceletRockCrystal,
+  },
+  {
+    id: "br-hematite-rose-bud",
+    category: "bracelets",
+    name: "Гематит и горный хрусталь · бутон розы",
+    mood: "Кристальные капли горного хрусталя и бутон розы, застывший в смоле — нежность и защита в одном браслете",
+    materials: "натуральный гематит, горный хрусталь, подвеска-бутон розы в смоле, позолоченные акценты, прочная резинка",
+    size: "17 см",
+    price: "1 700 ₽",
+    image: braceletHematiteRoseBud.url,
+  },
+  {
+    id: "br-hematite-pearl-rose-quartz",
+    category: "bracelets",
+    name: "Гематит, жемчуг и розовый кварц",
+    mood: "Тёплый жемчуг, нежный розовый кварц и стальной гематит — мягкая женственность с характером",
+    materials: "натуральный гематит, натуральный жемчуг, розовый кварц, золотистый акцент, прочная резинка",
+    size: "17 см",
+    price: "1 700 ₽",
+    image: braceletHematitePearlRoseQuartz.url,
+  },
+  {
+    id: "br-hematite-elastic-heart",
+    category: "bracelets",
+    name: "Гематит · на резинке с сердцем",
+    mood: "Зеркальный блеск гематита и маленькое сердце в позолоте — простой браслет, который хочется носить не снимая",
+    materials: "натуральный гематит, прочная резинка, подвеска-сердце с золотистым покрытием",
+    size: "17 см",
+    price: "1 000 ₽",
+    image: braceletHematiteElasticHeart.url,
+    badges: ["Популярное"],
+  },
+  {
+    id: "br-hematite-elastic-gold",
+    category: "bracelets",
+    name: "Гематит · на резинке, золотой акцент",
+    mood: "Стальная глубина гематита и тёплый золотистый акцент — сдержанный браслет на каждый день",
+    materials: "натуральный гематит, прочная резинка, золотистая бусина-акцент",
+    size: "17 см",
+    price: "1 000 ₽",
+    image: braceletHematiteElasticGold.url,
+  },
+  {
+    id: "br-hematite-crystal-cz-heart",
+    category: "bracelets",
+    name: "Гематит и горный хрусталь · сердце в фианитах",
+    mood: "Прозрачная чистота хрусталя, стальной гематит и сияющее сердце в фианитах — нежность с блеском",
+    materials: "натуральный гематит, горный хрусталь, прочная резинка, подвеска-сердце с фианитами",
+    size: "16 см",
+    price: "1 100 ₽",
+    image: braceletHematiteCrystalCzHeart.url,
+  },
+  {
+    id: "br-hematite-rose-quartz-16",
+    category: "bracelets",
+    name: "Гематит и розовый кварц · розовое дыхание",
+    mood: "Нежная дымка розового кварца в холодной оправе гематита — романтичный дуэт контрастов",
+    materials: "натуральный гематит, розовый кварц, застёжка с цепочкой-регулятором",
+    size: "16+ см",
+    price: "1 200 ₽",
+    image: braceletHematiteRoseQuartz16.url,
+    badges: ["Популярное"],
+  },
+  {
+    id: "br-aquamarine-crystal",
+    category: "bracelets",
+    name: "Аквамарин и горный хрусталь · морская свежесть",
+    mood: "Прозрачная свежесть аквамарина и чистота горного хрусталя — как морской бриз на запястье",
+    materials: "натуральный аквамарин, горный хрусталь, прочная резинка",
+    size: "17 см",
+    price: "1 800 ₽",
+    image: braceletAquamarineCrystal.url,
   },
   {
     id: "nk-rose-quartz-heart",
