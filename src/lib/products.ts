@@ -70,7 +70,7 @@ export const categories: { id: ProductCategory; label: string }[] = [
   { id: "charms", label: "Обвесы и акценты" },
 ];
 
-export const products: Product[
+export const products: Product[] = [
   {
     id: "br-agate-black",
     category: "bracelets",
