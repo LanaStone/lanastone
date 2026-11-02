@@ -50,6 +50,7 @@ import braceletHematiteCrystalCzHeart from "@/assets/product-bracelet-hematite-c
 import braceletHematiteRoseQuartz16 from "@/assets/product-bracelet-hematite-rose-quartz-16.png.asset.json";
 import braceletAquamarineCrystal from "@/assets/product-bracelet-aquamarine-crystal.png.asset.json";
 import { hostedAssetUrl } from "@/lib/asset-url";
+import braceletAmethystElastic from "@/assets/product-bracelet-amethyst-elastic.jpg.asset.json";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
@@ -92,6 +93,16 @@ export const products: Product[] = [
     size: "17 см",
     price: "1 700 ₽",
     image: hostedAssetUrl(braceletHematiteRoseBud),
+  },
+  {
+    id: "br-amethyst-elastic",
+    category: "bracelets",
+    name: "Аметист · браслет на резинке",
+    mood: "Переливы фиолетового аметиста — выразительный акцент на запястье",
+    materials: "аметист, резинка",
+    size: "16 см",
+    price: "1 600 ₽",
+    image: hostedAssetUrl(braceletAmethystElastic),
   },
   {
     id: "br-agate-lava",
