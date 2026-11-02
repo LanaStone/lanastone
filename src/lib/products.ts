@@ -49,6 +49,7 @@ import braceletHematiteElasticGold from "@/assets/product-bracelet-hematite-elas
 import braceletHematiteCrystalCzHeart from "@/assets/product-bracelet-hematite-crystal-cz-heart.png.asset.json";
 import braceletHematiteRoseQuartz16 from "@/assets/product-bracelet-hematite-rose-quartz-16.png.asset.json";
 import braceletAquamarineCrystal from "@/assets/product-bracelet-aquamarine-crystal.png.asset.json";
+import { hostedAssetUrl } from "@/lib/asset-url";
 
 export type ProductCategory = "bracelets" | "necklaces" | "charms";
 
@@ -90,7 +91,7 @@ export const products: Product[] = [
     materials: "натуральный гематит, горный хрусталь, подвеска-бутон розы в смоле, позолоченные акценты, прочная резинка",
     size: "17 см",
     price: "1 700 ₽",
-    image: braceletHematiteRoseBud.url,
+    image: hostedAssetUrl(braceletHematiteRoseBud),
   },
   {
     id: "br-agate-lava",
@@ -132,7 +133,7 @@ export const products: Product[] = [
     materials: "натуральный гематит, прочная резинка, золотистая бусина-акцент",
     size: "17 см",
     price: "1 000 ₽",
-    image: braceletHematiteElasticGold.url,
+    image: hostedAssetUrl(braceletHematiteElasticGold),
   },
   {
     id: "br-labradorite-hematite",
@@ -175,7 +176,7 @@ export const products: Product[] = [
     materials: "натуральный гематит, горный хрусталь, прочная резинка, подвеска-сердце с фианитами",
     size: "16 см",
     price: "1 100 ₽",
-    image: braceletHematiteCrystalCzHeart.url,
+    image: hostedAssetUrl(braceletHematiteCrystalCzHeart),
   },
   {
     id: "br-azurmalachite-hematite-lava",
@@ -206,7 +207,7 @@ export const products: Product[] = [
     materials: "натуральный аквамарин, горный хрусталь, прочная резинка",
     size: "17 см",
     price: "1 800 ₽",
-    image: braceletAquamarineCrystal.url,
+    image: hostedAssetUrl(braceletAquamarineCrystal),
   },
   {
     id: "br-black-agate-cube-chain",
@@ -248,7 +249,7 @@ export const products: Product[] = [
     materials: "натуральный гематит, розовый кварц, застёжка с цепочкой-регулятором",
     size: "16+ см",
     price: "1 200 ₽",
-    image: braceletHematiteRoseQuartz16.url,
+    image: hostedAssetUrl(braceletHematiteRoseQuartz16),
     badges: ["Популярное"],
   },
   {
@@ -290,7 +291,7 @@ export const products: Product[] = [
     materials: "натуральный гематит, прочная резинка, подвеска-сердце с золотистым покрытием",
     size: "17 см",
     price: "1 000 ₽",
-    image: braceletHematiteElasticHeart.url,
+    image: hostedAssetUrl(braceletHematiteElasticHeart),
     badges: ["Популярное"],
   },
   {
@@ -342,7 +343,7 @@ export const products: Product[] = [
     materials: "натуральный гематит, натуральный жемчуг, розовый кварц, золотистый акцент, прочная резинка",
     size: "17 см",
     price: "1 700 ₽",
-    image: braceletHematitePearlRoseQuartz.url,
+    image: hostedAssetUrl(braceletHematitePearlRoseQuartz),
   },
   {
     id: "br-moonstone-silver",
