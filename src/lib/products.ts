@@ -42,6 +42,10 @@ import necklaceBlackAgateHeart from "@/assets/product-necklace-black-agate-heart
 import setHematiteRhodium from "@/assets/product-set-hematite-rhodium-v2.jpg";
 import necklaceRoseQuartzHeart from "@/assets/product-necklace-rose-quartz-heart.jpg";
 import necklaceObsidianCrystal from "@/assets/product-necklace-obsidian-crystal.jpg";
+import necklaceHematiteCrystalRose from "@/assets/product-necklace-hematite-crystal-rose.jpg";
+import necklaceHematitePearlRose from "@/assets/product-necklace-hematite-pearl-rose.jpg";
+import necklaceHematiteCrystalAgate from "@/assets/product-necklace-hematite-crystal-agate.jpg";
+import necklaceHematitePearlHeartNew from "@/assets/product-necklace-hematite-pearl-heart.jpg";
 import braceletHematiteRoseBud from "@/assets/product-bracelet-hematite-rose-bud.png.asset.json";
 import braceletHematitePearlRoseQuartz from "@/assets/product-bracelet-hematite-pearl-rose-quartz.png.asset.json";
 import braceletHematiteElasticHeart from "@/assets/product-bracelet-hematite-elastic-heart.png.asset.json";
@@ -469,6 +473,17 @@ export const products: Product[] = [
     badges: ["Популярное"],
   },
   {
+    id: "nk-hematite-crystal-rose",
+    category: "necklaces",
+    name: "Гематит и горный хрусталь · колье с бутоном розы",
+    mood: "Холодный блеск гематита, прозрачность хрусталя и нежный бутон розы в смоле — контраст силы и нежности",
+    materials: "натуральный гематит, горный хрусталь, подвеска — бутон розы в смоле, магнитный замок",
+    size: "длина по запросу",
+    price: "3 000 ₽",
+    image: necklaceHematiteCrystalRose,
+    badges: ["На заказ"],
+  },
+  {
     id: "nk-obsidian-rock-crystal",
     category: "necklaces",
     name: "Обсидиан и горный хрусталь · колье",
@@ -489,6 +504,17 @@ export const products: Product[] = [
     price: "2 500 ₽",
     image: necklaceHematiteRhodium,
     badges: ["На заказ"],
+  },
+  {
+    id: "nk-hematite-pearl-rose",
+    category: "necklaces",
+    name: "Гематит, жемчуг и розовый кварц · колье с бутоном розы",
+    mood: "Жемчужная нежность, розовый кварц и стальной гематит — романтика с характером",
+    materials: "натуральный гематит, натуральный жемчуг, розовый кварц, подвеска — бутон розы в смоле, магнитный замок",
+    size: "длина по запросу",
+    price: "3 000 ₽",
+    image: necklaceHematitePearlRose,
+    badges: ["Популярное"],
   },
   {
     id: "nk-hematite-charms",
@@ -512,6 +538,16 @@ export const products: Product[] = [
     badges: ["На заказ"],
   },
   {
+    id: "nk-hematite-crystal-agate",
+    category: "necklaces",
+    name: "Гематит, хрусталь и чёрный агат · колье",
+    mood: "Графичное трио: стальной гематит, прозрачный хрусталь и глубокий чёрный агат",
+    materials: "натуральный гематит, горный хрусталь, чёрный агат, магнитный замок",
+    size: "длина по запросу",
+    price: "2 500 ₽",
+    image: necklaceHematiteCrystalAgate,
+  },
+  {
     id: "nk-pearl-flower",
     category: "necklaces",
     name: "Жемчуг · чокер с цветком в фианитах",
@@ -531,6 +567,17 @@ export const products: Product[] = [
     size: "длина 40+ см",
     price: "4 700 ₽",
     image: necklacePearlHorse,
+  },
+  {
+    id: "nk-hematite-pearl-heart",
+    category: "necklaces",
+    name: "Гематит и жемчуг · колье с сердцем",
+    mood: "Классическое сочетание жемчуга и гематита с подвеской-сердцем — элегантность вне времени",
+    materials: "натуральный гематит, натуральный жемчуг, подвеска-сердце",
+    size: "длина по запросу",
+    price: "2 700 ₽",
+    image: necklaceHematitePearlHeartNew,
+    badges: ["Популярное"],
   },
   {
     id: "nk-marcasite-agate-bow",
